@@ -98,6 +98,9 @@
     "sign_up": {
       "label": "Mulai buat clip"
     },
+    "sign_in": {
+      "label": "Masuk"
+    },
     "pricing": {
       "label": "Harga"
     },

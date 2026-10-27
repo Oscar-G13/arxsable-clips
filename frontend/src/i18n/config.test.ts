@@ -31,6 +31,7 @@ describe("locale helpers", () => {
     expect(catalogKey("/blog/self-host-arx-clips-docker")).toBe("blog_self_host_arx_clips_docker");
     const links = englishMarketing.links as Record<string, unknown>;
     for (const href of [
+      "/sign-in",
       "/blog/self-host-arx-clips-docker",
       "/blog/arx-clips-vs-opusclip",
       "/blog/arx-clips-vs-supo-live",

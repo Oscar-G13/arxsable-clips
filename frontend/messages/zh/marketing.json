@@ -98,6 +98,9 @@
     "sign_up": {
       "label": "开始剪辑"
     },
+    "sign_in": {
+      "label": "登录"
+    },
     "pricing": {
       "label": "价格"
     },

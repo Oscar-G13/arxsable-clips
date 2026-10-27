@@ -98,6 +98,9 @@
     "sign_up": {
       "label": "Jetzt clippen"
     },
+    "sign_in": {
+      "label": "Anmelden"
+    },
     "pricing": {
       "label": "Preise"
     },

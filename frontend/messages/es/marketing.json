@@ -98,6 +98,9 @@
     "sign_up": {
       "label": "Empieza a recortar"
     },
+    "sign_in": {
+      "label": "Iniciar sesión"
+    },
     "pricing": {
       "label": "Precios"
     },

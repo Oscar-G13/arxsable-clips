@@ -188,21 +188,28 @@ services:
 services:
   postgres:
     environment:
+      POSTGRES_USER: \${DB_USER}
+      POSTGRES_DB: \${DB_NAME}
       POSTGRES_PASSWORD: \${POSTGRES_PASSWORD}
   frontend:
     environment:
-      DATABASE_URL: postgresql://supoclip:\${POSTGRES_PASSWORD}@postgres:5432/supoclip
+      DATABASE_URL: postgresql://\${DB_USER}:\${POSTGRES_PASSWORD}@postgres:5432/\${DB_NAME}
   backend:
     environment:
-      DATABASE_URL: postgresql+asyncpg://supoclip:\${POSTGRES_PASSWORD}@postgres:5432/supoclip
+      DATABASE_URL: postgresql+asyncpg://\${DB_USER}:\${POSTGRES_PASSWORD}@postgres:5432/\${DB_NAME}
   worker:
     environment:
-      DATABASE_URL: postgresql+asyncpg://supoclip:\${POSTGRES_PASSWORD}@postgres:5432/supoclip
+      DATABASE_URL: postgresql+asyncpg://\${DB_USER}:\${POSTGRES_PASSWORD}@postgres:5432/\${DB_NAME}
 `}</CodeBlock>
       <p>{t.rich(`${slug}.production.existing`, { code })}</p>
       <CodeBlock label={t(`${slug}.production.labelExisting`)}>{`
-docker compose exec -T postgres psql -U supoclip -d supoclip \\
-  -c "ALTER USER supoclip PASSWORD 'your_new_password'"
+read -rsp "New database password: " NEW_DB_PASSWORD
+printf '\\n'
+docker compose exec -T -e NEW_DB_PASSWORD="$NEW_DB_PASSWORD" postgres sh -c \\
+  'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" --set=db_user="$POSTGRES_USER" --set=new_password="$NEW_DB_PASSWORD"' <<'SQL'
+ALTER USER :"db_user" PASSWORD :'new_password';
+SQL
+unset NEW_DB_PASSWORD
 docker compose up -d
 `}</CodeBlock>
       <p>
@@ -215,7 +222,7 @@ docker compose up -d
       <h2 id="upgrade">{t(`${slug}.upgrade.heading`)}</h2>
       <p>{t.rich(`${slug}.upgrade.intro`, { code })}</p>
       <CodeBlock label={t(`${slug}.install.labelTerminal`)}>{`
-docker compose exec -T postgres pg_dump -U supoclip supoclip > supoclip-$(date +%F).sql
+docker compose exec -T postgres sh -c 'pg_dump -U "$POSTGRES_USER" "$POSTGRES_DB"' > arx-clips-$(date +%F).sql
 docker compose stop frontend backend worker
 old=$(git rev-parse HEAD)
 git pull
@@ -224,7 +231,7 @@ git diff --name-only --diff-filter=A "$old" HEAD -- \\
 `}</CodeBlock>
       <p>{t(`${slug}.upgrade.apply`)}</p>
       <CodeBlock label={t(`${slug}.install.labelTerminal`)}>{`
-docker compose exec -T postgres psql -U supoclip -d supoclip -v ON_ERROR_STOP=1 -1 \\
+docker compose exec -T postgres sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -v ON_ERROR_STOP=1 -1' \\
   < frontend/prisma/migrations/<new_migration>/migration.sql
 docker compose up -d --build
 `}</CodeBlock>

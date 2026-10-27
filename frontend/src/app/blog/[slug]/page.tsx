@@ -277,7 +277,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 })}
               </p>
 
-              <h2 id="supoclip-vs-opusclip">{t(`${key}.compare.heading`)}</h2>
+              <h2 id="arx-clips-vs-opusclip">{t(`${key}.compare.heading`)}</h2>
               <p>
                 {t.rich(`${key}.compare.body`, {
                   comparison: (chunks) => <Link href={OPUSCLIP_COMPARISON_HREF}>{chunks}</Link>,
@@ -406,7 +406,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <a href="#quick-verdict" className="block text-muted-foreground hover:text-foreground">
                     {t(`${key}.toc.verdict`)}
                   </a>
-                  <a href="#supoclip-vs-opusclip" className="block text-muted-foreground hover:text-foreground">
+                  <a href="#arx-clips-vs-opusclip" className="block text-muted-foreground hover:text-foreground">
                     {t(`${key}.toc.comparison`)}
                   </a>
                   <a href="#faq" className="block text-muted-foreground hover:text-foreground">

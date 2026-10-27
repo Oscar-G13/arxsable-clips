@@ -310,7 +310,7 @@ export const creatorGuides: CreatorGuide[] = [
         ] },
       },
       {
-        id: "supoclip", heading: "Arx Clips: a clipping workflow with an interface",
+        id: "arx-clips", heading: "Arx Clips: a clipping workflow with an interface",
         paragraphs: ["Arx Clips accepts supported source links and uploaded video, proposes segments from speech, and gives you an editor for cuts, captions, framing, and exports. You can use the paid hosted service or run the application yourself under AGPL-3.0. The public demo shows actual generated clips with linked source moments.", "Self-hosting means operating the application, worker, database, media storage, and your chosen transcription and model providers. A local Whisper and Ollama configuration is available; using external providers changes where data is processed and what usage costs you incur. Choose the hosted service if your main goal is publishing rather than maintaining that stack."],
         links: [{ href: "/demo", label: "Inspect real Arx Clips output" }, { href: "/blog/self-host-arx-clips-docker", label: "Read the setup requirements" }],
       },

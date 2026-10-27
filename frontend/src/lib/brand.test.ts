@@ -52,4 +52,23 @@ describe("Arx Clips branding", () => {
 
     expect(leaks).toEqual([]);
   });
+
+  it("uses the Arx identity in public article anchors", () => {
+    const frontendRoot = process.cwd();
+    const sources = {
+      blogPage: readFileSync(resolve(frontendRoot, "src/app/blog/[slug]/page.tsx"), "utf8"),
+      comparison: readFileSync(resolve(frontendRoot, "src/components/articles/opusclip-comparison-article.tsx"), "utf8"),
+      galleries: readFileSync(resolve(frontendRoot, "src/lib/article-clips.ts"), "utf8"),
+      guides: readFileSync(resolve(frontendRoot, "src/lib/creator-guides.ts"), "utf8"),
+    };
+
+    expect(sources.blogPage).toContain("#arx-clips-vs-opusclip");
+    expect(sources.blogPage).not.toContain("#supoclip-vs-opusclip");
+    expect(sources.comparison).toContain('"choose-arx-clips"');
+    expect(sources.comparison).not.toContain('"choose-supoclip"');
+    expect(sources.galleries).toContain('afterSection: "arx-clips"');
+    expect(sources.galleries).not.toContain('afterSection: "supoclip"');
+    expect(sources.guides).toContain('id: "arx-clips"');
+    expect(sources.guides).not.toContain('id: "supoclip"');
+  });
 });

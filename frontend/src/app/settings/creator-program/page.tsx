@@ -36,7 +36,6 @@ interface Application {
   slug: string | null;
   status: "pending" | "approved" | "declined" | "revoked";
   decline_reason: string | null;
-  app_store_code_added_at: string | null;
 }
 
 type SlugState = { state: "idle" | "checking" } | { state: "available" } | { state: "unavailable"; reason: string };

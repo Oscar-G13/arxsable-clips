@@ -14,7 +14,7 @@ const OPUS_SOURCES = {
   watermark: "https://help.opus.pro/docs/article/watermark",
 };
 
-const tocIds = ["verdict", "comparison", "pricing", "choose-supoclip", "choose-opusclip", "test", "sources", "faq"] as const;
+const tocIds = ["verdict", "comparison", "pricing", "choose-arx-clips", "choose-opusclip", "test", "sources", "faq"] as const;
 
 export async function OpusClipComparisonArticle({ post }: { post: BlogPost }) {
   const t = await getTranslations("blog");
@@ -126,7 +126,7 @@ export async function OpusClipComparisonArticle({ post }: { post: BlogPost }) {
         })}
       </p>
 
-      <h2 id="choose-supoclip">{t(`${slug}.chooseSupoclip.heading`)}</h2>
+      <h2 id="choose-arx-clips">{t(`${slug}.chooseSupoclip.heading`)}</h2>
       <ul>
         {(["li1", "li2", "li3", "li4"] as const).map((key) => (
           <li key={key}>{t.rich(`${slug}.chooseSupoclip.${key}`, { strong: (chunks) => <strong>{chunks}</strong> })}</li>

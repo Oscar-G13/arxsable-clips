@@ -95,7 +95,7 @@ export const articleClipGalleries: Record<string, ArticleClipGallery> = {
     ],
   },
   "open-source-video-clippers": {
-    afterSection: "supoclip",
+    afterSection: "arx-clips",
     heading: "Actual output from the local Arx Clips pipeline",
     intro: "We generated these clips with the repository's processing service, local Whisper transcription, and an Ollama model for selection. They demonstrate Arx Clips on two recordings; they are not a Clips AI or Auto-Editor benchmark.",
     examples: [

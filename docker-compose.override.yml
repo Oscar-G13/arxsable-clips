@@ -20,16 +20,41 @@ services:
     restart: unless-stopped
     cpus: 2
     mem_limit: 4g
+    depends_on:
+      ollama:
+        condition: service_healthy
     environment:
       DATABASE_URL: "postgresql+asyncpg://supoclip:${POSTGRES_PASSWORD}@postgres:5432/supoclip"
+      OLLAMA_BASE_URL: "${OLLAMA_BASE_URL:-http://ollama:11434/v1}"
     logging: *supoclip-logging
 
   worker:
     restart: unless-stopped
     cpus: 9
     mem_limit: 30g
+    depends_on:
+      ollama:
+        condition: service_healthy
     environment:
       DATABASE_URL: "postgresql+asyncpg://supoclip:${POSTGRES_PASSWORD}@postgres:5432/supoclip"
+      OLLAMA_BASE_URL: "${OLLAMA_BASE_URL:-http://ollama:11434/v1}"
+    logging: *supoclip-logging
+
+  ollama:
+    image: "ollama/ollama@sha256:b86366bb528bbf7f1424435d165028497a5b69bf6ddb4fa5a87102e2b79f44fb"
+    pull_policy: never
+    container_name: supoclip-ollama
+    restart: unless-stopped
+    cpus: 6
+    mem_limit: 20g
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
     logging: *supoclip-logging
 
   postgres:
@@ -53,3 +78,7 @@ services:
 
   vector:
     logging: *supoclip-logging
+
+volumes:
+  ollama_data:
+    name: supoclip_ollama_data

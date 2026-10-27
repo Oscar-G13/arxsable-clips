@@ -2,6 +2,13 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { auth } from "@/lib/auth";
 
+const PUBLIC_SIGN_IN_ASSETS = new Set([
+  "/arx-clips-logo.png",
+  "/clips/source.jpg",
+  "/clips/podcast-1.jpg",
+  "/clips/podcast-2.jpg",
+]);
+
 function isAuthApi(pathname: string) {
   return pathname === "/api/auth" || pathname.startsWith("/api/auth/");
 }
@@ -9,7 +16,7 @@ function isAuthApi(pathname: string) {
 export async function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
-  if (pathname.startsWith("/_next/")) {
+  if (pathname.startsWith("/_next/") || PUBLIC_SIGN_IN_ASSETS.has(pathname)) {
     return NextResponse.next();
   }
 

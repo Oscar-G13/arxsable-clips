@@ -39,4 +39,16 @@ it("requires a session for product-update opt-outs and application pages", async
     new NextRequest("https://app.example.com/_next/static/chunk.js"),
   );
   expect(nextAsset.headers.get("x-middleware-next")).toBe("1");
+
+  for (const publicAsset of [
+    "/arx-clips-logo.png",
+    "/clips/source.jpg",
+    "/clips/podcast-1.jpg",
+    "/clips/podcast-2.jpg",
+  ]) {
+    const response = await middleware(
+      new NextRequest(`https://app.example.com${publicAsset}`),
+    );
+    expect(response.headers.get("x-middleware-next")).toBe("1");
+  }
 });

@@ -1,0 +1,22 @@
+[Unit]
+Description=Check SupoClip upstream and open a review PR
+After=docker.service network-online.target
+Wants=network-online.target
+ConditionPathIsExecutable=/opt/supoclip/app/ops/upstream-sync.sh
+
+[Service]
+Type=oneshot
+User=oscar
+Group=oscar
+Environment=HOME=/home/oscar
+WorkingDirectory=/opt/supoclip/app
+ExecStart=/opt/supoclip/app/ops/upstream-sync.sh
+UMask=0077
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+TimeoutStartSec=60min

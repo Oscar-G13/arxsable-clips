@@ -1,0 +1,11 @@
+[Unit]
+Description=Run SupoClip backup nightly
+
+[Timer]
+OnCalendar=*-*-* 03:17:00 Europe/Helsinki
+Persistent=true
+AccuracySec=1min
+Unit=supoclip-backup.service
+
+[Install]
+WantedBy=timers.target

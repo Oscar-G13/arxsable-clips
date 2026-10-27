@@ -1,0 +1,11 @@
+[Unit]
+Description=Check SupoClip upstream weekly
+
+[Timer]
+OnCalendar=Mon *-*-* 10:41:00 Europe/Helsinki
+Persistent=true
+AccuracySec=1min
+Unit=supoclip-upstream.service
+
+[Install]
+WantedBy=timers.target

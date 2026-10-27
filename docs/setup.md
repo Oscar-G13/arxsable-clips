@@ -34,7 +34,7 @@ Docker is the intended path for running Arx Clips because it starts the frontend
 
 ```bash
 git clone <your-repo-url>
-cd supoclip
+cd arxsable-clips
 ```
 
 ### 2. Create a local environment file

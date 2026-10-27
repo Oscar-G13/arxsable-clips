@@ -41,7 +41,7 @@ file or create another key for an identity that already has one.
 aws login
 backend/.venv/bin/python scripts/setup-media-storage.py
 backend/.venv/bin/python scripts/setup-media-storage.py --apply \
-  --credentials-file "$HOME/.config/supoclip/media-storage.env"
+  --credentials-file "$HOME/.config/arx-clips/media-storage.env"
 ```
 
 Supply every deployed frontend origin with repeated `--origin` arguments if the

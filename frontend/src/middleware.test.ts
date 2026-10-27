@@ -41,7 +41,10 @@ it("requires a session for product-update opt-outs and application pages", async
   expect(nextAsset.headers.get("x-middleware-next")).toBe("1");
 
   for (const publicAsset of [
+    "/app-store-badge.svg",
     "/arx-clips-logo.png",
+    "/blog/supoclip-editor.webp",
+    "/blog/supoclip-open-source-clipping.webp",
     "/logo.png",
     "/clips/source.jpg",
     "/clips/podcast-1.jpg",

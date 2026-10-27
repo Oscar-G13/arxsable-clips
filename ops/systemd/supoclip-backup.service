@@ -2,7 +2,7 @@
 Description=SupoClip nightly database and media backup
 After=docker.service network-online.target
 Wants=network-online.target
-ConditionPathIsExecutable=/opt/supoclip/app/ops/backup.sh
+ConditionFileIsExecutable=/opt/supoclip/app/ops/backup.sh
 
 [Service]
 Type=oneshot

@@ -2,7 +2,7 @@
 Description=Check SupoClip upstream and open a review PR
 After=docker.service network-online.target
 Wants=network-online.target
-ConditionPathIsExecutable=/opt/supoclip/app/ops/upstream-sync.sh
+ConditionFileIsExecutable=/opt/supoclip/app/ops/upstream-sync.sh
 
 [Service]
 Type=oneshot

@@ -78,7 +78,7 @@ export default async function DemoPage() {
           </Link>
           <nav className="flex items-center gap-2" aria-label={t("chrome.primaryNav")}>
             <Link href="/blog"><Button variant="ghost" size="sm">{t("chrome.blog")}</Button></Link>
-            <Link href="/sign-up"><Button size="sm">{t("demo.startClipping")}</Button></Link>
+            <Link href="/sign-in"><Button size="sm">{t("demo.startClipping")}</Button></Link>
           </nav>
         </div>
       </header>
@@ -171,7 +171,7 @@ export default async function DemoPage() {
           <h2 className="text-2xl font-bold tracking-tight">{t("demo.ctaTitle")}</h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-background/70">{t("demo.ctaBody")}</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/sign-up"><Button variant="secondary">{t("demo.startClipping")} <ArrowRight className="h-4 w-4" /></Button></Link>
+            <Link href="/sign-in"><Button variant="secondary">{t("demo.startClipping")} <ArrowRight className="h-4 w-4" /></Button></Link>
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="border-background/30 bg-transparent text-background hover:bg-background hover:text-foreground">
                 <Github className="h-4 w-4" /> {t("demo.selfHostGithub")}

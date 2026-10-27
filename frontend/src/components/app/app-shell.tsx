@@ -28,7 +28,7 @@ import { cn } from "@/lib/utils";
 type NavItem = { href: string; labelKey: "create" | "library" | "social" | "analytics" | "agents" | "settings"; icon: typeof Film; match: (path: string) => boolean; mobile?: boolean; social?: boolean };
 
 const NAV: NavItem[] = [
-  { href: "/", labelKey: "create", icon: Sparkles, match: (p) => p === "/" },
+  { href: "/dashboard", labelKey: "create", icon: Sparkles, match: (p) => p === "/dashboard" },
   { href: "/list", labelKey: "library", icon: Film, match: (p) => p.startsWith("/list") || p.startsWith("/tasks") },
   { href: "/settings/social", labelKey: "social", icon: Share2, match: (p) => p.startsWith("/settings/social"), social: true },
   { href: "/analytics", labelKey: "analytics", icon: ChartColumn, match: (p) => p.startsWith("/analytics"), social: true },
@@ -63,7 +63,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       const typing = target?.closest("input, textarea, select, [contenteditable=true], [role=dialog]");
       if (!typing && !event.metaKey && !event.ctrlKey && !event.altKey && event.key.toLowerCase() === "n") {
         event.preventDefault();
-        router.push("/");
+        router.push("/dashboard");
       }
     };
     window.addEventListener("keydown", onKey);
@@ -88,12 +88,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           compact ? "w-16 items-center px-2" : "w-60 px-3",
         )}
       >
-        <Link href="/" className={cn("flex h-14 items-center gap-2 font-display text-lg font-bold tracking-tight", compact ? "justify-center" : "px-2")}>
+        <Link href="/dashboard" className={cn("flex h-14 items-center gap-2 font-display text-lg font-bold tracking-tight", compact ? "justify-center" : "px-2")}>
           <Image src="/logo.png" alt="" width={24} height={24} className="size-6" priority />
           {!compact && "SupoClip"}
         </Link>
 
-        <SidebarLink compact={compact} href="/" label={t("nav.newGeneration")} shortcut="N" className="mb-4 mt-1 bg-foreground text-background hover:bg-foreground/90 hover:text-background">
+        <SidebarLink compact={compact} href="/dashboard" label={t("nav.newGeneration")} shortcut="N" className="mb-4 mt-1 bg-foreground text-background hover:bg-foreground/90 hover:text-background">
           <Plus className="size-4" />
         </SidebarLink>
 
@@ -130,7 +130,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       <div className={cn(user && "flex min-w-0 flex-1 flex-col pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0")}>
         {user ? <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b bg-background/80 px-4 backdrop-blur md:hidden">
-          <Link href="/" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
+          <Link href="/dashboard" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
             <Image src="/logo.png" alt="" width={22} height={22} className="size-[22px]" />SupoClip
           </Link>
           <div className="flex items-center gap-1">
@@ -275,7 +275,7 @@ function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenChange: (
   const entries = useMemo<PaletteEntry[]>(() => {
     const q = query.trim().toLowerCase();
     const actions: PaletteEntry[] = [
-      { id: "new", label: t("nav.newGeneration"), hint: t("palette.newHint"), href: "/", icon: Plus },
+      { id: "new", label: t("nav.newGeneration"), hint: t("palette.newHint"), href: "/dashboard", icon: Plus },
       { id: "library", label: t("palette.library"), href: "/list", icon: Film },
       ...(socialAccess === true ? [{ id: "social", label: t("palette.social"), hint: t("palette.socialHint"), href: "/settings/social", icon: Share2 },
       { id: "analytics", label: t("nav.analytics"), hint: t("palette.analyticsHint"), href: "/analytics", icon: ChartColumn }] : []),

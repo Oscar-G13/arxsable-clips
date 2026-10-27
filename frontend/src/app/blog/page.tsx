@@ -53,7 +53,7 @@ export default async function BlogIndexPage() {
                 <ExternalLink className="h-3.5 w-3.5" />
               </Button>
             </a>
-            <Link href="/sign-up">
+            <Link href="/sign-in">
               <Button size="sm">{t("index.startClipping")}</Button>
             </Link>
           </div>

@@ -372,7 +372,7 @@ export default function ListPage() {
             <Kbd className="absolute right-2 top-1/2 -translate-y-1/2">/</Kbd>
           </div>
           <Button asChild size="sm" className="h-9 rounded-lg">
-            <Link href="/"><Plus className="size-4" /><span className="hidden sm:inline">{t("new")}</span></Link>
+            <Link href="/dashboard"><Plus className="size-4" /><span className="hidden sm:inline">{t("new")}</span></Link>
           </Button>
         </div>
       </div>
@@ -451,7 +451,7 @@ export default function ListPage() {
             <span className="flex size-14 items-center justify-center rounded-2xl bg-muted"><PlayCircle className="size-7 text-muted-foreground" /></span>
             <h2 className="mt-4 text-lg font-semibold">{t("emptyTitle")}</h2>
             <p className="mt-1 max-w-sm text-sm text-muted-foreground">{t("emptyBody")}</p>
-            <Button asChild className="mt-6"><Link href="/">{t("create")}</Link></Button>
+            <Button asChild className="mt-6"><Link href="/dashboard">{t("create")}</Link></Button>
           </div>
         ) : visibleTasks.length === 0 ? (
           <p className="rounded-2xl border border-dashed px-6 py-16 text-center text-sm text-muted-foreground">

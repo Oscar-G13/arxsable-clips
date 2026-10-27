@@ -14,7 +14,7 @@ export async function AcquisitionCta({ slug, locale }: { slug: string; locale: s
         <div className="space-y-3">
           <h3 className="font-semibold">{t("hostedTitle")}</h3>
           <p className="text-sm leading-7 text-muted-foreground">{t("hostedBody", { price: pro.priceMonthly, hours: pro.minuteLimit / 60, resolution: pro.resolution })}</p>
-          <Link href="/sign-up" className="inline-flex rounded-lg bg-foreground px-5 py-3 text-sm font-semibold text-background">{t(`${slug}.button`)}</Link>
+          <Link href="/sign-in" className="inline-flex rounded-lg bg-foreground px-5 py-3 text-sm font-semibold text-background">{t(`${slug}.button`)}</Link>
           <Link href="/#pricing" className="ml-4 inline-block text-sm font-medium underline underline-offset-4">{t("plans")}</Link>
         </div>
         <div className="space-y-3">

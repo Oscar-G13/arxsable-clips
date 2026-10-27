@@ -164,7 +164,7 @@ export default function CreatorProgramPage() {
       <main className="mx-auto max-w-md px-4 py-24 text-center">
         <p className="mb-4 text-muted-foreground">{t("creator.signIn")}</p>
         <div className="flex justify-center gap-2">
-          <Link href={`/sign-up?next=${encodeURIComponent(APPLY_PATH)}`}><Button>{t("creator.createAccount")}</Button></Link>
+          <Link href={`/sign-in?next=${encodeURIComponent(APPLY_PATH)}`}><Button>{t("creator.createAccount")}</Button></Link>
           <Link href={`/sign-in?next=${encodeURIComponent(APPLY_PATH)}`}><Button variant="outline">{t("creator.signInAction")}</Button></Link>
         </div>
       </main>

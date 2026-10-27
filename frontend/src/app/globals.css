@@ -213,3 +213,28 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-3px); }
 }
+
+/* ARX SABLE login gate */
+@keyframes arx-auth-glow {
+  0%,
+  100% {
+    opacity: 0.82;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.arx-auth-glow {
+  animation: arx-auth-glow 16s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arx-auth-glow {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

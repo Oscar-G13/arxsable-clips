@@ -147,7 +147,7 @@ function PrimaryCta({ authEnabled, label, hostedLabel, className }: {
 }) {
   return authEnabled ? (
     <Button asChild size="lg" className={cn("h-12 rounded-full px-7 text-sm", className)}>
-      <Link href="/sign-up">
+      <Link href="/sign-in">
         {label}
         <ArrowRight className="size-4" />
       </Link>
@@ -217,7 +217,7 @@ export default function LandingPage() {
                   <Link href="/sign-in">{t("nav.signIn")}</Link>
                 </Button>
                 <Button asChild size="sm" className="rounded-full px-4">
-                  <Link href="/sign-up">{t("nav.getStarted")}</Link>
+                  <Link href="/sign-in">{t("nav.getStarted")}</Link>
                 </Button>
               </>
             ) : (
@@ -260,7 +260,7 @@ export default function LandingPage() {
                     <Link href="/sign-in" onClick={() => setMobileNavOpen(false)}>{t("nav.signIn")}</Link>
                   </Button>
                   <Button asChild className="rounded-full">
-                    <Link href="/sign-up" onClick={() => setMobileNavOpen(false)}>{t("nav.getStarted")}</Link>
+                    <Link href="/sign-in" onClick={() => setMobileNavOpen(false)}>{t("nav.getStarted")}</Link>
                   </Button>
                 </>
               ) : (
@@ -513,7 +513,7 @@ export default function LandingPage() {
                       </div>
                     ) : authEnabled ? (
                       <Button asChild size="lg" variant={plan.highlighted ? "default" : "outline"} className="h-11 w-full rounded-full text-sm">
-                        <Link href="/sign-up">
+                        <Link href="/sign-in">
                           {plan.cta}
                           <ArrowRight className="size-4" />
                         </Link>

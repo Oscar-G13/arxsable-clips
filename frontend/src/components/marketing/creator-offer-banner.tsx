@@ -40,7 +40,7 @@ export function CreatorOfferBanner() {
       <span className="size-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
       <p className="min-w-0 flex-1 leading-snug">
         {t("creator.codeLead")} <span className="font-mono font-medium">{code}</span> {t("creator.codeTail")}{" "}
-        <Link href="/sign-up" className="font-medium underline underline-offset-2">{t("creator.start")}</Link>
+        <Link href="/sign-in" className="font-medium underline underline-offset-2">{t("creator.start")}</Link>
       </p>
       <button type="button" onClick={dismiss} className="rounded-md p-1.5 text-muted-foreground hover:bg-accent hover:text-foreground" aria-label={t("creator.dismiss")}>
         <X className="size-4" />

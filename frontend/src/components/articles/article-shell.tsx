@@ -100,7 +100,7 @@ export async function ArticleShell({
           </Link>
           <div className="flex items-center gap-5 text-sm">
             <Link href="/blog" className="underline underline-offset-4">{t("shell.allArticles")}</Link>
-            <Link href="/sign-up" className="hidden rounded-lg bg-foreground px-4 py-2 font-semibold text-background sm:inline-flex">{t("shell.startClipping")}</Link>
+            <Link href="/sign-in" className="hidden rounded-lg bg-foreground px-4 py-2 font-semibold text-background sm:inline-flex">{t("shell.startClipping")}</Link>
           </div>
         </nav>
       </header>
@@ -136,7 +136,7 @@ export async function ArticleShell({
             <h2 className="!pt-0 text-2xl font-bold">{cta?.title ?? t("shell.ctaTitle")}</h2>
             <p className="mt-2 text-muted-foreground">{cta?.body ?? t("shell.ctaBody")}</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <Link href="/sign-up" className="inline-flex items-center gap-2 rounded-lg bg-foreground px-5 py-3 text-sm font-semibold !text-background !no-underline">{cta?.label ?? t("shell.startClipping")}<ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/sign-in" className="inline-flex items-center gap-2 rounded-lg bg-foreground px-5 py-3 text-sm font-semibold !text-background !no-underline">{cta?.label ?? t("shell.startClipping")}<ArrowRight className="h-4 w-4" /></Link>
               {cta ? <Link href="/#pricing" className="inline-flex items-center gap-2 rounded-lg border px-5 py-3 text-sm font-semibold !no-underline">See hosted plans</Link> : null}
               <a href={GITHUB_URL} className="inline-flex items-center gap-2 rounded-lg border px-5 py-3 text-sm font-semibold !no-underline"><Github className="h-4 w-4" />{t("shell.getSource")}</a>
             </div>

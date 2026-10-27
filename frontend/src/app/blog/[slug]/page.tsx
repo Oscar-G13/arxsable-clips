@@ -162,7 +162,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <ExternalLink className="h-3.5 w-3.5" />
               </Button>
             </a>
-            <Link href="/sign-up">
+            <Link href="/sign-in">
               <Button size="sm">{t("index.startClipping")}</Button>
             </Link>
           </div>
@@ -327,7 +327,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <Link href={SELF_HOSTING_GUIDE_HREF}>
                     <Button variant="secondary">{t(`${key}.cta.selfHost`)}</Button>
                   </Link>
-                  <Link href="/sign-up">
+                  <Link href="/sign-in">
                     <Button variant="secondary">
                       {t(`${key}.cta.openApp`)}
                       <ArrowRight className="h-4 w-4" />

@@ -29,7 +29,7 @@ export function SiteFooter() {
       heading: t("footer.columns.product"),
       hrefs: [
         ...getMarketingLinks("product").map((link) => link.href),
-        "/sign-up",
+        "/sign-in",
         "/#pricing",
         "/affiliate",
         "/changelog",

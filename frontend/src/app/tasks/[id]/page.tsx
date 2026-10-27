@@ -800,11 +800,11 @@ export default function TaskPage() {
           <EmptyState icon={<PauseCircle className="size-7" />} title={t("cancelledTitle")} body={t("cancelledBody")} />
         ) : task.status === "error" ? (
           <EmptyState tone="error" icon={<AlertCircle className="size-7" />} title={t("failedTitle")} body={t("failedBody")}>
-            <Button asChild variant="outline"><Link href="/"><ArrowLeft className="size-4" />{t("backHome")}</Link></Button>
+            <Button asChild variant="outline"><Link href="/dashboard"><ArrowLeft className="size-4" />{t("backHome")}</Link></Button>
           </EmptyState>
         ) : clips.length === 0 ? (
           <EmptyState icon={<AlertCircle className="size-7" />} title={t("noClipsTitle")} body={t("noClipsBody")}>
-            <Button asChild><Link href="/"><ArrowLeft className="size-4" />{t("tryAnother")}</Link></Button>
+            <Button asChild><Link href="/dashboard"><ArrowLeft className="size-4" />{t("tryAnother")}</Link></Button>
           </EmptyState>
         ) : (
           <>

@@ -28,7 +28,7 @@ export async function SelfHostingGuideArticle({ post }: { post: BlogPost }) {
       </p>
       <p>
         {t.rich(`${slug}.introChoice`, {
-          hosted: (chunks) => <Link href="/sign-up">{chunks}</Link>,
+          hosted: (chunks) => <Link href="/sign-in">{chunks}</Link>,
           comparison: (chunks) => <Link href={OPUSCLIP_COMPARISON_HREF}>{chunks}</Link>,
         })}
       </p>

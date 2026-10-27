@@ -129,7 +129,7 @@ export default async function SeoLandingPage({ params }: SeoLandingPageProps) {
           <nav className="flex items-center gap-2" aria-label={t("chrome.primaryNav")}>
             <Link href="/blog"><Button variant="ghost" size="sm">{t("chrome.blog")}</Button></Link>
             <Link href="/blog/self-host-supoclip-docker" className="hidden sm:block"><Button variant="ghost" size="sm">{t("chrome.selfHost")}</Button></Link>
-            <Link href="/sign-up"><Button size="sm">{t("chrome.startClipping")}</Button></Link>
+            <Link href="/sign-in"><Button size="sm">{t("chrome.startClipping")}</Button></Link>
           </nav>
         </div>
       </header>
@@ -158,7 +158,7 @@ export default async function SeoLandingPage({ params }: SeoLandingPageProps) {
               </span>
             </div>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/sign-up"><Button size="lg">{t("chrome.trySupoclip")} <ArrowRight className="h-4 w-4" /></Button></Link>
+              <Link href="/sign-in"><Button size="lg">{t("chrome.trySupoclip")} <ArrowRight className="h-4 w-4" /></Button></Link>
               <Link href="#real-clips"><Button variant="outline" size="lg">{t("proof.previewButton")}</Button></Link>
             </div>
           </div>

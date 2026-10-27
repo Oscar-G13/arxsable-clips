@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 
 const PUBLIC_SIGN_IN_ASSETS = new Set([
   "/arx-clips-logo.png",
+  "/logo.png",
   "/clips/source.jpg",
   "/clips/podcast-1.jpg",
   "/clips/podcast-2.jpg",

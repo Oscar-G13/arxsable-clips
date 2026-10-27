@@ -42,6 +42,7 @@ it("requires a session for product-update opt-outs and application pages", async
 
   for (const publicAsset of [
     "/arx-clips-logo.png",
+    "/logo.png",
     "/clips/source.jpg",
     "/clips/podcast-1.jpg",
     "/clips/podcast-2.jpg",

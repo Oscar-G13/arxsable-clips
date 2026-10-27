@@ -55,3 +55,20 @@ PRs should include:
 - Preserve the committed dependency lockfiles and patched base-image versions when deploying. Run the `Image security` checks against freshly built final images; do not bypass a failing critical-vulnerability check with a server-only tag or an unpinned package install.
 - Before a production restart, check that no SupoClip tasks are queued or processing and the worker has no ongoing jobs; let active clips finish first.
 - Required runtime keys include `ASSEMBLY_AI_API_KEY` and either one hosted LLM provider key (`OPENAI_API_KEY`, `GOOGLE_API_KEY`, or `ANTHROPIC_API_KEY`) or an Ollama model configuration (`LLM=ollama:*`, optional `OLLAMA_BASE_URL`).
+
+## Hermes Production Boundary
+The authoritative production checkout and runtime live only on the shared
+Helsinki host:
+- Hostname: `hermes`
+- Project root: `/opt/supoclip`
+- Checkout: `/opt/supoclip/app`
+- Docker Compose project: `supoclip`
+
+Run dependency installation, builds, tests, Docker services, databases, and
+background workers on `hermes` through SSH. Do not run an authoritative app
+server on the Mac or make production depend on the Mac.
+
+Keep SupoClip isolated from every other workload on the host. Do not stop,
+restart, rebuild, edit, or remove another project's containers, services,
+networks, volumes, proxy fragments, data, or files. All published application
+ports must bind to `127.0.0.1`; only host-native Caddy is public. Never commit

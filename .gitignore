@@ -25,3 +25,10 @@ docs/youtube-provider-registry*.json
 
 # Local agent checkouts
 .claude/worktrees/
+
+# SupoClip deployment secrets and runtime artifacts
+CREDENTIALS.txt
+backups/
+ops/*.log
+PREFLIGHT.md
+REPORT.md

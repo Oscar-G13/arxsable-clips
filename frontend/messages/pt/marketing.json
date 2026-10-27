@@ -71,13 +71,13 @@
       "title": "Um clipper de vídeo de código aberto que você controla",
       "description": "O que a auto-hospedagem muda em controle, provedores de modelo e infraestrutura."
     },
-    "blog_self_host_supoclip_docker": {
+    "blog_self_host_arx_clips_docker": {
       "label": "Guia de auto-hospedagem",
       "eyebrow": "Guia de auto-hospedagem",
       "title": "Auto-hospede o Arx Clips com Docker Compose",
       "description": "Requisitos, variáveis de ambiente, primeira inicialização, uma instalação totalmente local e checagens de produção."
     },
-    "blog_supoclip_vs_opusclip": {
+    "blog_arx_clips_vs_opusclip": {
       "label": "Arx Clips vs OpusClip",
       "eyebrow": "Comparação",
       "title": "Arx Clips vs OpusClip: uma comparação com fontes",
@@ -89,7 +89,7 @@
       "title": "A melhor alternativa gratuita e auto-hospedada ao OpusClip",
       "description": "Quando um clipper de código aberto e auto-hospedado é melhor do que uma ferramenta baseada em créditos."
     },
-    "blog_supoclip_vs_supo_live": {
+    "blog_arx_clips_vs_supo_live": {
       "label": "Arx Clips vs supo.live",
       "eyebrow": "Comparação",
       "title": "Arx Clips vs supo.live: controle de código aberto",

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import englishMarketing from "../../messages/en/marketing.json";
 import { catalogKey, intlLocale, negotiateLocale } from "./config";
 
 describe("negotiateLocale", () => {
@@ -28,5 +29,13 @@ describe("locale helpers", () => {
 
   it("builds flat catalog keys from paths", () => {
     expect(catalogKey("/blog/self-host-arx-clips-docker")).toBe("blog_self_host_arx_clips_docker");
+    const links = englishMarketing.links as Record<string, unknown>;
+    for (const href of [
+      "/blog/self-host-arx-clips-docker",
+      "/blog/arx-clips-vs-opusclip",
+      "/blog/arx-clips-vs-supo-live",
+    ]) {
+      expect(links[catalogKey(href)]).toBeDefined();
+    }
   });
 });

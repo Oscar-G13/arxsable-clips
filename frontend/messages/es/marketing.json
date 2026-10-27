@@ -71,13 +71,13 @@
       "title": "Un recortador de video de código abierto que puedes controlar",
       "description": "Qué cambia el autoalojamiento en el control, los proveedores de modelos y la infraestructura."
     },
-    "blog_self_host_supoclip_docker": {
+    "blog_self_host_arx_clips_docker": {
       "label": "Guía de autoalojamiento",
       "eyebrow": "Guía de autoalojamiento",
       "title": "Autoaloja Arx Clips con Docker Compose",
       "description": "Requisitos, variables de entorno, primer arranque, una instalación local completa y revisiones de producción."
     },
-    "blog_supoclip_vs_opusclip": {
+    "blog_arx_clips_vs_opusclip": {
       "label": "Arx Clips vs OpusClip",
       "eyebrow": "Comparación",
       "title": "Arx Clips vs OpusClip: una comparación con fuentes",
@@ -89,7 +89,7 @@
       "title": "La mejor alternativa gratis y autoalojada a OpusClip",
       "description": "Cuándo un recortador de código abierto y autoalojado conviene más que una herramienta basada en créditos."
     },
-    "blog_supoclip_vs_supo_live": {
+    "blog_arx_clips_vs_supo_live": {
       "label": "Arx Clips vs supo.live",
       "eyebrow": "Comparación",
       "title": "Arx Clips vs supo.live: control de código abierto",

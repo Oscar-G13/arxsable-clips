@@ -71,13 +71,13 @@
       "title": "Ein Open-Source-Videoclipper, den du selbst steuerst",
       "description": "Was Self-Hosting an Kontrolle, Modellanbietern und Infrastruktur ändert."
     },
-    "blog_self_host_supoclip_docker": {
+    "blog_self_host_arx_clips_docker": {
       "label": "Self-Hosting-Guide",
       "eyebrow": "Self-Hosting-Guide",
       "title": "Arx Clips mit Docker Compose selbst hosten",
       "description": "Voraussetzungen, Umgebungsvariablen, erster Start, ein komplett lokales Setup und Produktionschecks."
     },
-    "blog_supoclip_vs_opusclip": {
+    "blog_arx_clips_vs_opusclip": {
       "label": "Arx Clips vs OpusClip",
       "eyebrow": "Vergleich",
       "title": "Arx Clips vs OpusClip: ein Vergleich mit Quellen",
@@ -89,7 +89,7 @@
       "title": "Die beste kostenlose, selbst gehostete OpusClip-Alternative",
       "description": "Wann ein selbst gehosteter Open-Source-Clipper die bessere Wahl ist als ein Credit-Tool."
     },
-    "blog_supoclip_vs_supo_live": {
+    "blog_arx_clips_vs_supo_live": {
       "label": "Arx Clips vs supo.live",
       "eyebrow": "Vergleich",
       "title": "Arx Clips vs supo.live: Open-Source-Kontrolle",

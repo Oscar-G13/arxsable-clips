@@ -50,6 +50,14 @@ function videoFile(name: string, size: number) {
   return file;
 }
 
+it("uses descender-safe typography for the personalized greeting", async () => {
+  render(<HomeApp />, { wrapper: TooltipProvider });
+
+  const heading = await screen.findByRole("heading", { level: 1, name: /Ada/ });
+  expect(heading).toHaveClass("font-sans", "leading-[1.25]", "pb-[0.08em]");
+  expect(heading).not.toHaveClass("font-display");
+});
+
 it("states the upload limit and rejects a file over it before upload", async () => {
   render(<HomeApp />, { wrapper: TooltipProvider });
 

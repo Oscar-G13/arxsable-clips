@@ -397,7 +397,7 @@ export default function HomeApp() {
         {upgradeState?.needsPayment && <PaymentFailedBanner className="mb-8" />}
 
         <div className="mx-auto max-w-3xl animate-rise">
-          <h1 className="text-center font-display text-3xl font-bold tracking-tight sm:text-[2.6rem] sm:leading-tight">
+          <h1 className="pb-[0.08em] text-balance text-center font-sans text-3xl font-semibold leading-[1.25] tracking-[-0.025em] sm:text-[2.6rem] sm:leading-[1.2]">
             {greetingText(t, session.user.name)}
           </h1>
           <p className="mt-2 text-center text-muted-foreground">

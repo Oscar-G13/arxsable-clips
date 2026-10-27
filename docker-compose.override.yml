@@ -1,0 +1,55 @@
+name: supoclip
+
+x-supoclip-logging: &supoclip-logging
+  driver: json-file
+  options:
+    max-size: "50m"
+    max-file: "5"
+
+services:
+  frontend:
+    restart: unless-stopped
+    mem_limit: 2g
+    volumes: !reset []
+    environment:
+      DATABASE_URL: "postgresql://supoclip:${POSTGRES_PASSWORD}@postgres:5432/supoclip"
+      BACKEND_INTERNAL_URL: "${BACKEND_INTERNAL_URL:-http://backend:8000}"
+    logging: *supoclip-logging
+
+  backend:
+    restart: unless-stopped
+    cpus: 2
+    mem_limit: 4g
+    environment:
+      DATABASE_URL: "postgresql+asyncpg://supoclip:${POSTGRES_PASSWORD}@postgres:5432/supoclip"
+    logging: *supoclip-logging
+
+  worker:
+    restart: unless-stopped
+    cpus: 9
+    mem_limit: 30g
+    environment:
+      DATABASE_URL: "postgresql+asyncpg://supoclip:${POSTGRES_PASSWORD}@postgres:5432/supoclip"
+    logging: *supoclip-logging
+
+  postgres:
+    restart: unless-stopped
+    mem_limit: 2g
+    environment:
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    logging: *supoclip-logging
+
+  redis:
+    restart: unless-stopped
+    mem_limit: 1g
+    logging: *supoclip-logging
+
+  mcp:
+    profiles: ["mcp"]
+    logging: *supoclip-logging
+
+  bgutil:
+    logging: *supoclip-logging
+
+  vector:
+    logging: *supoclip-logging

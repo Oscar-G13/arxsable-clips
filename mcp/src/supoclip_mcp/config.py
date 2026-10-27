@@ -13,7 +13,7 @@ from typing import Optional
 
 # The official hosted Arx Clips API. Override with SUPOCLIP_API_URL to point at
 # a self-hosted backend (e.g. http://localhost:8000).
-DEFAULT_API_URL = "https://api.supoclip.com"
+DEFAULT_API_URL = "https://clips-api.arxsable.ai"
 
 
 def _clean(value: Optional[str]) -> Optional[str]:

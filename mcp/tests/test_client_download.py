@@ -12,7 +12,7 @@ from supoclip_mcp.config import Settings
 
 
 def configured_client():
-    return SupoClipClient(Settings(api_url="https://api.supoclip.test", api_key=None,
+    return SupoClipClient(Settings(api_url="https://api.arx-clips.test", api_key=None,
         user_id="owner", auth_secret="test-secret", timeout=30, download_dir="downloads",
         mcp_transport="stdio", mcp_host="127.0.0.1", mcp_port=9100, mcp_mount_path="/mcp",
         mcp_public_url=None, mcp_require_bearer_auth=False))
@@ -28,7 +28,7 @@ def test_download_follows_s3_redirect_without_forwarding_auth(monkeypatch, tmp_p
 
     def handler(request):
         requests.append(request)
-        if request.url.host == "api.supoclip.test":
+        if request.url.host == "api.arx-clips.test":
             assert "x-supoclip-signature" in request.headers
             return httpx.Response(307, headers={"Location": "https://private-s3.test/video.mp4?signature=test"})
         assert "x-supoclip-signature" not in request.headers
@@ -45,7 +45,7 @@ def test_download_follows_s3_redirect_without_forwarding_auth(monkeypatch, tmp_p
 
 def test_failed_storage_response_does_not_overwrite_previous_download(monkeypatch, tmp_path):
     def handler(request):
-        if request.url.host == "api.supoclip.test":
+        if request.url.host == "api.arx-clips.test":
             return httpx.Response(307, headers={"Location": "https://private-s3.test/video.mp4?signature=secret"})
         return httpx.Response(403, content=b"expired signed URL")
 

@@ -51,7 +51,7 @@ asyncio.run(main())
 def main():
     snapshot={}
     try:
-        with urllib.request.urlopen('https://www.supoclip.com/',timeout=20) as response:
+        with urllib.request.urlopen('https://clips.arxsable.ai/',timeout=20) as response:
             snapshot['public_site_status']=response.status
     except Exception as error:
         snapshot['public_site_error']=type(error).__name__

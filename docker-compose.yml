@@ -261,7 +261,7 @@ services:
       - SUPOCLIP_MCP_TRANSPORT=${SUPOCLIP_MCP_TRANSPORT:-sse}
       - SUPOCLIP_MCP_HOST=0.0.0.0
       - SUPOCLIP_MCP_PORT=9100
-      - SUPOCLIP_MCP_PUBLIC_URL=${SUPOCLIP_MCP_PUBLIC_URL:-https://mcp.supoclip.com}
+      - SUPOCLIP_MCP_PUBLIC_URL=${SUPOCLIP_MCP_PUBLIC_URL:-http://localhost:9100}
       - SUPOCLIP_MCP_REQUIRE_BEARER_AUTH=${SUPOCLIP_MCP_REQUIRE_BEARER_AUTH:-true}
     restart: unless-stopped
     depends_on:

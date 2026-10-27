@@ -89,7 +89,7 @@ Arx Clips can send pageviews and custom product events to DataFast from the `fro
 | Variable | Default | Purpose |
 |---|---|---|
 | `NEXT_PUBLIC_DATAFAST_WEBSITE_ID` | unset | Public DataFast website ID used by the tracking script |
-| `NEXT_PUBLIC_DATAFAST_DOMAIN` | unset | Root domain tracked by DataFast, for example `supoclip.com` |
+| `NEXT_PUBLIC_DATAFAST_DOMAIN` | unset | Root domain tracked by DataFast, for example `clips.arxsable.ai` |
 | `NEXT_PUBLIC_DATAFAST_ALLOW_LOCALHOST` | `false` | Enables local tracking on `localhost` when explicitly set to `true` |
 
 ### DataFast behavior

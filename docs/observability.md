@@ -86,7 +86,7 @@ log_format supoclip_json escape=json
   '"trace_id":"$upstream_http_x_trace_id"}';
 ```
 
-In the `www.supoclip.com` and `api.supoclip.com` 443 server blocks of
+In the `clips.arxsable.ai` and `clips-api.arxsable.ai` 443 server blocks of
 `sites-available/supoclip` (the shared logs are listed again because a
 server-level `access_log` replaces the inherited one):
 

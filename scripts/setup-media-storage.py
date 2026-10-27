@@ -32,7 +32,7 @@ def main():
         aws_session_token=credentials.get("SessionToken"), region_name=args.region)
     account = session.client("sts").get_caller_identity()["Account"]
     bucket = args.bucket or f"supoclip-media-{account}"
-    origins = args.origin or ["https://supoclip.com", "https://www.supoclip.com", "http://localhost:3107"]
+    origins = args.origin or ["https://clips.arxsable.ai", "http://localhost:3107"]
     print(json.dumps({"bucket": bucket, "region": args.region, "prefix": "media", "origins": origins,
         "iam_user": args.iam_user, "incomplete_multipart_expiry_days": 1, "apply": args.apply}))
     if not args.apply:

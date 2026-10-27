@@ -4,7 +4,7 @@ MCP server for Arx Clips — an AI tool that turns long-form videos into short,
 vertical, subtitled viral clips.
 
 The server talks to the Arx Clips REST API. By default it targets the official
-hosted instance at ``https://api.supoclip.com``; set ``SUPOCLIP_API_URL`` to
+hosted instance at ``https://clips-api.arxsable.ai``; set ``SUPOCLIP_API_URL`` to
 use a self-hosted backend. Authenticate by creating an API key in your Arx Clips
 account and exposing it as ``SUPOCLIP_API_KEY``.
 

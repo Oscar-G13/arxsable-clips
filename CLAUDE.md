@@ -328,14 +328,14 @@ Axiom (dataset `supoclip-prod`). Everything is off unless tokens are set. Detail
 
 ## iOS App
 
-A native iOS app ships on the App Store
-(https://apps.apple.com/us/app/supoclip/id6784760040, app id `6784760040`). Its
-source lives outside this repo. It talks to the hosted API and bills through
+The legacy native iOS client uses App Store app id `6784760040`; its source
+lives outside this repo. It talks to the hosted API and bills through
 RevenueCat, which is what `frontend/src/app/api/billing/revenuecat-webhook/`
-serves; App Store subscribers are blocked from Stripe checkout/portal by the
-"managed through the App Store" guard in the billing routes. The www references
-the app via `APP_STORE_ID`/`APP_STORE_URL` in `frontend/src/lib/site.ts`
-(Smart App Banner meta, JSON-LD `MobileApplication`, hero badge, footer link).
+serves. App Store subscribers are blocked from Stripe checkout/portal by the
+"managed through the App Store" guard in the billing routes. Do not link the
+legacy listing from customer-facing Arx Clips surfaces until its App Store
+identity has been rebranded. `APP_STORE_ID` remains available only for billing
+and admin compatibility.
 
 ## YouTube Downloads
 
@@ -356,7 +356,7 @@ high-cap fallback actors are not called. Runbook: `docs/youtube-download.md`.
 (`supoclip-mcp`, Python/FastMCP, stdio) that exposes Arx Clips to MCP clients
 (Claude Desktop/Code, Cursor, …). It is a thin client over the REST API.
 
-- **Default target:** the hosted API `https://api.supoclip.com`. Override with
+- **Default target:** the hosted API `https://clips-api.arxsable.ai`. Override with
   `SUPOCLIP_API_URL` for self-hosting (e.g. `http://localhost:8000`).
 - **Auth:** a per-user API key in `SUPOCLIP_API_KEY` (see API keys above).
   Self-hosters may instead use `SUPOCLIP_USER_ID` (+ `SUPOCLIP_AUTH_SECRET` when

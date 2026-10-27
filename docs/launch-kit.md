@@ -15,12 +15,12 @@ activated users (people who export a clip), not just visits.
 
 | Page | URL | Use it for |
 |------|-----|------------|
-| Home | `https://www.supoclip.com/` | Product Hunt, general announcements |
-| Demo | `https://www.supoclip.com/demo` | Social posts: real output, with timestamps back to the source |
-| Self-hosting guide | `https://www.supoclip.com/blog/self-host-supoclip-docker` | r/selfhosted, developer communities |
-| Arx Clips vs OpusClip | `https://www.supoclip.com/blog/supoclip-vs-opusclip` | "OpusClip alternative" threads and questions |
-| Open-source clipper | `https://www.supoclip.com/open-source-video-clipper` | Open-source communities |
-| GitHub | `https://github.com/FujiwaraChoki/supoclip` | Hacker News, developer audiences |
+| Home | `https://clips.arxsable.ai/` | Product Hunt, general announcements |
+| Demo | `https://clips.arxsable.ai/demo` | Social posts: real output, with timestamps back to the source |
+| Self-hosting guide | `https://clips.arxsable.ai/blog/self-host-arx-clips-docker` | r/selfhosted, developer communities |
+| Arx Clips vs OpusClip | `https://clips.arxsable.ai/blog/arx-clips-vs-opusclip` | "OpusClip alternative" threads and questions |
+| Open-source clipper | `https://clips.arxsable.ai/open-source-video-clipper` | Open-source communities |
+| GitHub | `https://github.com/Oscar-G13/arxsable-clips` | Hacker News, developer audiences |
 
 **Visual assets in the repo**
 
@@ -31,7 +31,7 @@ activated users (people who export a clip), not just visits.
 
 > **Rights note:** the demo clips come from a third-party interview
 > ([source](https://www.youtube.com/watch?v=Vv3CEAS_w34)). They're shown on
-> supoclip.com with attribution and links to the source. **Don't upload them as
+> clips.arxsable.ai with attribution and links to the source. **Don't upload them as
 > native posts to TikTok, Reels, Shorts, or X.** For native video, record the
 > demo below using footage we own.
 
@@ -42,7 +42,7 @@ Use these claims freely. Each one is backed by the code or the site:
 | Claim | Source |
 |-------|--------|
 | Open source under AGPL-3.0 | `LICENSE` |
-| Runs hosted, on iOS, or self-hosted with Docker Compose | `docker-compose.yml`, App Store listing |
+| Runs hosted or self-hosted with Docker Compose | `docker-compose.yml` |
 | Self-hosted installs have no plan limits | `billing_service.py` (`self_host` plan) |
 | No watermark on exports | No watermark step anywhere in `backend/src` |
 | Bring your own AI: OpenAI, Google, Anthropic, OpenRouter, or local Ollama | `docs/configuration.md` |
@@ -50,14 +50,14 @@ Use these claims freely. Each one is backed by the code or the site:
 | Face-aware 9:16 reframing, word-synced captions, hook titles | `backend/src/media/` |
 | Export presets for TikTok, Reels, and Shorts | `backend/src/clip_editor.py` |
 | REST API with per-user keys, plus an MCP server | `docs/api-reference.md`, `mcp/README.md` |
-| Hosted plans: Pro $9.99/mo (10 hours of video, 720p), Creator $24.99/mo (25 hours, 1080p); yearly is 2 months free | Pricing section on supoclip.com |
+| Hosted plans: Pro $9.99/mo (10 hours of video, 720p), Creator $24.99/mo (25 hours, 1080p); yearly is 2 months free | Pricing section on clips.arxsable.ai |
 
 **Don't say:**
 
 - "Free" without qualification. Hosted Arx Clips has **no free plan**. Say "free to self-host."
 - Any speed, accuracy, or quality number ("10x faster", "95% accurate", "better clips than OpusClip"). We haven't run a benchmark that supports one.
 - That virality scores predict views. They rank candidates for review.
-- OpusClip prices or credit amounts. They change; link to the [comparison](https://www.supoclip.com/blog/supoclip-vs-opusclip) instead.
+- OpusClip prices or credit amounts. They change; link to the [comparison](https://clips.arxsable.ai/blog/arx-clips-vs-opusclip) instead.
 - "Fully offline." Downloading YouTube links needs internet access, and optional B-roll uses Pexels.
 
 ## Campaign links
@@ -81,17 +81,17 @@ values on capture anyway, so `Reddit` and `reddit` are counted together.
 **Ready-made links**
 
 ```text
-Product Hunt   https://www.supoclip.com/?utm_source=producthunt&utm_medium=launch&utm_campaign=launch_2026_10
-r/selfhosted   https://www.supoclip.com/blog/self-host-supoclip-docker?utm_source=reddit&utm_medium=community&utm_campaign=launch_2026_10&utm_content=r_selfhosted
-r/opensource   https://www.supoclip.com/open-source-video-clipper?utm_source=reddit&utm_medium=community&utm_campaign=launch_2026_10&utm_content=r_opensource
-X thread       https://www.supoclip.com/demo?utm_source=x&utm_medium=social&utm_campaign=launch_2026_10&utm_content=thread_1
-LinkedIn       https://www.supoclip.com/demo?utm_source=linkedin&utm_medium=social&utm_campaign=launch_2026_10
-Newsletter     https://www.supoclip.com/?utm_source=newsletter&utm_medium=email&utm_campaign=launch_2026_10
-YouTube desc.  https://www.supoclip.com/demo?utm_source=youtube&utm_medium=video&utm_campaign=launch_2026_10
-OpusClip Q&A   https://www.supoclip.com/blog/supoclip-vs-opusclip?utm_source=reddit&utm_medium=community&utm_campaign=launch_2026_10&utm_content=opusclip_thread
+Product Hunt   https://clips.arxsable.ai/?utm_source=producthunt&utm_medium=launch&utm_campaign=launch_2026_10
+r/selfhosted   https://clips.arxsable.ai/blog/self-host-arx-clips-docker?utm_source=reddit&utm_medium=community&utm_campaign=launch_2026_10&utm_content=r_selfhosted
+r/opensource   https://clips.arxsable.ai/open-source-video-clipper?utm_source=reddit&utm_medium=community&utm_campaign=launch_2026_10&utm_content=r_opensource
+X thread       https://clips.arxsable.ai/demo?utm_source=x&utm_medium=social&utm_campaign=launch_2026_10&utm_content=thread_1
+LinkedIn       https://clips.arxsable.ai/demo?utm_source=linkedin&utm_medium=social&utm_campaign=launch_2026_10
+Newsletter     https://clips.arxsable.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=launch_2026_10
+YouTube desc.  https://clips.arxsable.ai/demo?utm_source=youtube&utm_medium=video&utm_campaign=launch_2026_10
+OpusClip Q&A   https://clips.arxsable.ai/blog/arx-clips-vs-opusclip?utm_source=reddit&utm_medium=community&utm_campaign=launch_2026_10&utm_content=opusclip_thread
 ```
 
-Hacker News: link the GitHub repo or `https://www.supoclip.com/` **without** tags.
+Hacker News: link the GitHub repo or `https://clips.arxsable.ai/` **without** tags.
 
 ## Channel copy
 
@@ -114,8 +114,8 @@ posting, and reply to comments for the first few hours.
 > Stack: Next.js, FastAPI, ARQ workers on Redis, Postgres, FFmpeg.
 > There's a paid hosted version for people who don't want to run it.
 >
-> Repo: https://github.com/FujiwaraChoki/supoclip
-> Demo: https://www.supoclip.com/demo
+> Repo: https://github.com/Oscar-G13/arxsable-clips
+> Demo: https://clips.arxsable.ai/demo
 >
 > I'd love feedback on clip selection quality and the self-hosting experience.
 
@@ -184,7 +184,7 @@ podcast episode with written permission).
 | 35–50s | Editor: trim, change caption style, preview | "Adjust timing and captions before exporting." |
 | 50–60s | Export with the TikTok preset; download completes | "Export for TikTok, Reels, or Shorts. No watermark." |
 | 60–70s | Terminal: `docker compose up -d --build`, then GitHub repo | "It's open source. Run it yourself, or use the hosted app." |
-| End card | Logo + `supoclip.com/demo` | |
+| End card | Logo + `clips.arxsable.ai/demo` | |
 
 Don't show a processing time unless it's the real, unedited duration, and say
 which hardware or plan produced it.

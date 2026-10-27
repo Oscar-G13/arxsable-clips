@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { intlLocale } from "@/i18n/config";
 import { ANNOUNCEMENTS_UPDATED_EVENT, type ManagedAnnouncement } from "@/lib/announcements";
+import { SAFE_CONTENT_TITLE_CLASS } from "@/lib/typography";
+import { cn } from "@/lib/utils";
 
 type Editor = Omit<ManagedAnnouncement, "id">;
 
@@ -115,7 +117,7 @@ export function AnnouncementManager() {
           {items.map(item => (
             <article key={item.id} className="space-y-3 p-5">
               <div className="flex flex-wrap items-center gap-2">
-                <h2 className="font-semibold">{item.title}</h2>
+                <h2 className={cn("font-semibold", SAFE_CONTENT_TITLE_CLASS)}>{item.title}</h2>
                 <Badge variant={item.isPublished ? "default" : "outline"}>{badge(item)}</Badge>
               </div>
               <p className="whitespace-pre-wrap text-sm text-muted-foreground">{item.description}</p>

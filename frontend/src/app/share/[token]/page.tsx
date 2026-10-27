@@ -13,6 +13,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { formatSupportMessage, parseApiError } from "@/lib/api-error";
 import { intlLocale } from "@/i18n/config";
 import { formatClipDuration } from "@/lib/generations";
+import { SAFE_CONTENT_TITLE_CLASS } from "@/lib/typography";
+import { cn } from "@/lib/utils";
 
 interface SharedClip {
   id: string;
@@ -144,7 +146,7 @@ export default function SharedGenerationPage() {
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-8 md:py-12">
         <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{t("eyebrow")}</p>
-        <h1 className="mt-2 max-w-4xl font-display text-3xl font-bold tracking-tight md:text-4xl">{task.source_title}</h1>
+        <h1 className={cn("mt-2 text-3xl font-bold tracking-tight md:max-w-4xl md:text-4xl", SAFE_CONTENT_TITLE_CLASS)}>{task.source_title}</h1>
         <p className="mt-3 text-sm text-muted-foreground">
           {t("summary", { count: clips.length, duration: formatClipDuration(totalSeconds) })}
           {bestScore > 0 && <>{" · "}{t("topVirality")}{" "}<span className="font-semibold text-brand">{bestScore}</span></>}

@@ -21,6 +21,7 @@ import { Announcements } from "@/components/announcements";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Kbd } from "@/components/ui/kbd";
+import { TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
 // `mobile: false` keeps an item out of the five-slot mobile tab bar.
@@ -337,7 +338,7 @@ function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenChange: (
               className={cn("flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm", index === active && "bg-accent")}
             >
               <entry.icon className="size-4 shrink-0 text-muted-foreground" />
-              <span className="min-w-0 flex-1 truncate">{entry.label}</span>
+              <span className={cn("flex-1", TRUNCATED_CONTENT_TITLE_CLASS)}>{entry.label}</span>
               {entry.generation ? <StatusBadge status={entry.generation.status} /> : null}
               {entry.hint && <span className="shrink-0 text-xs text-muted-foreground">{entry.hint}</span>}
               {index === active && <CornerDownLeft className="size-3.5 text-muted-foreground" />}

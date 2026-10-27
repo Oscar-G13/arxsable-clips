@@ -419,6 +419,24 @@ class TaskService(ClipEditingMixin):
                 if progress_callback:
                     await progress_callback(progress, message, status)
 
+            async def persist_transcript(
+                transcript_text: str, resolved_video_path: Path
+            ) -> None:
+                """Commit paid/local transcription before fallible AI analysis."""
+                await self.cache_repo.upsert_cache(
+                    self.db,
+                    cache_key=cache_key,
+                    source_url=url,
+                    source_type=source_type,
+                    video_path=(
+                        MediaStorage().source_reference(url)
+                        if url.startswith("upload://s3/")
+                        else str(resolved_video_path)
+                    ),
+                    transcript_text=transcript_text,
+                    analysis_json=None,
+                )
+
             # Process video with progress updates
             max_video_duration = self.config.max_video_duration
             if source_type in {"youtube", "twitch", "kick"} and user_id:
@@ -447,6 +465,7 @@ class TaskService(ClipEditingMixin):
                 download_quality=download_quality,
                 cached_transcript=cached_transcript,
                 cached_analysis_json=cached_analysis_json,
+                transcript_ready_callback=persist_transcript,
                 progress_callback=update_progress,
                 should_cancel=should_cancel,
                 performance_context=performance_context,

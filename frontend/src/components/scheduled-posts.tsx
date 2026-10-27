@@ -18,6 +18,8 @@ import { SocialProviderIcon } from "@/components/social-provider-icon";
 import { intlLocale } from "@/i18n/config";
 import { timeAgo } from "@/lib/generations";
 import { PROVIDER_LABELS, type SocialPost } from "@/lib/social";
+import { TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
+import { cn } from "@/lib/utils";
 
 function dayLabel(date: Date, todayLabel: string, tomorrowLabel: string, format: Intl.DateTimeFormat): string {
   const today = new Date();
@@ -121,11 +123,11 @@ export function ScheduledPosts({ sectionHeadingClassName }: { sectionHeadingClas
                       <SocialProviderIcon provider={post.provider} className="text-muted-foreground" />
                       <div className="min-w-0 flex-1">
                         {post.task_id ? (
-                          <Link href={`/tasks/${post.task_id}`} className="block truncate font-medium hover:underline underline-offset-4">
+                          <Link href={`/tasks/${post.task_id}`} className={cn("block font-medium hover:underline underline-offset-4", TRUNCATED_CONTENT_TITLE_CLASS)}>
                             {title}
                           </Link>
                         ) : (
-                          <span className="block truncate font-medium">{title}</span>
+                          <span className={cn("block font-medium", TRUNCATED_CONTENT_TITLE_CLASS)}>{title}</span>
                         )}
                         <p className="truncate text-xs text-muted-foreground">
                           {accountName(post)} · {timeAgo(post.scheduled_for!, locale)}

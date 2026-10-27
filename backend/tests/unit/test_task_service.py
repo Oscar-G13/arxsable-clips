@@ -116,6 +116,31 @@ def test_cache_key_includes_analysis_prompt_version():
 
 
 @pytest.mark.asyncio
+async def test_process_task_commits_transcript_before_analysis_failure():
+    service = build_task_service()
+
+    async def fail_after_transcript(**kwargs):
+        await kwargs["transcript_ready_callback"](
+            "[00:00 - 00:02] Recovered transcript", Path("/tmp/source.mp4")
+        )
+        raise RuntimeError("analysis request failed")
+
+    service.video_service.process_video_complete = fail_after_transcript
+
+    with pytest.raises(RuntimeError, match="analysis request failed"):
+        await service.process_task(
+            task_id="task-1",
+            url="upload://source.mp4",
+            source_type="upload",
+        )
+
+    service.cache_repo.upsert_cache.assert_awaited_once()
+    persisted = service.cache_repo.upsert_cache.await_args.kwargs
+    assert persisted["transcript_text"] == "[00:00 - 00:02] Recovered transcript"
+    assert persisted["analysis_json"] is None
+
+
+@pytest.mark.asyncio
 async def test_update_clip_captions_passes_stored_task_style(isolated_clip_edits, monkeypatch, tmp_path):
     config = Config()
     config.temp_dir = str(tmp_path)

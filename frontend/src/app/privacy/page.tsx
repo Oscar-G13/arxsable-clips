@@ -38,7 +38,7 @@ function Section({ title, id, children }: { title: string; id?: string; children
   return (
     <section id={id} className="scroll-mt-24 space-y-3">
       <h2
-        className="text-2xl font-bold tracking-tight"
+        className="font-display text-2xl font-bold tracking-tight"
         style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}
       >
         {title}
@@ -83,7 +83,7 @@ export default async function PrivacyPolicyPage() {
       <article className="mx-auto max-w-3xl px-6 py-14 md:py-20">
         <div className="space-y-3">
           <h1
-            className="text-4xl font-extrabold tracking-tight sm:text-5xl"
+            className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl"
             style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}
           >
             Arx Clips {t("privacy.title")}

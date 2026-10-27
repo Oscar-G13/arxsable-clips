@@ -80,5 +80,64 @@ done
   exit 1
 }
 
+# Container health only proves that Ollama can answer metadata requests. Load
+# the configured Arx Clips analysis model now so the first customer job does
+# not pay the model-load penalty. A configured Ollama model that cannot warm is
+# a failed deployment, not a healthy release.
+compose exec -T worker .venv/bin/python - <<'PY'
+import asyncio
+import json
+import sys
+from urllib.parse import urlsplit, urlunsplit
+from urllib.request import Request, urlopen
+
+from src.config import Config
+from src.database import AsyncSessionLocal
+from src.runtime_settings import load_runtime_settings_cache
+
+
+async def resolved_config() -> Config:
+    async with AsyncSessionLocal() as db:
+        await load_runtime_settings_cache(db)
+    return Config()
+
+
+config = asyncio.run(resolved_config())
+provider, separator, model_name = config.llm.partition(":")
+if provider != "ollama":
+    print("Ollama prewarm skipped: configured LLM is not Ollama")
+    sys.exit(0)
+if not separator or not model_name or len(model_name) > 200 or any(
+    ord(char) < 33 for char in model_name
+):
+    raise SystemExit("Configured Ollama model name is invalid")
+
+base_url = config.resolve_ollama_base_url()
+parsed = urlsplit(base_url)
+if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+    raise SystemExit("Configured Ollama base URL is invalid")
+chat_path = f"{parsed.path.rstrip('/')}/chat/completions"
+generate_url = urlunsplit((parsed.scheme, parsed.netloc, chat_path, "", ""))
+payload = json.dumps(
+    {
+        "model": model_name,
+        "messages": [{"role": "user", "content": "Reply with OK."}],
+        "stream": False,
+        "reasoning_effort": "low",
+        "max_completion_tokens": 1,
+        "temperature": 0,
+    }
+).encode("utf-8")
+headers = {"Content-Type": "application/json"}
+if config.ollama_api_key:
+    headers["Authorization"] = f"Bearer {config.ollama_api_key}"
+request = Request(generate_url, data=payload, headers=headers, method="POST")
+with urlopen(request, timeout=540) as response:
+    result = json.load(response)
+if not result.get("choices"):
+    raise SystemExit("Ollama prewarm returned an incomplete response")
+print(f"Ollama model ready: {model_name}")
+PY
+
 curl --fail --silent --show-error http://127.0.0.1:8000/health/db >/dev/null
 echo "Arx Clips deployment healthy at $(git -C "$APP_DIR" rev-parse HEAD)"

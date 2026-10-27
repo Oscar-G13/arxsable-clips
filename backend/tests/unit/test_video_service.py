@@ -2,6 +2,7 @@ import json
 from types import SimpleNamespace
 
 import pytest
+from unittest.mock import AsyncMock
 
 from src.services import video_service as video_service_module
 from src.services.video_service import VideoService
@@ -11,6 +12,34 @@ class _EmptyAnalysis:
     summary = "No strong standalone segment found"
     key_topics = []
     most_relevant_segments = []
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("processing_mode,expected_model", [("fast", "small"), ("quality", "medium")])
+async def test_generate_transcript_selects_whisper_model_for_mode(
+    monkeypatch, tmp_path, processing_mode, expected_model
+):
+    runtime_config = SimpleNamespace(
+        transcription_provider="whisper",
+        whisper_model_for_processing_mode=lambda mode: (
+            "small" if mode == "fast" else "medium"
+        ),
+    )
+    captured = []
+
+    async def capture_call(function, *args):
+        captured.append((function, args))
+        return "[00:00 - 00:01] transcript"
+
+    monkeypatch.setattr(video_service_module, "get_config", lambda: runtime_config)
+    monkeypatch.setattr(video_service_module, "run_in_thread", capture_call)
+
+    result = await VideoService.generate_transcript(
+        tmp_path / "source.mp4", processing_mode=processing_mode
+    )
+
+    assert result == "[00:00 - 00:01] transcript"
+    assert captured[0][1][-1] == expected_model
 
 
 @pytest.mark.asyncio
@@ -104,7 +133,6 @@ def test_fallback_segment_caps_to_video_duration():
 
 @pytest.mark.asyncio
 async def test_cached_text_regenerates_missing_word_timings(monkeypatch, tmp_path):
-    from unittest.mock import AsyncMock
     from src.config import Config
     source = tmp_path / "source.mp4"
     source.touch()
@@ -117,3 +145,99 @@ async def test_cached_text_regenerates_missing_word_timings(monkeypatch, tmp_pat
     analysis = json.dumps({"most_relevant_segments": [{"start_time": "00:00", "end_time": "00:17", "text": "Cached segment"}], "summary": "Test", "key_topics": []})
     await VideoService.process_video_complete(url="upload://source.mp4", source_type="video_url", cached_transcript="Cached transcript", cached_analysis_json=analysis)
     transcribe.assert_awaited_once()
+
+
+@pytest.mark.asyncio
+async def test_timed_sidecar_skips_whisper_and_rebuilds_analysis_transcript(
+    monkeypatch, tmp_path
+):
+    from src.config import Config
+
+    source = tmp_path / "source.mp4"
+    source.touch()
+    transcript_data = {
+        "text": "Untimestamped plain text",
+        "words": [
+            {"text": "Recovered", "start": 5000, "end": 5700},
+            {"text": "line.", "start": 5750, "end": 6500},
+        ],
+        "utterances": [
+            {
+                "text": "Recovered line.",
+                "start": 5000,
+                "end": 6500,
+                "speaker": None,
+                "words": [],
+            }
+        ],
+    }
+    monkeypatch.setattr(video_service_module, "get_config", Config)
+    monkeypatch.setattr(VideoService, "resolve_local_video_path", lambda _: source)
+    monkeypatch.setattr(VideoService, "_get_file_duration", lambda _: 19)
+    monkeypatch.setattr(
+        video_service_module, "load_cached_transcript_data", lambda _: transcript_data
+    )
+    transcribe = AsyncMock(return_value="Should not run")
+    transcript_ready = AsyncMock()
+    monkeypatch.setattr(VideoService, "generate_transcript", transcribe)
+    analysis = json.dumps(
+        {
+            "most_relevant_segments": [
+                {"start_time": "00:00", "end_time": "00:17", "text": "Cached"}
+            ],
+            "summary": "Test",
+            "key_topics": [],
+        }
+    )
+
+    result = await VideoService.process_video_complete(
+        url="upload://source.mp4",
+        source_type="video_url",
+        cached_analysis_json=analysis,
+        transcript_ready_callback=transcript_ready,
+    )
+
+    transcribe.assert_not_awaited()
+    assert result["transcript"] == "[00:05 - 00:06] Recovered line."
+    transcript_ready.assert_awaited_once_with(result["transcript"], source)
+
+
+@pytest.mark.asyncio
+async def test_transcript_callback_completes_before_ai_analysis(monkeypatch, tmp_path):
+    from src.config import Config
+
+    source = tmp_path / "source.mp4"
+    source.touch()
+    transcript_data = {
+        "text": "Recovered line.",
+        "words": [
+            {"text": "Recovered", "start": 0, "end": 600},
+            {"text": "line.", "start": 650, "end": 1200},
+        ],
+        "utterances": [],
+    }
+    monkeypatch.setattr(video_service_module, "get_config", Config)
+    monkeypatch.setattr(VideoService, "resolve_local_video_path", lambda _: source)
+    monkeypatch.setattr(VideoService, "_get_file_duration", lambda _: 19)
+    monkeypatch.setattr(
+        video_service_module, "load_cached_transcript_data", lambda _: transcript_data
+    )
+    transcript_ready = AsyncMock()
+
+    async def analyze_after_cache(
+        _transcript, clip_signals=None, performance_context=None, clip_length="auto"
+    ):
+        transcript_ready.assert_awaited_once()
+        return _EmptyAnalysis()
+
+    monkeypatch.setattr(
+        VideoService, "analyze_transcript", staticmethod(analyze_after_cache)
+    )
+
+    await VideoService.process_video_complete(
+        url="upload://source.mp4",
+        source_type="video_url",
+        transcript_ready_callback=transcript_ready,
+    )
+
+    transcript_ready.assert_awaited_once()

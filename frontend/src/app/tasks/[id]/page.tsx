@@ -63,6 +63,7 @@ import { intlLocale } from "@/i18n/config";
 import { timeAgo } from "@/lib/generations";
 import { VIDEO_SOURCE_LABELS, VideoSourceIcon, videoSourceKind, type VideoSourceKind } from "@/components/video-source-icon";
 import { cn } from "@/lib/utils";
+import { SAFE_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { FontSelectOption, type FontOption } from "@/components/font-select-option";
 import { ClipPostList, ClipPublishButton, useSocialPostToasts } from "@/components/clip-publisher";
 import {
@@ -673,7 +674,7 @@ export default function TaskPage() {
                   value={editedTitle}
                   onChange={(e) => setEditedTitle(e.target.value)}
                   onKeyDown={(e) => { if (e.key === "Escape") { setIsEditing(false); setEditedTitle(task.source_title); } }}
-                  className="h-auto py-1 font-display text-2xl font-bold md:text-3xl"
+                  className="h-auto py-1 font-sans text-2xl font-bold leading-[1.25] md:text-3xl"
                   aria-label={t("titleLabel")}
                   autoFocus
                 />
@@ -682,7 +683,7 @@ export default function TaskPage() {
               </form>
             ) : (
               <div className="group flex items-start gap-2">
-                <h1 className={cn("min-w-0 break-words font-display text-2xl font-bold tracking-tight md:text-3xl", isActive && "shimmer")}>{task.source_title}</h1>
+                <h1 className={cn("text-2xl font-bold tracking-tight md:text-3xl", SAFE_CONTENT_TITLE_CLASS)}>{task.source_title}</h1>
                 {!readOnly && (
                   <Button size="icon-sm" variant="ghost" aria-label={t("editTitle")} className="mt-0.5 shrink-0 text-muted-foreground opacity-100 md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100"
                     onClick={() => { setIsEditing(true); setEditedTitle(task.source_title); }}>

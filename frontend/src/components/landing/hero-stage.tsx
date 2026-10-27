@@ -9,6 +9,7 @@ import { ArrowRight, CalendarClock, Captions, Check, Play, Target, Upload, Volum
 import { SocialProviderIcon } from "@/components/social-provider-icon";
 import { VIDEO_SOURCE_LABELS, VideoSourceIcon } from "@/components/video-source-icon";
 import { DEMO_CLIPS, DEMO_SOURCE } from "@/lib/demo";
+import { CLAMPED_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
 // The timeline only positions the moments; no source length is shown.
@@ -169,7 +170,7 @@ export function HeroStage() {
                 {t("longForm")}
               </span>
             </div>
-            <p className="mt-3 line-clamp-2 px-1.5 text-[13px] font-medium leading-snug">{DEMO_SOURCE.title}</p>
+            <p className={cn("mt-3 px-1.5 text-[13px] font-medium", CLAMPED_CONTENT_TITLE_CLASS)}>{DEMO_SOURCE.title}</p>
             <div className="relative mx-1.5 mb-1.5 mt-8">
               <div className="flex h-10 items-end gap-[2px]" aria-hidden>
                 {BARS.map((height, i) => {
@@ -311,7 +312,7 @@ export function HeroStage() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={item.poster} alt="" className="h-14 w-8 shrink-0 rounded-md object-cover" />
                   <span className="min-w-0 flex-1">
-                    <span className="line-clamp-2 text-[13px] leading-snug">{item.hook}</span>
+                    <span className={cn("text-[13px]", CLAMPED_CONTENT_TITLE_CLASS)}>{item.hook}</span>
                     <span className="mt-1 flex items-center gap-1.5 text-[11px] tabular-nums text-muted-foreground">
                       <CalendarClock className="size-3" />
                       {slotFormat.format(SCHEDULE_SLOTS[i % SCHEDULE_SLOTS.length])}

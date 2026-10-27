@@ -17,6 +17,24 @@ configure_logging()
 logger = logging.getLogger(__name__)
 
 
+async def preload_whisper_model(ctx: Dict[str, Any]) -> None:
+    """Load the default local Whisper model before this worker accepts jobs."""
+    from ..config import Config
+    from ..media.transcription import _get_whisper_model
+    from ..utils.async_helpers import run_in_thread
+
+    runtime_config = Config()
+    if runtime_config.transcription_provider != "whisper":
+        return
+
+    model_name = runtime_config.whisper_model_for_processing_mode(
+        runtime_config.default_processing_mode
+    )
+    logger.info("Preloading Whisper model: %s", model_name)
+    await run_in_thread(_get_whisper_model, model_name)
+    logger.info("Whisper model ready: %s", model_name)
+
+
 async def process_video_task(
     ctx: Dict[str, Any],
     task_id: str,
@@ -230,6 +248,7 @@ class WorkerSettings:
     ]
     queue_name = "supoclip_tasks"
     health_check_interval = 30
+    on_startup = preload_whisper_model
 
     # Redis settings from environment
     redis_settings = RedisSettings(

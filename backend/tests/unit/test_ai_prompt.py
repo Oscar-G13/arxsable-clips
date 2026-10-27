@@ -6,12 +6,14 @@ from src.ai import (
     IDEAL_CLIP_MAX_SECONDS,
     IDEAL_CLIP_MIN_SECONDS,
     MIN_ACCEPTED_CLIP_SECONDS,
+    OLLAMA_MODEL_SETTINGS,
     TranscriptSegment,
     _build_transcript_model,
     _choose_repaired_bounds,
     _extract_transcript_text,
     _format_transcript_timestamp,
     _get_missing_llm_key_error,
+    _uses_native_output,
     _parse_transcript_spans,
     _parse_transcript_timestamp_seconds,
     build_transcript_analysis_prompt,
@@ -86,6 +88,20 @@ def test_ollama_llm_builds_native_ollama_model():
     assert isinstance(model, OllamaModel)
     assert model.model_name == "gpt-oss:20b"
     assert model.base_url == "http://ollama.example/v1/"
+    assert OLLAMA_MODEL_SETTINGS == {
+        "temperature": 0,
+        "max_tokens": 4096,
+        "openai_reasoning_effort": "low",
+    }
+
+
+def test_self_hosted_ollama_uses_native_schema_output():
+    local = SimpleNamespace(resolve_ollama_base_url=lambda: "http://ollama:11434/v1")
+    cloud = SimpleNamespace(resolve_ollama_base_url=lambda: "https://ollama.com/v1")
+
+    assert _uses_native_output("ollama:gpt-oss:20b", local) is True
+    assert _uses_native_output("ollama:gpt-oss:20b-cloud", local) is False
+    assert _uses_native_output("ollama:gpt-oss:20b", cloud) is False
 
 
 def test_parse_transcript_timestamp_supports_minute_and_hour_formats():

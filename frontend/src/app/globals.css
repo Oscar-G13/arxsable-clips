@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "tw-shimmer";
 
 
 @custom-variant dark (&:is(.dark *));
@@ -133,6 +132,14 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    overflow-wrap: anywhere;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6).font-display {
+    padding-block-end: 0.08em;
   }
 
   html[lang="zh-Hans"] body {

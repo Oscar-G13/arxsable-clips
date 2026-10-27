@@ -22,7 +22,19 @@ class Config:
         self.ollama_base_url = self._get_runtime_setting("OLLAMA_BASE_URL")
         self.ollama_api_key = self._get_runtime_setting("OLLAMA_API_KEY")
 
-        self.whisper_model = os.getenv("WHISPER_MODEL") or os.getenv("WHISPER_MODEL_SIZE", "base")
+        # Local Whisper is CPU-bound in the self-hosted worker. Fast generations
+        # use a smaller model while balanced/quality generations retain the
+        # higher-accuracy model. WHISPER_MODEL and WHISPER_MODEL_SIZE remain
+        # backwards-compatible aliases for the quality model.
+        self.whisper_fast_model = (
+            os.getenv("WHISPER_FAST_MODEL_SIZE", "small").strip() or "small"
+        )
+        self.whisper_quality_model = (
+            os.getenv("WHISPER_QUALITY_MODEL_SIZE")
+            or os.getenv("WHISPER_MODEL")
+            or os.getenv("WHISPER_MODEL_SIZE", "medium")
+        ).strip() or "medium"
+        self.whisper_model = self.whisper_quality_model
         self.transcription_provider = self._normalize_transcription_provider(
             os.getenv("TRANSCRIPTION_PROVIDER", "assemblyai")
         )
@@ -281,6 +293,12 @@ class Config:
         if (plan or "").lower() == "pro":
             return self.pro_youtube_max_video_duration
         return self.max_video_duration
+
+    def whisper_model_for_processing_mode(self, processing_mode: str) -> str:
+        """Choose the local Whisper model without changing hosted STT behavior."""
+        if (processing_mode or "").strip().lower() == "fast":
+            return self.whisper_fast_model
+        return self.whisper_quality_model
 
     @staticmethod
     def _get_optional_env(name: str):

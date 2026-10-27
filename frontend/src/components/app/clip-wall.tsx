@@ -15,6 +15,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { getClipUrl } from "@/lib/clip-actions";
 import { formatClipDuration } from "@/lib/generations";
 import { cn } from "@/lib/utils";
+import { CLAMPED_CONTENT_TITLE_CLASS, SAFE_CONTENT_TITLE_CLASS } from "@/lib/typography";
 
 export interface WallClip {
   id: string;
@@ -81,7 +82,7 @@ export function ClipTile({ clip, taskId, busy, best, editable, onOpen, onDownloa
         </ClipCover>
       </button>
       <div className="mt-2.5 px-0.5">
-        <h3 className="line-clamp-2 text-sm font-semibold leading-snug">{title}</h3>
+        <h3 className={cn("text-sm font-semibold", CLAMPED_CONTENT_TITLE_CLASS)}>{title}</h3>
         <p className="mt-0.5 text-xs tabular-nums text-muted-foreground">{clip.start_time} – {clip.end_time}</p>
         <div className="mt-2 flex items-center gap-1">
           <Button size="sm" variant="outline" className="h-7 flex-1 px-2 text-xs" onClick={onDownload} disabled={busy} aria-label={t("downloadNamed", { title })}>
@@ -157,7 +158,7 @@ export function ClipFocus({ clip, taskId, index, total, busy, editable, onNaviga
               </div>
               <div className="space-y-5 p-5">
                 <div>
-                  <DialogTitle className="font-display text-xl font-bold leading-tight">{clipTitle(clip, t("clipNumber", { order: clip.clip_order }))}</DialogTitle>
+                  <DialogTitle className={cn("text-xl font-bold", SAFE_CONTENT_TITLE_CLASS)}>{clipTitle(clip, t("clipNumber", { order: clip.clip_order }))}</DialogTitle>
                   <DialogDescription className="mt-1 tabular-nums">
                     {clip.start_time} – {clip.end_time} · {formatClipDuration(clip.duration)}
                   </DialogDescription>
@@ -246,7 +247,7 @@ export function ProcessingPanel({ status, progress, message, readyCount }: { sta
       </div>
       <div className="flex flex-col gap-6 p-5 sm:p-6 md:flex-row md:items-center md:justify-between">
         <div className="min-w-0">
-          <p className="shimmer text-lg font-semibold">{message || (status === "queued" ? t("waiting") : t("processing"))}</p>
+          <p className="text-lg font-semibold leading-[1.35]">{message || (status === "queued" ? t("waiting") : t("processing"))}</p>
           <p className="mt-1 text-sm text-muted-foreground">
             {readyCount > 0 ? t("clipsReady", { count: readyCount }) : t("grabCoffee")}
           </p>

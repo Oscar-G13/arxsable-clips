@@ -7,6 +7,7 @@ import { ClipCover, ScoreRing } from "@/components/app/clip-cover";
 import { StatusBadge, ACTIVE_TASK_STATUSES } from "@/components/app/status-badge";
 import { VIDEO_SOURCE_LABELS, VideoSourceIcon, videoSourceKind } from "@/components/video-source-icon";
 import { coverClipUrl, timeAgo, type GenerationSummary } from "@/lib/generations";
+import { CLAMPED_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
 export function GenerationCard({ generation, selected, onToggle, selectionDisabled, showStatus, className }: {
@@ -60,7 +61,7 @@ export function GenerationCard({ generation, selected, onToggle, selectionDisabl
           </div>
         </ClipCover>
         <div className="mt-2.5 space-y-1 px-0.5">
-          <h3 className="line-clamp-2 text-sm font-semibold leading-snug">{generation.source_title}</h3>
+          <h3 className={cn("text-sm font-semibold", CLAMPED_CONTENT_TITLE_CLASS)}>{generation.source_title}</h3>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <span>{timeAgo(generation.created_at, locale)}</span>
             {(showStatus || generation.status !== "completed") && <StatusBadge status={generation.status} />}

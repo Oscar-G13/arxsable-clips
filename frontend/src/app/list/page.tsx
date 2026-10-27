@@ -33,6 +33,7 @@ import {
 import { useSession } from "@/lib/auth-client";
 import { formatSupportMessage, parseApiError } from "@/lib/api-error";
 import { cn } from "@/lib/utils";
+import { TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import {
   PlayCircle,
   Plus,
@@ -461,7 +462,7 @@ export default function ListPage() {
           <div className="space-y-8">
             {groupByOriginalVideo(visibleTasks).map((group) => (
               <section key={group.key}>
-                <h2 className="mb-3 truncate font-display text-lg font-semibold tracking-tight">{group.title}</h2>
+                <h2 className={cn("mb-3 text-lg font-semibold tracking-tight", TRUNCATED_CONTENT_TITLE_CLASS)}>{group.title}</h2>
                 {renderGenerationGrid(group.tasks)}
               </section>
             ))}

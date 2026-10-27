@@ -22,6 +22,8 @@ import subprocess
 
 import tempfile
 
+import threading
+
 import time
 
 import cv2
@@ -128,6 +130,11 @@ ANALYSIS_UTTERANCE_SPLIT_THRESHOLD_MS = 45_000
 ANALYSIS_UTTERANCE_SPLIT_THRESHOLD_WORDS = 80
 
 _WHISPER_MODEL_CACHE: Dict[str, Any] = {}
+
+# asyncio jobs call Whisper through the shared default thread pool. Without a
+# process-wide lock, concurrent first requests can download/load the same large
+# model several times before any thread publishes it to the cache.
+_WHISPER_MODEL_LOCK = threading.Lock()
 
 FINAL_VIDEO_CRF = 19
 

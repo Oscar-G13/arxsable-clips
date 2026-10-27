@@ -16,6 +16,7 @@ import { StatusBadge } from "@/components/app/status-badge";
 import { cn } from "@/lib/utils";
 import { intlLocale } from "@/i18n/config";
 import { APP_STORE_ID } from "@/lib/site";
+import { TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { fetchBackend } from "@/server/backend-api";
 
 const ACTIVE_TASK_STATUSES = ["queued", "processing", "pending"];
@@ -43,7 +44,7 @@ function Panel({ title, description, action, children }: { title: string; descri
 function TaskCell({ id, title, untitled }: { id: string; title?: string | null; untitled: string }) {
   return (
     <td className={td}>
-      <Link href={`/tasks/${id}`} className="block max-w-[420px] truncate font-medium hover:underline">{title || untitled}</Link>
+      <Link href={`/tasks/${id}`} className={cn("block font-medium hover:underline", TRUNCATED_CONTENT_TITLE_CLASS, "max-w-[420px]")}>{title || untitled}</Link>
       <span className="font-mono text-[11px] text-muted-foreground">{id.slice(0, 8)}</span>
     </td>
   );

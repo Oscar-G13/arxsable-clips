@@ -8,6 +8,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useAnnouncements } from "@/hooks/use-announcements";
 import { intlLocale } from "@/i18n/config";
+import { SAFE_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
 const READ_EVENT = "supoclip:announcements-read";
@@ -109,7 +110,7 @@ export function Announcements({ userId, compact = false, landing = false }: {
               <time dateTime={item.publishedAt} className="text-xs text-muted-foreground">
                 {new Date(item.publishedAt).toLocaleDateString(intlLocale(locale), { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}
               </time>
-              <h3 className="font-semibold leading-snug">{item.title}</h3>
+              <h3 className={cn("font-semibold", SAFE_CONTENT_TITLE_CLASS)}>{item.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
               <Link href={item.href} onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5 text-sm font-medium text-brand underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 {item.action}<ArrowRight className="size-3.5" aria-hidden />

@@ -5,6 +5,7 @@ from typing import Dict
 from typing import List
 from typing import Optional
 from pathlib import Path
+from types import SimpleNamespace
 import assemblyai as aai
 from ..config import get_config
 import httpx
@@ -22,6 +23,7 @@ from .common import (
     TRANSCRIPT_CACHE_SCHEMA_VERSION,
     _WHISPER_AVAILABLE,
     _WHISPER_MODEL_CACHE,
+    _WHISPER_MODEL_LOCK,
     _whisper,
     logger,
 )
@@ -180,10 +182,17 @@ def _get_whisper_model(model_name: str = "base"):
         raise RuntimeError(
             "Whisper is not installed. Install it with: uv add openai-whisper"
         )
-    if model_name not in _WHISPER_MODEL_CACHE:
-        logger.info("Loading Whisper model: %s", model_name)
-        _WHISPER_MODEL_CACHE[model_name] = _whisper.load_model(model_name)
-    return _WHISPER_MODEL_CACHE[model_name]
+    cached = _WHISPER_MODEL_CACHE.get(model_name)
+    if cached is not None:
+        return cached
+
+    with _WHISPER_MODEL_LOCK:
+        cached = _WHISPER_MODEL_CACHE.get(model_name)
+        if cached is None:
+            logger.info("Loading Whisper model: %s", model_name)
+            cached = _whisper.load_model(model_name)
+            _WHISPER_MODEL_CACHE[model_name] = cached
+        return cached
 
 
 def transcribe_with_whisper(
@@ -320,6 +329,7 @@ def get_video_transcript(
     video_path: Path,
     speech_model: str = "universal",
     source_url: Optional[str] = None,
+    whisper_model: Optional[str] = None,
 ) -> str:
     """Get a video transcript using the configured provider.
 
@@ -332,7 +342,7 @@ def get_video_transcript(
     provider = runtime_config.transcription_provider
 
     if provider == "whisper":
-        return _get_transcript_with_whisper(video_path, runtime_config)
+        return _get_transcript_with_whisper(video_path, runtime_config, whisper_model)
     if provider == "youtube_captions":
         if not source_url:
             raise ValueError(
@@ -413,9 +423,11 @@ def _get_transcript_with_assemblyai(
         client.http_client.close()
 
 
-def _get_transcript_with_whisper(video_path: Path, runtime_config) -> str:
+def _get_transcript_with_whisper(
+    video_path: Path, runtime_config, model_name: Optional[str] = None
+) -> str:
     """Get transcript using local Whisper with word-level timestamps."""
-    model_name = runtime_config.whisper_model
+    model_name = model_name or runtime_config.whisper_model
     logger.info("Starting Whisper transcription with model: %s", model_name)
     whisper_result = transcribe_with_whisper(
         video_path, model_name, runtime_config.transcription_language or None
@@ -672,6 +684,67 @@ def format_transcript_for_analysis(transcript) -> List[str]:
 
     logger.info(f"Processing {len(words)} words with precise timing")
     return _format_words_for_analysis(words)
+
+
+def format_cached_transcript_for_analysis(transcript_data: Dict[str, Any]) -> str:
+    """Rebuild the timestamped AI transcript from a persisted timing sidecar.
+
+    The sidecar's top-level ``text`` is intentionally plain text for captions
+    and search. Analysis requires timestamped lines (and speaker labels when
+    available), so resume paths must reconstruct the same shape produced by
+    the original transcription instead of feeding that plain text to the LLM.
+    """
+
+    def cached_ms(value: Any) -> int:
+        try:
+            return int(value or 0)
+        except (TypeError, ValueError):
+            return 0
+
+    def cached_word(payload: Dict[str, Any]) -> SimpleNamespace:
+        return SimpleNamespace(
+            text=str(payload.get("text") or payload.get("word") or ""),
+            start=cached_ms(payload.get("start")),
+            end=cached_ms(payload.get("end")),
+            confidence=payload.get("confidence", 1.0),
+            speaker=payload.get("speaker"),
+        )
+
+    words = [
+        cached_word(payload)
+        for payload in transcript_data.get("words") or []
+        if isinstance(payload, dict)
+    ]
+    utterances = []
+    for payload in transcript_data.get("utterances") or []:
+        if not isinstance(payload, dict):
+            continue
+        utterance_words = [
+            cached_word(word)
+            for word in payload.get("words") or []
+            if isinstance(word, dict)
+        ]
+        utterance_text = str(payload.get("text") or "").strip()
+        if not utterance_text and utterance_words:
+            utterance_text = _join_transcript_tokens(
+                [word.text for word in utterance_words]
+            )
+        if not utterance_text:
+            continue
+        utterances.append(
+            SimpleNamespace(
+                text=utterance_text,
+                start=cached_ms(payload.get("start")),
+                end=cached_ms(payload.get("end")),
+                speaker=payload.get("speaker"),
+                words=utterance_words,
+            )
+        )
+
+    lines = format_transcript_for_analysis(
+        SimpleNamespace(utterances=utterances, words=words)
+    )
+    return "\n".join(lines)
 
 
 def format_ms_to_timestamp(ms: int) -> str:

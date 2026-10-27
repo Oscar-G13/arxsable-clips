@@ -34,6 +34,7 @@ import { formatSupportMessage, parseApiError } from "@/lib/api-error";
 import { buildFontOptionsPayload, FONT_TEMPLATE_DEFAULT_VALUE } from "@/lib/font-options";
 import { fetchGenerations, type GenerationSummary } from "@/lib/generations";
 import { CLIP_LENGTHS, isClipLength, type ClipLength } from "@/lib/clip-duration";
+import { TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 import { FontSelectOption, type FontOption } from "@/components/font-select-option";
 
@@ -444,7 +445,7 @@ export default function HomeApp() {
                 <div className="flex min-w-0 flex-1 items-center gap-3 rounded-xl bg-muted/60 p-2 pr-3">
                   <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-foreground text-background"><FileVideo className="size-5" /></span>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium">{file.name}</p>
+                    <p className={cn("text-sm font-medium", TRUNCATED_CONTENT_TITLE_CLASS)}>{file.name}</p>
                     <p className="text-xs text-muted-foreground">{t("readyToUpload", { size: formatBytes(file.size) })}</p>
                   </div>
                   <button type="button" onClick={() => attachFile(null)} disabled={isLoading} aria-label={t("removeFile")} className="rounded-md p-1 text-muted-foreground hover:bg-background hover:text-foreground">

@@ -110,7 +110,7 @@ export async function ArticleShell({
         </nav>
         <header className="mb-10 max-w-3xl space-y-5">
           <p className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest">{post.eyebrow}</p>
-          <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-6xl" style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), sans-serif" }}>{post.title}</h1>
+          <h1 className="font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-6xl" style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), sans-serif" }}>{post.title}</h1>
           <p className="text-xl leading-8 text-muted-foreground">{post.summary}</p>
           <p className="text-sm text-muted-foreground">
             {t.rich("shell.byline", {

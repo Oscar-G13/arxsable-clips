@@ -261,6 +261,47 @@ class VideoUtilsDiarizationTests(unittest.TestCase):
             ],
         )
 
+    def test_format_cached_transcript_for_analysis_restores_timestamps_and_speakers(self):
+        cached = {
+            "text": "Plain text must not be sent to analysis.",
+            "words": [
+                {"text": "Hello", "start": 12300, "end": 12800, "speaker": "A"},
+                {"text": "there.", "start": 12850, "end": 13900, "speaker": "A"},
+            ],
+            "utterances": [
+                {
+                    "text": "Hello there.",
+                    "start": 12300,
+                    "end": 13900,
+                    "speaker": "A",
+                    "words": [
+                        {"text": "Hello", "start": 12300, "end": 12800, "speaker": "A"},
+                        {"text": "there.", "start": 12850, "end": 13900, "speaker": "A"},
+                    ],
+                }
+            ],
+        }
+
+        formatted = video_utils.format_cached_transcript_for_analysis(cached)
+
+        self.assertEqual(formatted, "[00:12 - 00:13] Speaker A: Hello there.")
+        self.assertNotIn("Plain text must not be sent", formatted)
+
+    def test_format_cached_word_only_transcript_preserves_timestamps(self):
+        cached = {
+            "text": "Legacy plain text",
+            "utterances": [],
+            "words": [
+                {"text": "First", "start": 61000, "end": 61600},
+                {"text": "line.", "start": 61650, "end": 62500},
+            ],
+        }
+
+        self.assertEqual(
+            video_utils.format_cached_transcript_for_analysis(cached),
+            "[01:01 - 01:02] First line.",
+        )
+
     def test_cache_transcript_data_handles_whisper_dict(self):
         whisper_result = {
             "text": "Hello there.",

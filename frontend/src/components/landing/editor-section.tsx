@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 
 import { DEMO_CLIPS } from "@/lib/demo";
+import { CLAMPED_CONTENT_TITLE_CLASS, TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 import { Reveal, SectionHeading } from "./reveal";
 
@@ -172,7 +173,7 @@ function StudioMock() {
             <p className="text-[11px] text-muted-foreground">
               {t("workspace.generation")} / {t("clipLabel", { order: active + 1 })}
             </p>
-            <p className="truncate text-sm font-semibold">{clip.hook}</p>
+            <p className={cn("text-sm font-semibold", TRUNCATED_CONTENT_TITLE_CLASS)}>{clip.hook}</p>
           </div>
           <span className="hidden items-center gap-1.5 text-xs text-muted-foreground md:flex">
             <Check className="size-3.5" />
@@ -220,7 +221,7 @@ function StudioMock() {
                       {t("clipLabel", { order: i + 1 })}
                       <span className="font-mono text-[10px] text-muted-foreground">{item.duration}</span>
                     </span>
-                    <span className="mt-0.5 line-clamp-2 text-[11px] leading-snug text-muted-foreground">{item.hook}</span>
+                    <span className={cn("mt-0.5 text-[11px] text-muted-foreground", CLAMPED_CONTENT_TITLE_CLASS)}>{item.hook}</span>
                   </span>
                 </button>
               ))}

@@ -195,7 +195,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </a>
               </div>
               <h1
-                className="max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
+                className="max-w-4xl font-display text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
                 style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}
               >
                 {post.title}
@@ -326,7 +326,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     {t(`${key}.cta.kicker`)}
                   </p>
                   <h2
-                    className="mt-2 text-2xl font-bold tracking-tight"
+                    className="mt-2 font-display text-2xl font-bold tracking-tight"
                     style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}
                   >
                     {t(`${key}.cta.title`)}

@@ -76,7 +76,7 @@ export default async function BlogIndexPage() {
           </div>
           <div className="max-w-3xl">
             <h1
-              className="text-4xl font-extrabold tracking-tight sm:text-5xl"
+              className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl"
               style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}
             >
               {t("index.heading")}
@@ -102,7 +102,7 @@ export default async function BlogIndexPage() {
               </span>
             </div>
             <h2
-              className="text-3xl font-bold tracking-tight sm:text-4xl"
+              className="font-display text-3xl font-bold tracking-tight sm:text-4xl"
               style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}
             >
               {featuredPost.title}

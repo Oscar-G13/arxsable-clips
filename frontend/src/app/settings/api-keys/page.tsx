@@ -14,6 +14,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { authClient, useSession } from "@/lib/auth-client";
 import { useCopyText } from "@/lib/copy-text";
 import { GITHUB_URL } from "@/lib/site";
+import { TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
+import { cn } from "@/lib/utils";
 
 const DOCS = [
   {
@@ -297,7 +299,7 @@ export default function ApiKeysPage() {
                   >
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-black truncate">{key.name}</span>
+                        <span className={cn("font-medium text-black", TRUNCATED_CONTENT_TITLE_CLASS)}>{key.name}</span>
                         {key.revoked && <Badge variant="secondary">{t("apiKeys.revoked")}</Badge>}
                       </div>
                       <p className="text-xs text-gray-500 font-mono mt-1">

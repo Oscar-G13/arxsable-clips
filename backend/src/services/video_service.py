@@ -33,6 +33,7 @@ from ..video_utils import (
     get_video_transcript,
     create_clips_with_transitions,
     create_optimized_clip,
+    format_cached_transcript_for_analysis,
     load_cached_transcript_data,
     parse_timestamp_to_seconds,
     build_clip_keep_ranges,
@@ -315,8 +316,18 @@ class VideoService:
         if processing_mode == "fast" and runtime_config.transcription_provider == "assemblyai":
             speech_model = runtime_config.fast_mode_transcript_model
 
+        whisper_model = None
+        if runtime_config.transcription_provider == "whisper":
+            whisper_model = runtime_config.whisper_model_for_processing_mode(
+                processing_mode
+            )
+
         transcript = await run_in_thread(
-            get_video_transcript, video_path, speech_model, source_url
+            get_video_transcript,
+            video_path,
+            speech_model,
+            source_url,
+            whisper_model,
         )
         logger.info(f"Transcript generated: {len(transcript)} characters")
         return transcript
@@ -645,6 +656,9 @@ class VideoService:
         download_quality: Optional[str] = None,
         cached_transcript: Optional[str] = None,
         cached_analysis_json: Optional[str] = None,
+        transcript_ready_callback: Optional[
+            Callable[[str, Path], Awaitable[None]]
+        ] = None,
         progress_callback: Optional[Callable[[int, str, str], Awaitable[None]]] = None,
         should_cancel: Optional[Callable[[], Awaitable[bool]]] = None,
         performance_context: Optional[str] = None,
@@ -780,13 +794,20 @@ class VideoService:
             if progress_callback:
                 await progress_callback(30, "Generating transcript...", "processing")
 
-            transcript = cached_transcript
+            transcript_data = load_cached_transcript_data(video_path) or {}
+            has_word_timings = bool(transcript_data.get("words"))
+            sidecar_transcript = (
+                format_cached_transcript_for_analysis(transcript_data)
+                if has_word_timings
+                else ""
+            )
+            transcript = cached_transcript or sidecar_transcript or None
             # Database text alone cannot recreate timed captions or cleanup.
             # Repair older caches whose word-timing sidecar was removed.
             needs_word_timings = (
                 bool(transcript)
                 and getattr(runtime_config, "transcription_provider", "assemblyai") != "youtube_captions"
-                and not (load_cached_transcript_data(video_path) or {}).get("words")
+                and not has_word_timings
             )
             if not transcript or needs_word_timings:
                 transcript = await VideoService.generate_transcript(
@@ -794,6 +815,12 @@ class VideoService:
                     processing_mode=processing_mode,
                     source_url=url if source_type == "youtube" else None,
                 )
+
+            # Commit the reusable analysis transcript before any sidecar upload
+            # or model request can fail. Timings already exist in the local
+            # sidecar produced by the transcription provider.
+            if transcript_ready_callback:
+                await transcript_ready_callback(transcript, video_path)
 
             # Preserve paid word timings before any analysis/cancellation path.
             try:

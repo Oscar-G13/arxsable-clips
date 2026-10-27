@@ -9,6 +9,7 @@ import logging
 import math
 import random
 import re
+from urllib.parse import urlparse
 
 import httpx
 from pydantic_ai import Agent, NativeOutput
@@ -431,6 +432,11 @@ _transcript_agent: Optional[Agent[None, TranscriptAnalysis]] = None
 _transcript_agent_signature: Optional[tuple[str | None, ...]] = None
 
 SUPPORTED_LLM_PROVIDERS = {"google", "google-gla", "openai", "openrouter", "anthropic", "ollama"}
+OLLAMA_MODEL_SETTINGS = {
+    "temperature": 0,
+    "max_tokens": 4096,
+    "openai_reasoning_effort": "low",
+}
 
 
 def _split_llm_name(model_name: str) -> tuple[str, str | None]:
@@ -489,8 +495,20 @@ def _get_missing_llm_key_error(model_name: str, runtime_config: Config) -> Optio
     return None
 
 
-def _uses_native_output(model_name: str) -> bool:
+def _uses_native_output(
+    model_name: str, runtime_config: Config | None = None
+) -> bool:
     provider, name = _split_llm_name(model_name)
+    if provider == "ollama":
+        runtime_config = runtime_config or get_config()
+        hostname = urlparse(runtime_config.resolve_ollama_base_url()).hostname or ""
+        # Self-hosted Ollama grammar-constrains JSON-schema output. Ollama Cloud
+        # accepts the request shape but does not enforce the schema.
+        return not (
+            hostname == "ollama.com"
+            or hostname.endswith(".ollama.com")
+            or (name or "").endswith("-cloud")
+        )
     return provider == "openrouter" or (
         provider == "anthropic" and name == "claude-sonnet-5-5"
     )
@@ -501,7 +519,7 @@ def _build_transcript_model(
 ) -> Model | str:
     model_name = model_name or runtime_config.llm
     provider, provider_model_name = _split_llm_name(model_name)
-    if provider == "anthropic" and _uses_native_output(model_name):
+    if provider == "anthropic" and _uses_native_output(model_name, runtime_config):
         # The installed SDK predates Sonnet 5.5. This model requires native
         # structured output rather than forced tool calls.
         profile = AnthropicProvider.model_profile(provider_model_name).update(
@@ -548,6 +566,7 @@ def _build_transcript_model(
             base_url=runtime_config.resolve_ollama_base_url(),
             api_key=runtime_config.ollama_api_key,
         ),
+        settings=OLLAMA_MODEL_SETTINGS,
     )
 
 
@@ -555,7 +574,6 @@ def get_transcript_agent(clip_length: str = "auto") -> Agent[None, TranscriptAna
     """Get or create the transcript analysis agent (lazy initialization)."""
     global _transcript_agent, _transcript_agent_signature
     runtime_config = get_config()
-    provider, _ = _split_llm_name(runtime_config.llm)
     signature = (
         clip_length,
         runtime_config.llm,
@@ -575,12 +593,13 @@ def get_transcript_agent(clip_length: str = "auto") -> Agent[None, TranscriptAna
 
         _transcript_agent = Agent[None, TranscriptAnalysis](
             model=_build_transcript_model(runtime_config),
-            output_type=NativeOutput(TranscriptAnalysis, strict=True) if _uses_native_output(runtime_config.llm) else TranscriptAnalysis,
+            output_type=(
+                NativeOutput(TranscriptAnalysis, strict=True)
+                if _uses_native_output(runtime_config.llm, runtime_config)
+                else TranscriptAnalysis
+            ),
             system_prompt=build_transcript_system_prompt(clip_length),
-            # Some local Ollama/OpenAI-compatible endpoints can return formatted
-            # prose before settling on schema-valid JSON. Keep retries limited
-            # while still allowing enough repair attempts for local models.
-            output_retries=2 if provider == "ollama" else 2,
+            output_retries=2,
         )
         _transcript_agent_signature = signature
     return _transcript_agent
@@ -635,7 +654,6 @@ def get_rerank_agent() -> Agent[None, CandidateRanking]:
     global _rerank_agent, _rerank_agent_signature
     runtime_config = get_config()
     model_name = getattr(runtime_config, "rerank_llm", None) or runtime_config.llm
-    provider, _ = _split_llm_name(model_name)
     signature = (
         model_name,
         runtime_config.openai_api_key,
@@ -654,7 +672,11 @@ def get_rerank_agent() -> Agent[None, CandidateRanking]:
 
         _rerank_agent = Agent[None, CandidateRanking](
             model=_build_transcript_model(runtime_config, model_name),
-            output_type=NativeOutput(CandidateRanking, strict=True) if _uses_native_output(model_name) else CandidateRanking,
+            output_type=(
+                NativeOutput(CandidateRanking, strict=True)
+                if _uses_native_output(model_name, runtime_config)
+                else CandidateRanking
+            ),
             system_prompt=candidate_rerank_system_prompt,
             output_retries=2,
         )
@@ -727,7 +749,11 @@ def get_broll_agent() -> Agent[None, BRollPlan]:
             raise RuntimeError(config_error)
         _broll_agent = Agent[None, BRollPlan](
             model=_build_transcript_model(runtime_config, model_name),
-            output_type=NativeOutput(BRollPlan, strict=True) if _uses_native_output(model_name) else BRollPlan,
+            output_type=(
+                NativeOutput(BRollPlan, strict=True)
+                if _uses_native_output(model_name, runtime_config)
+                else BRollPlan
+            ),
             system_prompt=broll_plan_system_prompt,
             output_retries=2,
         )

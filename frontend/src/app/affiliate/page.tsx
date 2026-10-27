@@ -108,7 +108,7 @@ export default async function AffiliatePage() {
       <section className="border-b bg-muted/35">
         <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
           <Badge variant="secondary">{t("badge")}</Badge>
-          <h1 className="mt-5 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl" style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}>
+          <h1 className="mt-5 max-w-4xl font-display text-4xl font-extrabold tracking-tight sm:text-5xl" style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}>
             {t("hero.title")}
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">

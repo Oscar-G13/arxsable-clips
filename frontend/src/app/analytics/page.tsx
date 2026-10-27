@@ -12,6 +12,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { ViewsChart, type DailyViews } from "@/components/views-chart";
 import { useSocialAccess } from "@/hooks/use-social-access";
 import { useSession } from "@/lib/auth-client";
+import { TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 import {
   PROVIDER_LABELS,
@@ -202,11 +203,11 @@ export default function AnalyticsPage() {
                     <SocialProviderIcon provider={post.provider} className="text-muted-foreground" />
                     <div className="min-w-0 flex-1">
                       {post.task_id ? (
-                        <Link href={`/tasks/${post.task_id}`} className="block truncate font-medium hover:underline underline-offset-4">
+                        <Link href={`/tasks/${post.task_id}`} className={cn("block font-medium hover:underline underline-offset-4", TRUNCATED_CONTENT_TITLE_CLASS)}>
                           {post.hook_title || post.title || t("untitled")}
                         </Link>
                       ) : (
-                        <p className="truncate font-medium">{post.hook_title || post.title || t("untitled")}</p>
+                        <p className={cn("font-medium", TRUNCATED_CONTENT_TITLE_CLASS)}>{post.hook_title || post.title || t("untitled")}</p>
                       )}
                       <p className="truncate text-xs text-muted-foreground">
                         {post.hook_type ? t("hookMeta", { hook: post.hook_type }) : ""}

@@ -38,6 +38,7 @@ import {
   type CaptionStyle,
 } from "@/lib/editor/document";
 import { cn } from "@/lib/utils";
+import { TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
 import { editorRequest, useEditor } from "./use-editor";
 import { Preview } from "./preview";
 import { Timeline } from "./timeline";
@@ -294,7 +295,7 @@ export function EditorWorkspace({
                 <span aria-hidden>/</span>
                 <span className="text-foreground">{t("clipLabel", { order: clip.clip_order })}</span>
               </p>
-              <h1 className="truncate font-display text-xl font-bold tracking-tight">
+              <h1 className={cn("text-xl font-bold tracking-tight", TRUNCATED_CONTENT_TITLE_CLASS)}>
                 {title}
               </h1>
             </div>

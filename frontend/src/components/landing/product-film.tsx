@@ -24,6 +24,7 @@ import { VideoSourceIcon } from "@/components/video-source-icon";
 import { DEMO_CLIPS, DEMO_SOURCE } from "@/lib/demo";
 import { formatClipDuration } from "@/lib/generations";
 import { cn } from "@/lib/utils";
+import { CLAMPED_CONTENT_TITLE_CLASS, SAFE_CONTENT_TITLE_CLASS } from "@/lib/typography";
 
 /*
  * A scripted walkthrough of the real app, rendered at the app's own size
@@ -276,7 +277,7 @@ function FilmTile({ index, onTarget }: { index: number; onTarget?: boolean }) {
         </ClipCover>
       </div>
       <div className="mt-2.5 px-0.5">
-        <h3 className="line-clamp-2 text-sm font-semibold leading-snug">{clip.hook}</h3>
+        <h3 className={cn("text-sm font-semibold", CLAMPED_CONTENT_TITLE_CLASS)}>{clip.hook}</h3>
         <p className="mt-0.5 text-xs tabular-nums text-muted-foreground">{clip.range}</p>
         <div className="mt-2 flex items-center gap-1">
           <span className="inline-flex h-7 flex-1 items-center justify-center gap-1.5 rounded-md border bg-background px-2 text-xs font-medium shadow-xs">
@@ -311,7 +312,7 @@ function TaskScene({ frame }: { frame: Frame }) {
       <span className="inline-flex items-center gap-1 text-sm text-muted-foreground"><ArrowLeft className="size-3.5" />{t("back")}</span>
       <header className="mt-3 flex items-start justify-between gap-4">
         <div className="min-w-0 flex-1">
-          <h1 className={cn("min-w-0 font-display text-3xl font-bold tracking-tight", !frame.complete && "shimmer")}>{DEMO_SOURCE.title}</h1>
+          <h1 className={cn("text-3xl font-bold tracking-tight", SAFE_CONTENT_TITLE_CLASS)}>{DEMO_SOURCE.title}</h1>
           <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-muted-foreground">
             <StatusBadge status={status} />
             <span className="flex items-center gap-1.5"><VideoSourceIcon source="youtube" className="size-3.5" aria-hidden />YouTube</span>
@@ -403,7 +404,7 @@ function FocusDialog() {
           </div>
           <div className="space-y-5 p-5">
             <div>
-              <h2 className="font-display text-xl font-bold leading-tight">{clip.hook}</h2>
+              <h2 className={cn("text-xl font-bold", SAFE_CONTENT_TITLE_CLASS)}>{clip.hook}</h2>
               <p className="mt-1 text-sm tabular-nums text-muted-foreground">{clip.range} · {clip.duration}</p>
             </div>
             <section className="rounded-xl border p-4">

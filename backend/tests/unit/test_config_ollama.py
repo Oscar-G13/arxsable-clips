@@ -1,4 +1,5 @@
 import pytest
+from pathlib import Path
 
 from src import config
 from src.config import Config
@@ -61,8 +62,36 @@ def test_hook_teaser_is_off_unless_requested(monkeypatch):
 
 
 def test_whisper_accepts_documented_model_size_setting(monkeypatch):
+    monkeypatch.delenv("WHISPER_QUALITY_MODEL_SIZE", raising=False)
     monkeypatch.delenv("WHISPER_MODEL", raising=False)
     monkeypatch.setenv("WHISPER_MODEL_SIZE", "tiny")
     assert Config().whisper_model == "tiny"
     monkeypatch.setenv("WHISPER_MODEL", "base")
     assert Config().whisper_model == "base"
+
+
+def test_whisper_models_follow_processing_mode(monkeypatch):
+    monkeypatch.setenv("WHISPER_FAST_MODEL_SIZE", "small")
+    monkeypatch.setenv("WHISPER_QUALITY_MODEL_SIZE", "medium")
+
+    runtime_config = Config()
+
+    assert runtime_config.whisper_model_for_processing_mode("fast") == "small"
+    assert runtime_config.whisper_model_for_processing_mode("balanced") == "medium"
+    assert runtime_config.whisper_model_for_processing_mode("quality") == "medium"
+
+
+def test_empty_quality_override_preserves_legacy_whisper_model(monkeypatch):
+    monkeypatch.setenv("WHISPER_QUALITY_MODEL_SIZE", "")
+    monkeypatch.setenv("WHISPER_MODEL_SIZE", "large")
+
+    assert Config().whisper_model_for_processing_mode("quality") == "large"
+
+
+def test_compose_does_not_mask_legacy_whisper_quality_setting():
+    compose = (Path(__file__).resolve().parents[3] / "docker-compose.yml").read_text()
+
+    assert compose.count(
+        "WHISPER_QUALITY_MODEL_SIZE=${WHISPER_QUALITY_MODEL_SIZE:-}"
+    ) == 2
+    assert "WHISPER_QUALITY_MODEL_SIZE=${WHISPER_QUALITY_MODEL_SIZE:-medium}" not in compose

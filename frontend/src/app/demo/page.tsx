@@ -12,6 +12,8 @@ import { intlLocale } from "@/i18n/config";
 import { DEMO_CLIPS, DEMO_PUBLISHED_AT, DEMO_SOURCE, getDemoSourceMomentUrl } from "@/lib/demo";
 import { SELF_HOSTING_GUIDE_HREF } from "@/lib/marketing-links";
 import { GITHUB_URL, getSiteUrl } from "@/lib/site";
+import { CLAMPED_CONTENT_TITLE_CLASS, TRUNCATED_CONTENT_TITLE_CLASS } from "@/lib/typography";
+import { cn } from "@/lib/utils";
 
 const pipelineIcons = [Type, Sparkles, Captions, ScanFace];
 
@@ -86,14 +88,14 @@ export default async function DemoPage() {
       <section className="border-b bg-muted/35">
         <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
           <Badge variant="secondary">{t("demo.badge")}</Badge>
-          <h1 className="mt-5 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl" style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}>
+          <h1 className="mt-5 max-w-4xl font-display text-4xl font-extrabold tracking-tight sm:text-5xl" style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}>
             {t("demo.heading")}
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">{t("demo.intro")}</p>
-          <a href={DEMO_SOURCE.url} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-3 rounded-lg border bg-background p-3 pr-4 text-sm transition-colors hover:border-foreground/30">
+          <a href={DEMO_SOURCE.url} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex max-w-full items-center gap-3 rounded-lg border bg-background p-3 pr-4 text-sm transition-colors hover:border-foreground/30">
             <span className="flex h-9 w-9 items-center justify-center rounded-md bg-red-500/10"><Youtube className="h-4 w-4 text-red-500" /></span>
-            <span>
-              <span className="block font-medium">{DEMO_SOURCE.title}</span>
+            <span className="min-w-0">
+              <span className={cn("block font-medium", TRUNCATED_CONTENT_TITLE_CLASS)}>{DEMO_SOURCE.title}</span>
               <span className="block text-xs text-muted-foreground">{t("demo.sourceLabel")}</span>
             </span>
             <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
@@ -118,7 +120,7 @@ export default async function DemoPage() {
                   className="mx-auto aspect-[9/16] w-full max-w-[300px] rounded-xl bg-black shadow-lg ring-1 ring-border"
                   aria-label={t("demo.clipAria", { hook: clip.hook })}
                 />
-                <h3 className="mt-5 text-center text-lg font-semibold">{clip.hook}</h3>
+                <h3 className={cn("mt-5 text-center text-lg font-semibold", CLAMPED_CONTENT_TITLE_CLASS)}>{clip.hook}</h3>
                 <p className="mt-1 text-center text-sm tabular-nums text-muted-foreground">
                   {t("demo.clipMeta", { range: clip.range, duration: clip.duration })}
                 </p>

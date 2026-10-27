@@ -86,6 +86,7 @@ from .media.transcription import (
     _whisper_result_to_transcript_data,
     cache_transcript_data,
     format_ms_to_timestamp,
+    format_cached_transcript_for_analysis,
     format_transcript_for_analysis,
     load_cached_transcript_data,
     transcribe_with_whisper,

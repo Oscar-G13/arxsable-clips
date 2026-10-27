@@ -2,6 +2,7 @@ import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import prisma from "@/lib/prisma";
 import { nextCookies } from "better-auth/next-js";
+import { username } from "better-auth/plugins";
 import { getAuthTrustedOrigins } from "@/lib/auth-origins";
 import { prepareAccountDeletion } from "@/server/account-deletion";
 import { fetchBackend } from "@/server/backend-api";
@@ -53,6 +54,7 @@ export const auth = betterAuth({
     },
   },
   trustedOrigins,
+  disabledPaths: ["/is-username-available"],
   emailVerification: {
     sendOnSignUp: false,
     sendOnSignIn: false,
@@ -83,6 +85,7 @@ export const auth = betterAuth({
     },
   },
   plugins: [
+    username(),
     nextCookies(), // Enable Next.js cookie handling
   ],
 });

@@ -59,6 +59,8 @@ model User {
   id            String    @id @default(uuid())
   name          String
   email         String    @unique
+  username        String? @unique @db.VarChar(30)
+  displayUsername String? @db.VarChar(30)
   emailVerified Boolean   @default(false)
   image         String?
   createdAt     DateTime  @default(now()) @db.Timestamptz

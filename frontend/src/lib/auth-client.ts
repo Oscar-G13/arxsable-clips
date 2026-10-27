@@ -1,7 +1,10 @@
 import { createAuthClient } from "better-auth/react";
+import { usernameClient } from "better-auth/client/plugins";
 import { useSyncExternalStore } from "react";
 
-export const authClient = createAuthClient();
+export const authClient = createAuthClient({
+  plugins: [usernameClient()],
+});
 
 export const { signIn, signOut, signUp, requestPasswordReset, resetPassword } = authClient;
 

@@ -1,6 +1,6 @@
 # Launch Kit
 
-Everything needed to announce SupoClip and measure whether each channel produces
+Everything needed to announce Arx Clips and measure whether each channel produces
 activated users (people who export a clip), not just visits.
 
 - [Pages to link](#pages-to-link)
@@ -18,15 +18,15 @@ activated users (people who export a clip), not just visits.
 | Home | `https://www.supoclip.com/` | Product Hunt, general announcements |
 | Demo | `https://www.supoclip.com/demo` | Social posts: real output, with timestamps back to the source |
 | Self-hosting guide | `https://www.supoclip.com/blog/self-host-supoclip-docker` | r/selfhosted, developer communities |
-| SupoClip vs OpusClip | `https://www.supoclip.com/blog/supoclip-vs-opusclip` | "OpusClip alternative" threads and questions |
+| Arx Clips vs OpusClip | `https://www.supoclip.com/blog/supoclip-vs-opusclip` | "OpusClip alternative" threads and questions |
 | Open-source clipper | `https://www.supoclip.com/open-source-video-clipper` | Open-source communities |
 | GitHub | `https://github.com/FujiwaraChoki/supoclip` | Hacker News, developer audiences |
 
 **Visual assets in the repo**
 
 - `assets/banner.jpg`: README cover / social header
-- `frontend/public/blog/supoclip-editor.webp`: real editor screenshot (sample test footage)
-- `frontend/public/blog/supoclip-open-source-clipping.webp`: illustration (AI-generated, label it as such)
+- `frontend/public/blog/arx-clips-editor.webp`: real editor screenshot (sample test footage)
+- `frontend/public/blog/arx-clips-open-source-clipping.webp`: illustration (AI-generated, label it as such)
 - `frontend/public/clips/demo-{1,2}.mp4` + `.jpg`: demo clip previews
 
 > **Rights note:** the demo clips come from a third-party interview
@@ -54,7 +54,7 @@ Use these claims freely. Each one is backed by the code or the site:
 
 **Don't say:**
 
-- "Free" without qualification. Hosted SupoClip has **no free plan**. Say "free to self-host."
+- "Free" without qualification. Hosted Arx Clips has **no free plan**. Say "free to self-host."
 - Any speed, accuracy, or quality number ("10x faster", "95% accurate", "better clips than OpusClip"). We haven't run a benchmark that supports one.
 - That virality scores predict views. They rank candidates for review.
 - OpusClip prices or credit amounts. They change; link to the [comparison](https://www.supoclip.com/blog/supoclip-vs-opusclip) instead.
@@ -67,7 +67,7 @@ attributed to `news.ycombinator.com` without tags. Add UTM tags where referrers
 get stripped (email, DMs, apps, QR codes) or where you want to compare
 individual posts within one platform.
 
-**Convention:** all lowercase, underscores, no spaces. SupoClip lowercases
+**Convention:** all lowercase, underscores, no spaces. Arx Clips lowercases
 values on capture anyway, so `Reddit` and `reddit` are counted together.
 
 | Parameter | Meaning | Values |
@@ -100,9 +100,9 @@ posting, and reply to comments for the first few hours.
 
 ### Show HN
 
-> **Show HN: SupoClip – open-source AI clipper that turns long videos into Shorts**
+> **Show HN: Arx Clips – open-source AI clipper that turns long videos into Shorts**
 >
-> SupoClip takes a YouTube link or uploaded video, transcribes it, has an LLM
+> Arx Clips takes a YouTube link or uploaded video, transcribes it, has an LLM
 > pick self-contained moments, and renders 9:16 clips with word-synced captions,
 > a hook title, and face-aware framing.
 >
@@ -122,15 +122,15 @@ posting, and reply to comments for the first few hours.
 ### Product Hunt
 
 - **Tagline (≤60 chars):** `Open-source AI clipper: long videos into captioned Shorts`
-- **Description (≤260 chars):** `SupoClip finds the best moments in long videos and turns them into vertical, captioned clips for Shorts, Reels, and TikTok. Use the hosted app or self-host it for free with your own AI models, including fully local Whisper + Ollama.`
+- **Description (≤260 chars):** `Arx Clips finds the best moments in long videos and turns them into vertical, captioned clips for Shorts, Reels, and TikTok. Use the hosted app or self-host it for free with your own AI models, including fully local Whisper + Ollama.`
 - **First comment:** why it's open source, what self-hosting unlocks, the hosted plans, and one specific question for feedback.
 - **Gallery:** the demo video (below), the editor screenshot, the banner.
 
 ### r/selfhosted
 
-> **SupoClip: self-hosted AI video clipper (long videos → vertical clips), Docker Compose, works with Whisper + Ollama**
+> **Arx Clips: self-hosted AI video clipper (long videos → vertical clips), Docker Compose, works with Whisper + Ollama**
 >
-> I build SupoClip, an AGPL-3.0 alternative to tools like OpusClip. It turns
+> I build Arx Clips, an AGPL-3.0 alternative to tools like OpusClip. It turns
 > podcasts, streams, and talks into captioned 9:16 clips.
 >
 > - `docker compose up -d --build`: frontend, API, worker, Postgres, Redis
@@ -148,13 +148,13 @@ posting, and reply to comments for the first few hours.
 2. Here's real output from a long-form interview, with links back to each source timestamp: [demo link]
 3. Bring your own AI: OpenAI, Google, Anthropic, OpenRouter, or fully local Whisper + Ollama.
 4. No watermark. No plan limits when self-hosted. AGPL-3.0: [GitHub link]
-5. Comparing tools? Our SupoClip vs OpusClip comparison links a source for every claim: [comparison link]
+5. Comparing tools? Our Arx Clips vs OpusClip comparison links a source for every claim: [comparison link]
 
 Attach the demo video (own footage) to tweet 1, not the third-party demo clips.
 
 ### LinkedIn
 
-> Most long-form video gets watched once. We built SupoClip to turn
+> Most long-form video gets watched once. We built Arx Clips to turn
 > recordings like podcasts, webinars, and talks into short vertical clips with
 > captions, so one recording becomes a week of posts.
 >
@@ -165,14 +165,14 @@ Attach the demo video (own footage) to tweet 1, not the third-party demo clips.
 
 ### Newsletter blurb
 
-> **SupoClip is open source.** Turn long videos into captioned Shorts, Reels,
+> **Arx Clips is open source.** Turn long videos into captioned Shorts, Reels,
 > and TikToks. Use the hosted app, or self-host it free with your own AI models.
 > [See the demo →]
 
 ## Demo video script
 
 Target: 60–75 seconds, 1080×1920 for social or 1920×1080 for Product Hunt and
-YouTube. Record with **footage we own** (e.g. a SupoClip team talk or a
+YouTube. Record with **footage we own** (e.g. a Arx Clips team talk or a
 podcast episode with written permission).
 
 | Time | Shot | Voiceover / caption |

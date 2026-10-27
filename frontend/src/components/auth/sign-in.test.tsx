@@ -29,7 +29,7 @@ describe("SignIn", () => {
   it("shows the logo-led private studio surface without a typed company wordmark", () => {
     render(<SignIn />);
 
-    expect(screen.getByRole("img", { name: "ARX Clips" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Arx Clips" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Welcome back." })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Open studio" })).toBeInTheDocument();
     expect(screen.getByLabelText("Username")).toHaveAttribute("autocomplete", "username");

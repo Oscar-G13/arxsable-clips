@@ -1,5 +1,5 @@
 """
-SupoClip FastAPI application.
+Arx Clips FastAPI application.
 
 This is the new main entry point with:
 - Separated concerns (routes, services, repositories, workers)
@@ -60,7 +60,7 @@ def create_app(
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         """Application lifespan: startup and shutdown events."""
-        logger.info("🚀 Starting SupoClip API...")
+        logger.info("🚀 Starting Arx Clips API...")
         try:
             await init_db()
             logger.info("✅ Database initialized")
@@ -73,14 +73,14 @@ def create_app(
 
             yield
         finally:
-            logger.info("🛑 Shutting down SupoClip API...")
+            logger.info("🛑 Shutting down Arx Clips API...")
             await close_db()
             await queue_adapter.close_pool()
             logger.info("✅ Cleanup complete")
 
     app = FastAPI(
-        title="SupoClip API",
-        description="SupoClip backend with async job processing",
+        title="Arx Clips API",
+        description="Arx Clips backend with async job processing",
         version="0.2.0",
         lifespan=lifespan,
     )
@@ -205,7 +205,7 @@ def create_app(
     def read_root():
         """Root endpoint."""
         return {
-            "name": "SupoClip API",
+            "name": "Arx Clips API",
             "version": "0.2.0",
             "status": "running",
             "docs": "/docs",

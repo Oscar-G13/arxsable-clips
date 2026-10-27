@@ -8,7 +8,7 @@ chmod 700 "$BACKUP_DIR"
 
 exec 9>"$ROOT_DIR/.backup.lock"
 flock -n 9 || {
-  echo "A SupoClip backup is already running" >&2
+  echo "A Arx Clips backup is already running" >&2
   exit 1
 }
 

@@ -5,8 +5,8 @@ import { auth } from "@/lib/auth";
 const PUBLIC_APP_ASSETS = new Set([
   "/app-store-badge.svg",
   "/arx-clips-logo.png",
-  "/blog/supoclip-editor.webp",
-  "/blog/supoclip-open-source-clipping.webp",
+  "/blog/arx-clips-editor.webp",
+  "/blog/arx-clips-open-source-clipping.webp",
   "/logo.png",
   "/clips/source.jpg",
   "/clips/podcast-1.jpg",

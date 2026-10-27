@@ -29,7 +29,7 @@ preflight. An actor result found there is stored with the task and reused by the
 so each actor runs at most once per task, and a chain that has failed completely is not
 rerun for the same job.
 
-This guide explains the important environment variables used by SupoClip and how they affect behavior.
+This guide explains the important environment variables used by Arx Clips and how they affect behavior.
 
 Most settings are sourced from `.env.example`, `docker-compose.yml`, and the backend configuration code in `backend/src/config.py`.
 
@@ -84,7 +84,7 @@ The backend can infer a default LLM from whichever API key is present, but setti
 
 ## Analytics Settings
 
-SupoClip can send pageviews and custom product events to DataFast from the `frontend` app.
+Arx Clips can send pageviews and custom product events to DataFast from the `frontend` app.
 
 | Variable | Default | Purpose |
 |---|---|---|
@@ -224,7 +224,7 @@ Required when `SELF_HOST=false` and you want subscription management:
 | `AWS_REGION` | AWS region for Amazon SES, default `us-east-1` |
 | `AWS_ACCESS_KEY_ID` | AWS access key ID used to send hosted billing lifecycle emails |
 | `AWS_SECRET_ACCESS_KEY` | AWS secret access key used to send hosted billing lifecycle emails |
-| `SES_FROM_EMAIL` | Verified sender address for subscription emails, default `SupoClip <onboarding@example.com>` |
+| `SES_FROM_EMAIL` | Verified sender address for subscription emails, default `Arx Clips <onboarding@example.com>` |
 
 ### Discord feedback forwarding
 
@@ -238,7 +238,7 @@ Required when `SELF_HOST=false` and you want subscription management:
 Social publishing is optional. When no provider is configured the Publish
 button and the Social Accounts page explain what is missing instead of failing.
 
-SupoClip uses one OAuth app per platform, registered by whoever operates the
+Arx Clips uses one OAuth app per platform, registered by whoever operates the
 server. Users connect their own YouTube, TikTok and Instagram accounts through
 that app from **Settings → Social Accounts**; tokens are stored encrypted with
 `APP_SETTINGS_ENCRYPTION_KEY` (falling back to `BACKEND_AUTH_SECRET`).
@@ -313,7 +313,7 @@ Before enabling each provider for users:
 - Connect a test account, disconnect it, and reconnect it. Confirm token refresh
   works and revoked credentials prompt a reconnect.
 - Publish one clip using a visibility level allowed for the test account. Check
-  the result on the platform as well as in SupoClip.
+  the result on the platform as well as in Arx Clips.
 - Schedule a clip, confirm it publishes once, and cancel another scheduled clip.
 - For TikTok, verify asynchronous processing and private completion with no
   public post ID. Status-check failures should keep checking the existing upload;
@@ -347,13 +347,13 @@ With a proxy set, a job downloads modest audio first, picks clips, then fetches 
 
 ## Apify YouTube Downloader
 
-SupoClip uses the actor explicitly configured in the private environment as the primary YouTube download path. Metadata preflight and fallback downloads rely on the local `yt-dlp` stack over a direct connection. When `YOUTUBE_PROXY_URL` is set, the proxy attempt runs before Apify.
+Arx Clips uses the actor explicitly configured in the private environment as the primary YouTube download path. Metadata preflight and fallback downloads rely on the local `yt-dlp` stack over a direct connection. When `YOUTUBE_PROXY_URL` is set, the proxy attempt runs before Apify.
 
 | Variable | Default | Purpose |
 |---|---|---|
 | `APIFY_API_TOKEN` | empty | Enables the primary Apify download flow |
 | `APIFY_YOUTUBE_DEFAULT_QUALITY` | `1080` | Requested Apify download resolution (`360`, `480`, `720`, or `1080`) |
-| `APIFY_RUN_TIMEOUT_SECONDS` | `900` | Maximum Apify actor run time before SupoClip gives up and falls back |
+| `APIFY_RUN_TIMEOUT_SECONDS` | `900` | Maximum Apify actor run time before Arx Clips gives up and falls back |
 
 ## RapidAPI YouTube Downloader
 
@@ -470,7 +470,7 @@ NEXT_PUBLIC_SCALE_PLAN_MINUTE_LIMIT=1500
 AWS_REGION=us-east-1
 AWS_ACCESS_KEY_ID=your_aws_access_key_id
 AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
-SES_FROM_EMAIL="SupoClip <onboarding@example.com>"
+SES_FROM_EMAIL="Arx Clips <onboarding@example.com>"
 ```
 
 ## Related Reading

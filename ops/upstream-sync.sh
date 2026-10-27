@@ -5,7 +5,7 @@ umask 077
 
 exec 9>"$ROOT_DIR/.git-ops.lock"
 flock -n 9 || {
-  echo "Another SupoClip Git operation is running" >&2
+  echo "Another Arx Clips Git operation is running" >&2
   exit 1
 }
 
@@ -41,7 +41,7 @@ worktree_root=""
 
 write_body() {
   {
-    echo 'Automated, review-only merge of new SupoClip upstream commits.'
+    echo 'Automated, review-only merge of new Arx Clips upstream commits.'
     echo
     echo '## New upstream commits'
     git -C "$APP_DIR" log --format='- %h %s' main..upstream/main

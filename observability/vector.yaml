@@ -1,4 +1,4 @@
-# Ships SupoClip container logs (and the host nginx's SupoClip access/error
+# Ships Arx Clips container logs (and the host nginx's Arx Clips access/error
 # logs) to Axiom. Started by docker-compose's "axiom" profile; see
 # docs/observability.md.
 

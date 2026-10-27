@@ -28,7 +28,7 @@ This guide covers the recommended Docker setup, local development mode, and the 
 
 ## Recommended Setup: Docker
 
-Docker is the intended path for running SupoClip because it starts the frontend, backend, worker, PostgreSQL, and Redis together with the expected wiring.
+Docker is the intended path for running Arx Clips because it starts the frontend, backend, worker, PostgreSQL, and Redis together with the expected wiring.
 
 ### 1. Clone the repository
 
@@ -207,7 +207,7 @@ pnpm run dev
 
 ## Data and Volumes
 
-With Docker, SupoClip stores persistent data in named volumes:
+With Docker, Arx Clips stores persistent data in named volumes:
 
 - `postgres_data`
 - `redis_data`
@@ -221,7 +221,7 @@ The backend also mounts these local directories:
 
 ## Hosted Mode Versus Self-Hosted Mode
 
-SupoClip defaults to self-host mode:
+Arx Clips defaults to self-host mode:
 
 ```env
 SELF_HOST=true

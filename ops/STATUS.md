@@ -1,4 +1,4 @@
-# SupoClip Status
+# Arx Clips Status
 
 - Date (Europe/Helsinki): 2026-10-27
 - Application commit: `a4592550e968ec4936046043a51e51103d7c4afe`

@@ -1,11 +1,11 @@
-# SupoClip MCP Server
+# Arx Clips MCP Server
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server for
-[SupoClip](https://supoclip.com) — turn long-form videos (YouTube links or
+[Arx Clips](https://supoclip.com) — turn long-form videos (YouTube links or
 direct URLs) into short, vertical, subtitled viral clips from any MCP client
 (Claude Desktop, Claude Code, Cursor, etc.).
 
-By default it talks to the **official hosted SupoClip API** at
+By default it talks to the **official hosted Arx Clips API** at
 `https://api.supoclip.com`. Point it at your own deployment by setting
 `SUPOCLIP_API_URL`.
 
@@ -80,7 +80,7 @@ supoclip-mcp
 ## Hosted SSE server
 
 For clients that add a remote MCP URL, run the server over SSE and require a
-SupoClip API key as the client Bearer token:
+Arx Clips API key as the client Bearer token:
 
 ```bash
 SUPOCLIP_API_URL=https://api.supoclip.com \
@@ -140,7 +140,7 @@ claude mcp add supoclip -e SUPOCLIP_API_KEY=sk_your_key_here \
 
 ## License
 
-AGPL-3.0-or-later, matching the SupoClip project.
+AGPL-3.0-or-later, matching the Arx Clips project.
 
 ### Clip length
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SupoClip is an open-source alternative to OpusClip — an AI-powered video clipping tool that transforms long-form content into viral short clips. AGPL-3.0 licensed.
+Arx Clips is an open-source alternative to OpusClip — an AI-powered video clipping tool that transforms long-form content into viral short clips. AGPL-3.0 licensed.
 
 ## Development Commands
 
@@ -311,7 +311,7 @@ Edit `backend/src/ai.py`: `simplified_system_prompt` controls selection criteria
 
 ## Observability
 
-Errors and analytics go to PostHog (project "SupoClip", EU, id `314504`); logs go to
+Errors and analytics go to PostHog (project "Arx Clips", EU, id `314504`); logs go to
 Axiom (dataset `supoclip-prod`). Everything is off unless tokens are set. Details in
 `docs/observability.md`.
 
@@ -324,7 +324,7 @@ Axiom (dataset `supoclip-prod`). Everything is off unless tokens are set. Detail
 - **Correlation:** an exception's `trace_id` property matches `trace_id` in Axiom logs
   (worker jobs: `task-<id>`); the PostHog distinct id is the Better Auth user id everywhere.
 - **Logs:** the `vector` service (`observability/vector.yaml`, compose profile `axiom`)
-  ships `supoclip-*` container logs and the host nginx's SupoClip logs.
+  ships `supoclip-*` container logs and the host nginx's Arx Clips logs.
 
 ## iOS App
 
@@ -353,7 +353,7 @@ high-cap fallback actors are not called. Runbook: `docs/youtube-download.md`.
 ## MCP Server
 
 `mcp/` is a standalone [MCP](https://modelcontextprotocol.io) server
-(`supoclip-mcp`, Python/FastMCP, stdio) that exposes SupoClip to MCP clients
+(`supoclip-mcp`, Python/FastMCP, stdio) that exposes Arx Clips to MCP clients
 (Claude Desktop/Code, Cursor, …). It is a thin client over the REST API.
 
 - **Default target:** the hosted API `https://api.supoclip.com`. Override with

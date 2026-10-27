@@ -112,7 +112,7 @@ describe("normalizeLandingPath", () => {
   it.each([
     "/",
     "/demo",
-    "/blog/self-host-supoclip-docker",
+    "/blog/self-host-arx-clips-docker",
     "/blog/top-10-clipping-tips-2026",
     "/open-source-video-clipper",
     "/tasks",

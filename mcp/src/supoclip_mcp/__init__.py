@@ -1,3 +1,3 @@
-"""SupoClip MCP server package."""
+"""Arx Clips MCP server package."""
 
 __version__ = "0.1.0"

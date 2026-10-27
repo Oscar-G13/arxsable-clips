@@ -18,15 +18,15 @@ export interface MarketingLink {
   related: string[];
 }
 
-export const SELF_HOSTING_GUIDE_HREF = "/blog/self-host-supoclip-docker";
-export const OPUSCLIP_COMPARISON_HREF = "/blog/supoclip-vs-opusclip";
+export const SELF_HOSTING_GUIDE_HREF = "/blog/self-host-arx-clips-docker";
+export const OPUSCLIP_COMPARISON_HREF = "/blog/arx-clips-vs-opusclip";
 
 export const marketingLinks: MarketingLink[] = [
   {
     href: "/demo",
     group: "product",
     eyebrow: "Demo",
-    title: "See real clips SupoClip made from a long video",
+    title: "See real clips Arx Clips made from a long video",
     label: "Demo",
     description: "Watch the output, then jump to each moment in the original source video.",
     related: ["/ai-video-clipper", "/youtube-shorts-clipper", SELF_HOSTING_GUIDE_HREF],
@@ -37,7 +37,7 @@ export const marketingLinks: MarketingLink[] = [
     eyebrow: "AI Video Clipping",
     title: "AI video clipper for Shorts, Reels, and TikTok",
     label: "AI video clipper",
-    description: "How SupoClip finds moments, scores candidates, reframes faces, and adds captions.",
+    description: "How Arx Clips finds moments, scores candidates, reframes faces, and adds captions.",
     related: ["/blog/find-best-moments-in-video", "/blog/podcast-to-shorts", "/youtube-shorts-clipper"],
   },
   {
@@ -62,7 +62,7 @@ export const marketingLinks: MarketingLink[] = [
     href: SELF_HOSTING_GUIDE_HREF,
     group: "guide",
     eyebrow: "Self-Hosting Guide",
-    title: "Self-host SupoClip with Docker Compose",
+    title: "Self-host Arx Clips with Docker Compose",
     label: "Self-hosting guide",
     description: "Requirements, environment variables, first boot, a fully local setup, and production checks.",
     related: ["/open-source-video-clipper", OPUSCLIP_COMPARISON_HREF, "/youtube-shorts-clipper"],
@@ -71,8 +71,8 @@ export const marketingLinks: MarketingLink[] = [
     href: OPUSCLIP_COMPARISON_HREF,
     group: "comparison",
     eyebrow: "Comparison",
-    title: "SupoClip vs OpusClip: a sourced comparison",
-    label: "SupoClip vs OpusClip",
+    title: "Arx Clips vs OpusClip: a sourced comparison",
+    label: "Arx Clips vs OpusClip",
     description: "Pricing model, deployment, watermarks, and workflow, with every claim linked to a source.",
     related: [SELF_HOSTING_GUIDE_HREF, "/blog/best-free-opusclip-alternative", "/ai-video-clipper"],
   },
@@ -83,14 +83,14 @@ export const marketingLinks: MarketingLink[] = [
     title: "Free OpusClip alternative: costs and tradeoffs",
     label: "Self-hosted OpusClip alternative",
     description: "Understand the compute, provider costs, and maintenance behind a self-hosted workflow.",
-    related: [OPUSCLIP_COMPARISON_HREF, SELF_HOSTING_GUIDE_HREF, "/blog/supoclip-vs-supo-live"],
+    related: [OPUSCLIP_COMPARISON_HREF, SELF_HOSTING_GUIDE_HREF, "/blog/arx-clips-vs-supo-live"],
   },
   {
-    href: "/blog/supoclip-vs-supo-live",
+    href: "/blog/arx-clips-vs-supo-live",
     group: "comparison",
     eyebrow: "Comparison",
-    title: "SupoClip vs supo.live: open-source control",
-    label: "SupoClip vs supo.live",
+    title: "Arx Clips vs supo.live: open-source control",
+    label: "Arx Clips vs supo.live",
     description: "Compare self-hosting, AI clipping, and editing workflows before choosing a video tool.",
     related: ["/open-source-video-clipper", SELF_HOSTING_GUIDE_HREF, OPUSCLIP_COMPARISON_HREF],
   },
@@ -132,7 +132,7 @@ export const marketingLinks: MarketingLink[] = [
   },
   {
     href: "/blog/open-source-video-clippers", language: "en", group: "comparison", eyebrow: "Open-source comparison",
-    title: "Compare SupoClip, Clips AI, and Auto-Editor", label: "Open-source video clippers",
+    title: "Compare Arx Clips, Clips AI, and Auto-Editor", label: "Open-source video clippers",
     description: "Choose an app, Python library, or command-line tool for the editing job you need.",
     related: ["/open-source-video-clipper", SELF_HOSTING_GUIDE_HREF, OPUSCLIP_COMPARISON_HREF],
   },

@@ -1,5 +1,5 @@
 [Unit]
-Description=Check SupoClip upstream weekly
+Description=Check Arx Clips upstream weekly
 
 [Timer]
 OnCalendar=Mon *-*-* 10:41:00 Europe/Helsinki

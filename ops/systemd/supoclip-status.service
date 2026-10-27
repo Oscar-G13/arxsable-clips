@@ -1,5 +1,5 @@
 [Unit]
-Description=Publish SupoClip operational status
+Description=Publish Arx Clips operational status
 After=docker.service network-online.target
 Wants=network-online.target
 ConditionFileIsExecutable=/opt/supoclip/app/ops/status.sh

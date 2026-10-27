@@ -8,7 +8,7 @@ import { SupoLiveArticle } from "@/components/supo-live-article";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import {
   ArrowRight,
@@ -41,6 +41,11 @@ const comparisonIcons = [ShieldCheck, Sparkles, ScanFace, Github];
 const faqIcons = [Sparkles, ShieldCheck, Captions];
 const audienceIcons = [Play, ShieldCheck, Github];
 const statIcons = [ShieldCheck, Wand2, Github];
+const legacyBlogSlugs: Record<string, string> = {
+  "supoclip-vs-supo-live": "arx-clips-vs-supo-live",
+  "supoclip-vs-opusclip": "arx-clips-vs-opusclip",
+  "self-host-supoclip-docker": "self-host-arx-clips-docker",
+};
 
 const articleBodyClassName =
   "space-y-6 text-base leading-8 text-foreground [&_a]:font-medium [&_a]:text-foreground [&_a]:underline [&_a]:underline-offset-4 [&_h2]:mt-12 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-foreground [&_h2]:first:mt-0 [&_li]:mt-2 [&_ol]:ml-5 [&_ol]:list-decimal [&_p]:text-muted-foreground";
@@ -51,7 +56,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPost(slug);
+  const post = getBlogPost(legacyBlogSlugs[slug] ?? slug);
 
   if (!post) {
     return {};
@@ -63,6 +68,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
+  const canonicalSlug = legacyBlogSlugs[slug];
+  if (canonicalSlug) {
+    redirect(`/blog/${canonicalSlug}`);
+  }
   const basePost = getBlogPost(slug);
 
   if (!basePost) {
@@ -76,13 +85,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const locale = await getLocale();
   const post = applyBlogCopy(basePost, (key) => t(key));
 
-  if (slug === "supoclip-vs-supo-live") {
+  if (slug === "arx-clips-vs-supo-live") {
     return <SupoLiveArticle post={post} />;
   }
-  if (slug === "supoclip-vs-opusclip") {
+  if (slug === "arx-clips-vs-opusclip") {
     return <OpusClipComparisonArticle post={post} />;
   }
-  if (slug === "self-host-supoclip-docker") {
+  if (slug === "self-host-arx-clips-docker") {
     return <SelfHostingGuideArticle post={post} />;
   }
 
@@ -106,10 +115,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
     publisher: {
       "@type": "Organization",
-      name: "SupoClip",
+      name: "Arx Clips",
       logo: {
         "@type": "ImageObject",
-        url: `${siteUrl}/logo.png`,
+        url: `${siteUrl}/arx-clips-logo.png`,
       },
     },
     inLanguage: intlLocale(locale),
@@ -142,12 +151,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <header className="border-b bg-background/95">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <Link href="/" className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="SupoClip" width={24} height={24} className="rounded-lg" />
+            <Image src="/arx-clips-logo.png" alt="Arx Clips" width={24} height={24} className="rounded-lg" />
             <span
               className="text-lg font-bold tracking-tight"
               style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}
             >
-              SupoClip
+              Arx Clips
             </span>
           </Link>
           <div className="flex items-center gap-2">
@@ -279,7 +288,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="my-8 overflow-hidden rounded-lg border">
               <div className="grid grid-cols-[0.85fr_1fr_1fr] bg-muted/50 text-sm font-semibold">
                 <div className="p-4">{t(`${key}.table.feature`)}</div>
-                <div className="border-l p-4">SupoClip</div>
+                <div className="border-l p-4">Arx Clips</div>
                 <div className="border-l p-4">OpusClip</div>
               </div>
               {comparisonIcons.map((Icon, index) => (
@@ -333,7 +342,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>
-                  <a href="https://github.com/FujiwaraChoki/supoclip" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/Oscar-G13/arxsable-clips" target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" className="border-background/30 bg-transparent text-background hover:bg-background hover:text-foreground">
                       <Github className="h-4 w-4" />
                       GitHub

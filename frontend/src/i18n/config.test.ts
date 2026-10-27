@@ -27,6 +27,6 @@ describe("locale helpers", () => {
   });
 
   it("builds flat catalog keys from paths", () => {
-    expect(catalogKey("/blog/self-host-supoclip-docker")).toBe("blog_self_host_supoclip_docker");
+    expect(catalogKey("/blog/self-host-arx-clips-docker")).toBe("blog_self_host_arx_clips_docker");
   });
 });

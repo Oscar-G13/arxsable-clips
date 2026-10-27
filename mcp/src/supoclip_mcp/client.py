@@ -1,5 +1,5 @@
 """
-Thin async HTTP client for the SupoClip backend API.
+Thin async HTTP client for the Arx Clips backend API.
 
 Authentication is resolved from :class:`~supoclip_mcp.config.Settings` and
 supports three modes, tried in priority order:
@@ -47,7 +47,7 @@ def _signed_headers(user_id: str, secret: str) -> Dict[str, str]:
 
 
 class SupoClipClient:
-    """Async client wrapping the SupoClip REST API."""
+    """Async client wrapping the Arx Clips REST API."""
 
     def __init__(self, settings: Settings):
         self.settings = settings
@@ -67,7 +67,7 @@ class SupoClipClient:
         if not self.settings.is_authenticated:
             raise AuthNotConfiguredError(
                 "No credentials configured. Set SUPOCLIP_API_KEY to a key created "
-                "in your SupoClip account (Settings -> API Keys). For a self-hosted "
+                "in your Arx Clips account (Settings -> API Keys). For a self-hosted "
                 "backend you may instead set SUPOCLIP_USER_ID (+ SUPOCLIP_AUTH_SECRET "
                 "if signing is enforced)."
             )
@@ -101,7 +101,7 @@ class SupoClipClient:
                 f"Request to {path} timed out after {self.settings.timeout:g}s."
             ) from exc
         except httpx.HTTPError as exc:
-            raise SupoClipError(f"Could not reach SupoClip at {url}: {exc}") from exc
+            raise SupoClipError(f"Could not reach Arx Clips at {url}: {exc}") from exc
 
         return self._parse(response, path)
 
@@ -213,4 +213,4 @@ def _error_message(status: int, body: str, path: str) -> str:
         return f"Not found (404) for {path}: {detail}"
     if status == 429:
         return "Rate limited (429). Wait a moment and try again."
-    return f"SupoClip API error ({status}) for {path}: {detail}"
+    return f"Arx Clips API error ({status}) for {path}: {detail}"

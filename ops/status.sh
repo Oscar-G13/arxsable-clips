@@ -5,7 +5,7 @@ umask 022
 
 exec 9>"$ROOT_DIR/.git-ops.lock"
 flock -n 9 || {
-  echo "Another SupoClip Git operation is running" >&2
+  echo "Another Arx Clips Git operation is running" >&2
   exit 1
 }
 
@@ -64,7 +64,7 @@ IFS='|' read -r tasks_total tasks_day clips_total clips_day <<<"$counts"
 while IFS= read -r volume; do
   [[ -n "$volume" ]] || continue
   [[ "$volume" =~ ^supoclip_[A-Za-z0-9_.-]+$ ]] || {
-    echo "Unsafe SupoClip volume name: $volume" >&2
+    echo "Unsafe Arx Clips volume name: $volume" >&2
     exit 1
   }
   size="$(
@@ -92,7 +92,7 @@ latest_backup() {
 }
 
 {
-  echo '# SupoClip Status'
+  echo '# Arx Clips Status'
   echo
   echo "- Date (Europe/Helsinki): $(TZ=Europe/Helsinki date +%F)"
   echo "- Application commit: \`$head_hash\`"

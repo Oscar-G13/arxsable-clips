@@ -11,7 +11,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { FeedbackButton } from "@/components/feedback-button";
 import { PostHogIdentity } from "@/components/posthog-identity";
 import { intlLocale } from "@/i18n/config";
-import { APP_STORE_ID, getSiteUrl } from "@/lib/site";
+import { getSiteUrl } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,21 +44,18 @@ export async function generateMetadata(): Promise<Metadata> {
   },
   description: t("description"),
   metadataBase: new URL(getSiteUrl()),
-  applicationName: "SupoClip",
-  authors: [{ name: "SupoClip Team", url: getSiteUrl() }],
-  creator: "SupoClip Team",
-  publisher: "SupoClip",
+  applicationName: "Arx Clips",
+  authors: [{ name: "Arx Clips Team", url: getSiteUrl() }],
+  creator: "Arx Clips Team",
+  publisher: "Arx Clips",
   category: t("category"),
   icons: {
-    icon: "/icon.png",
-  },
-  itunes: {
-    appId: APP_STORE_ID,
+    icon: "/icon.svg",
   },
   openGraph: {
     title: t("title"),
     description: t("openGraphDescription"),
-    siteName: "SupoClip",
+    siteName: "Arx Clips",
     type: "website",
   },
   twitter: {

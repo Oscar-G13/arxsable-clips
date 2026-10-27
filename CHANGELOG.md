@@ -1,6 +1,6 @@
 # Changelog
 
-What changed in SupoClip for people using the product. Newest dates are first.
+What changed in Arx Clips for people using the product. Newest dates are first.
 
 Add a line here when a pull request changes something a user can see. Use **New**, **Improved**, **Fixed**, or **Under the hood**, describe the change in plain language, and link the pull request. Skip internal-only work, or fold it into one **Under the hood** line. Do not include customer names, email addresses, user IDs, or anything else private.
 
@@ -57,7 +57,7 @@ Add a line here when a pull request changes something a user can see. Use **New*
 - **New:** Connect YouTube, TikTok, or Instagram to publish a clip and see how those posts perform. ([#98](https://github.com/FujiwaraChoki/supoclip/pull/98))
 - **Improved:** The library groups each generation with its original video, and an uploaded file keeps its filename. ([#197](https://github.com/FujiwaraChoki/supoclip/pull/197))
 - **New:** A self-hosted install can use its own YouTube download service. ([#196](https://github.com/FujiwaraChoki/supoclip/pull/196))
-- **Under the hood:** If the first YouTube download does not check out, SupoClip can try another one within the same limit. ([#195](https://github.com/FujiwaraChoki/supoclip/pull/195))
+- **Under the hood:** If the first YouTube download does not check out, Arx Clips can try another one within the same limit. ([#195](https://github.com/FujiwaraChoki/supoclip/pull/195))
 
 ## 2026-10-15
 
@@ -69,7 +69,7 @@ Add a line here when a pull request changes something a user can see. Use **New*
 
 ## 2026-10-13
 
-- **New:** A public status page shows whether SupoClip is up. ([0aab079](https://github.com/FujiwaraChoki/supoclip/commit/0aab079))
+- **New:** A public status page shows whether Arx Clips is up. ([0aab079](https://github.com/FujiwaraChoki/supoclip/commit/0aab079))
 - **Fixed:** Closing a video stops the transfer instead of leaving it running. ([#187](https://github.com/FujiwaraChoki/supoclip/pull/187))
 
 ## 2026-10-12
@@ -87,7 +87,7 @@ Add a line here when a pull request changes something a user can see. Use **New*
 - **Improved:** Each video produces at most 10 clips. ([#181](https://github.com/FujiwaraChoki/supoclip/pull/181))
 - **New:** The home page and the demo play a new set of podcast clips. ([#182](https://github.com/FujiwaraChoki/supoclip/pull/182))
 - **New:** Checkout accepts a creator promo code. ([#183](https://github.com/FujiwaraChoki/supoclip/pull/183))
-- **New:** The app can show an announcement from the SupoClip team. ([#179](https://github.com/FujiwaraChoki/supoclip/pull/179))
+- **New:** The app can show an announcement from the Arx Clips team. ([#179](https://github.com/FujiwaraChoki/supoclip/pull/179))
 - **Improved:** The home page includes the Product Hunt badge. ([#184](https://github.com/FujiwaraChoki/supoclip/pull/184))
 - **Fixed:** If every clip fails to render, the job is marked failed instead of looking finished. A job that never starts does not use your monthly video allowance. ([#169](https://github.com/FujiwaraChoki/supoclip/pull/169), [#170](https://github.com/FujiwaraChoki/supoclip/pull/170), [#171](https://github.com/FujiwaraChoki/supoclip/pull/171))
 
@@ -103,7 +103,7 @@ Add a line here when a pull request changes something a user can see. Use **New*
 
 ## 2026-10-05
 
-- **New:** A demo page and practical guides cover clipping, self-hosting, and how SupoClip compares with other tools. ([#160](https://github.com/FujiwaraChoki/supoclip/pull/160))
+- **New:** A demo page and practical guides cover clipping, self-hosting, and how Arx Clips compares with other tools. ([#160](https://github.com/FujiwaraChoki/supoclip/pull/160))
 
 ## 2026-10-04
 

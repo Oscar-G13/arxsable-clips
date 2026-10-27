@@ -1,6 +1,6 @@
 # Observability
 
-SupoClip reports errors and product analytics to **PostHog** and ships logs to
+Arx Clips reports errors and product analytics to **PostHog** and ships logs to
 **Axiom**. Both are optional: with no tokens configured nothing is sent, which
 is the default for self-hosted installs.
 
@@ -11,7 +11,7 @@ is the default for self-hosted installs.
 | Desktop (Electron) | analytics, session replay, exceptions | — |
 | iOS | analytics, crashes | — |
 
-Production uses the PostHog project **SupoClip** (EU cloud, project id
+Production uses the PostHog project **Arx Clips** (EU cloud, project id
 `314504`) and the Axiom dataset **`supoclip-prod`** (org `supoclip-tjzv`).
 
 ## Following an error from PostHog to the logs
@@ -68,7 +68,7 @@ docker compose up -d vector
 ### nginx
 
 On the production host nginx runs outside Docker and serves several sites into
-one shared `access.log`. The SupoClip vhosts (`www` and `api`, port 443) also
+one shared `access.log`. The Arx Clips vhosts (`www` and `api`, port 443) also
 write their own files, which Vector picks up. They show what the backend never
 sees: 413s for oversized uploads, 502s while a container restarts, 504s on slow
 uploads, and frontend page/asset requests.

@@ -8,6 +8,8 @@ export interface BlogPost {
   /** Set for editorial content not yet translated; do not localize only its title. */
   language?: "en";
   slug: string;
+  /** Legacy locale namespace retained independently from the public URL. */
+  translationKey?: string;
   image?: { src: string; alt: string; width: number; height: number };
   title: string;
   description: string;
@@ -24,34 +26,36 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   ...creatorGuides.map((guide) => guide.post),
   {
-    slug: "supoclip-vs-supo-live",
-    image: { src: "/blog/supoclip-open-source-clipping.webp", alt: "Editorial illustration of a podcast recording becoming three vertical video clips", width: 1672, height: 941 },
-    title: "SupoClip vs supo.live: Why Open Source Wins",
+    slug: "arx-clips-vs-supo-live",
+    translationKey: "supoclip-vs-supo-live",
+    image: { src: "/blog/arx-clips-open-source-clipping.webp", alt: "Editorial illustration of a podcast recording becoming three vertical video clips", width: 1672, height: 941 },
+    title: "Arx Clips vs supo.live: Why Open Source Wins",
     description:
-      "Compare SupoClip and supo.live for AI video clipping. See why SupoClip wins for open-source control, self-hosting, and customizable video workflows.",
+      "Compare Arx Clips and supo.live for AI video clipping. See why Arx Clips wins for open-source control, self-hosting, and customizable video workflows.",
     eyebrow: "Supo.live Alternative",
     category: "Comparison",
     publishedAt: "2026-09-21",
     updatedAt: "2026-10-05",
     readingTime: "5 min read",
-    author: "SupoClip",
-    keywords: ["SupoClip vs supo.live", "supo.live alternative", "open-source video clipper", "self-hosted AI video clipping", "AI clip maker"],
+    author: "Arx Clips",
+    keywords: ["Arx Clips vs supo.live", "supo.live alternative", "open-source video clipper", "self-hosted AI video clipping", "AI clip maker"],
     summary:
-      "For creators and teams who want control over their clipping workflow, SupoClip is the better open-source alternative to supo.live.",
+      "For creators and teams who want control over their clipping workflow, Arx Clips is the better open-source alternative to supo.live.",
   },
   {
-    slug: "supoclip-vs-opusclip",
-    title: "SupoClip vs OpusClip: A Sourced Comparison",
+    slug: "arx-clips-vs-opusclip",
+    translationKey: "supoclip-vs-opusclip",
+    title: "Arx Clips vs OpusClip: A Sourced Comparison",
     description:
-      "SupoClip vs OpusClip compared on deployment, pricing model, watermarks, model choice, and workflow, with a source linked for every claim.",
+      "Arx Clips vs OpusClip compared on deployment, pricing model, watermarks, model choice, and workflow, with a source linked for every claim.",
     eyebrow: "OpusClip Comparison",
     category: "Comparison",
     publishedAt: "2026-10-05",
     updatedAt: "2026-10-05",
     readingTime: "7 min read",
-    author: "SupoClip",
+    author: "Arx Clips",
     keywords: [
-      "SupoClip vs OpusClip",
+      "Arx Clips vs OpusClip",
       "OpusClip alternative",
       "OpusClip vs open source",
       "self-hosted OpusClip alternative",
@@ -61,18 +65,19 @@ export const blogPosts: BlogPost[] = [
       "A side-by-side of what each product documents, where the two differ, and which one fits your workflow.",
   },
   {
-    slug: "self-host-supoclip-docker",
-    title: "How to Self-Host SupoClip with Docker Compose",
+    slug: "self-host-arx-clips-docker",
+    translationKey: "self-host-supoclip-docker",
+    title: "How to Self-Host Arx Clips with Docker Compose",
     description:
-      "Self-host SupoClip, the open-source AI video clipper: requirements, .env setup, a fully local Whisper + Ollama option, first-run checks, and a production checklist.",
+      "Self-host Arx Clips, the open-source AI video clipper: requirements, .env setup, a fully local Whisper + Ollama option, first-run checks, and a production checklist.",
     eyebrow: "Self-Hosting Guide",
     category: "Guide",
     publishedAt: "2026-10-05",
     updatedAt: "2026-10-05",
     readingTime: "9 min read",
-    author: "SupoClip",
+    author: "Arx Clips",
     keywords: [
-      "self-host SupoClip",
+      "self-host Arx Clips",
       "self-hosted AI video clipper",
       "open-source video clipper Docker",
       "self-hosted OpusClip alternative",
@@ -84,13 +89,13 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-free-opusclip-alternative",
     title: "Free OpusClip Alternative: Self-Hosting Costs and Tradeoffs",
-    description: "Looking for a free OpusClip alternative? Understand what self-hosting SupoClip costs, what you maintain, and when a paid hosted workflow is a better fit.",
+    description: "Looking for a free OpusClip alternative? Understand what self-hosting Arx Clips costs, what you maintain, and when a paid hosted workflow is a better fit.",
     eyebrow: "OpusClip Alternative",
     category: "Comparison",
     publishedAt: "2026-05-07",
     updatedAt: "2026-10-26",
     readingTime: "6 min read",
-    author: "SupoClip",
+    author: "Arx Clips",
     keywords: [
       "free OpusClip alternative",
       "OpusClip alternative",
@@ -99,7 +104,7 @@ export const blogPosts: BlogPost[] = [
       "open-source OpusClip alternative",
       "YouTube shorts clipper",
     ],
-    summary: "The SupoClip source is free. This guide explains the hardware, provider costs, and maintenance behind a self-hosted clipping workflow so you can decide whether it fits.",
+    summary: "The Arx Clips source is free. This guide explains the hardware, provider costs, and maintenance behind a self-hosted clipping workflow so you can decide whether it fits.",
   },
 ];
 
@@ -110,7 +115,7 @@ export function getBlogPost(slug: string) {
 /** Overlay translated title, description, and listing copy. Keywords stay English. */
 export function applyBlogCopy(post: BlogPost, translate: (key: string) => string): BlogPost {
   if (post.language) return post;
-  const slug = post.slug;
+  const slug = post.translationKey ?? post.slug;
   return {
     ...post,
     title: translate(`${slug}.title`),
@@ -128,7 +133,7 @@ export function getBlogPostMetadata(post: BlogPost): Metadata {
   const url = `${siteUrl}/blog/${post.slug}`;
 
   return {
-    title: { absolute: `${post.title} | SupoClip` },
+    title: { absolute: `${post.title} | Arx Clips` },
     description: post.description,
     keywords: post.keywords,
     alternates: {
@@ -139,7 +144,7 @@ export function getBlogPostMetadata(post: BlogPost): Metadata {
       description: post.description,
       type: "article",
       url,
-      siteName: "SupoClip",
+      siteName: "Arx Clips",
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       authors: [post.author],

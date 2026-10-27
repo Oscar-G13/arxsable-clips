@@ -102,7 +102,7 @@ export function SignIn() {
               <div aria-hidden="true" className="absolute inset-[12%] rounded-full bg-white/85 blur-3xl" />
               <Image
                 src="/arx-clips-logo.png"
-                alt="ARX Clips"
+                alt="Arx Clips"
                 width={1254}
                 height={1254}
                 priority

@@ -8,7 +8,7 @@ import { intlLocale } from "@/i18n/config";
 import { HOSTED_APP_URL, getSiteUrl } from "@/lib/blog-posts";
 
 const LAST_UPDATED = "2026-10-21";
-const CONTACT_EMAIL = "support@supoclip.com";
+const CONTACT_EMAIL = "oscar@arxsable.ai";
 
 function formatLegalDate(locale: string) {
   return new Intl.DateTimeFormat(intlLocale(locale), { dateStyle: "long", timeZone: "UTC" }).format(
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const url = `${getSiteUrl()}/terms`;
 
   return {
-    title: { absolute: `SupoClip.com ${t("terms.title")}` },
+    title: { absolute: `Arx Clips ${t("terms.title")}` },
     description: t("terms.metaDescription"),
     alternates: { canonical: url },
     openGraph: {
@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t("terms.ogDescription"),
       type: "website",
       url,
-      siteName: "SupoClip",
+      siteName: "Arx Clips",
     },
   };
 }
@@ -58,12 +58,12 @@ export default async function TermsOfServicePage() {
       <header className="border-b bg-background/95">
         <div className="mx-auto flex h-16 max-w-3xl items-center justify-between px-6">
           <Link href="/" className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="SupoClip" width={24} height={24} className="rounded-lg" />
+            <Image src="/arx-clips-logo.png" alt="Arx Clips" width={24} height={24} className="rounded-lg" />
             <span
               className="text-lg font-bold tracking-tight"
               style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}
             >
-              SupoClip
+              Arx Clips
             </span>
           </Link>
           <a href={HOSTED_APP_URL} target="_blank" rel="noopener noreferrer">
@@ -81,7 +81,7 @@ export default async function TermsOfServicePage() {
             className="text-4xl font-extrabold tracking-tight sm:text-5xl"
             style={{ fontFamily: "var(--font-syne), var(--font-geist-sans), system-ui" }}
           >
-            SupoClip.com {t("terms.title")}
+            Arx Clips {t("terms.title")}
           </h1>
           <p className="text-sm text-muted-foreground">{t("lastUpdated", { date: updated })}</p>
           <p className="rounded-lg border bg-muted/40 px-4 py-3 text-sm leading-6 text-muted-foreground">

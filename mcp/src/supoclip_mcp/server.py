@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-MCP server for SupoClip — an AI tool that turns long-form videos into short,
+MCP server for Arx Clips — an AI tool that turns long-form videos into short,
 vertical, subtitled viral clips.
 
-The server talks to the SupoClip REST API. By default it targets the official
+The server talks to the Arx Clips REST API. By default it targets the official
 hosted instance at ``https://api.supoclip.com``; set ``SUPOCLIP_API_URL`` to
-use a self-hosted backend. Authenticate by creating an API key in your SupoClip
+use a self-hosted backend. Authenticate by creating an API key in your Arx Clips
 account and exposing it as ``SUPOCLIP_API_KEY``.
 
 Typical workflow:
@@ -46,7 +46,7 @@ CLIENT = SupoClipClient(SETTINGS)
 
 
 class SupoClipApiKeyVerifier:
-    """Validate MCP Bearer tokens against the configured SupoClip backend."""
+    """Validate MCP Bearer tokens against the configured Arx Clips backend."""
 
     def __init__(self, api_url: str, timeout: float) -> None:
         self.api_url = api_url.rstrip("/")
@@ -174,7 +174,7 @@ def _safe_filename(name: str, default: str) -> str:
 @mcp.tool(
     name="supoclip_health",
     annotations={
-        "title": "SupoClip Health & Config",
+        "title": "Arx Clips Health & Config",
         "readOnlyHint": True,
         "destructiveHint": False,
         "idempotentHint": True,
@@ -183,7 +183,7 @@ def _safe_filename(name: str, default: str) -> str:
 )
 @tool_errors
 async def supoclip_health() -> str:
-    """Report SupoClip API status and how this MCP server is configured.
+    """Report Arx Clips API status and how this MCP server is configured.
 
     Use this first to confirm connectivity and that credentials are set up. It
     requires no authentication and reveals no secrets.
@@ -366,7 +366,7 @@ async def supoclip_create_clip_task(
     remove_filler_words: bool = True,
     clip_length: str = "auto",
 ) -> str:
-    """Create a SupoClip task that downloads a video and generates viral short clips.
+    """Create a Arx Clips task that downloads a video and generates viral short clips.
 
     Processing is asynchronous: this returns immediately with a ``task_id``.
     Track progress with ``supoclip_wait_for_task`` or ``supoclip_get_task``, then
@@ -447,7 +447,7 @@ async def supoclip_create_clip_task(
 )
 @tool_errors
 async def supoclip_create_clip(url: str = "") -> str:
-    """Create a SupoClip task from a YouTube or direct video URL.
+    """Create a Arx Clips task from a YouTube or direct video URL.
 
     This is a compatibility alias for clients that fail to pass arguments to
     the richer ``supoclip_create_clip_task`` tool. Pass the video URL in the

@@ -5,12 +5,12 @@ umask 077
 
 exec 8>"$ROOT_DIR/.deploy.lock"
 flock -n 8 || {
-  echo "Another SupoClip deployment is running" >&2
+  echo "Another Arx Clips deployment is running" >&2
   exit 1
 }
 exec 9>"$ROOT_DIR/.git-ops.lock"
 flock -n 9 || {
-  echo "Another SupoClip Git operation is running" >&2
+  echo "Another Arx Clips Git operation is running" >&2
   exit 1
 }
 
@@ -76,9 +76,9 @@ done
 
 [[ "$healthy" == "$expected" ]] || {
   compose ps
-  echo "Not every SupoClip service became healthy" >&2
+  echo "Not every Arx Clips service became healthy" >&2
   exit 1
 }
 
 curl --fail --silent --show-error http://127.0.0.1:8000/health/db >/dev/null
-echo "SupoClip deployment healthy at $(git -C "$APP_DIR" rev-parse HEAD)"
+echo "Arx Clips deployment healthy at $(git -C "$APP_DIR" rev-parse HEAD)"

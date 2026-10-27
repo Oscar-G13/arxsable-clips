@@ -1,5 +1,5 @@
 [Unit]
-Description=Publish SupoClip operational status daily
+Description=Publish Arx Clips operational status daily
 
 [Timer]
 OnCalendar=*-*-* 09:23:00 Europe/Helsinki

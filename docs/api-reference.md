@@ -1,6 +1,6 @@
 # API Reference
 
-This is a practical reference for the API surface used by SupoClip. It combines the frontend proxy routes and the backend routes they rely on.
+This is a practical reference for the API surface used by Arx Clips. It combines the frontend proxy routes and the backend routes they rely on.
 
 For exact schemas and interactive testing, also use FastAPI docs at `http://localhost:8000/docs`.
 
@@ -25,11 +25,11 @@ curl https://api.supoclip.com/tasks/ \
   -H "x-api-key: sk_..."
 ```
 
-API keys authenticate `/tasks/*`, `/fonts` and `/upload`. Revoking a key in the app takes effect immediately. For AI agents (Claude, Cursor and other MCP clients), use the [SupoClip MCP server](../mcp/README.md), which wraps this API.
+API keys authenticate `/tasks/*`, `/fonts` and `/upload`. Revoking a key in the app takes effect immediately. For AI agents (Claude, Cursor and other MCP clients), use the [Arx Clips MCP server](../mcp/README.md), which wraps this API.
 
 ## API Layers
 
-SupoClip has two relevant layers:
+Arx Clips has two relevant layers:
 
 - Frontend API routes in `frontend/src/app/api`
   - These are what the browser usually calls
@@ -267,7 +267,7 @@ Connections:
   - Disconnect an account, cancel its scheduled posts and revoke the grant at the platform
     (best effort; Instagram has no revocation endpoint)
 - `DELETE /social/connections`
-  - Disconnect every account (called when a user deletes their SupoClip account)
+  - Disconnect every account (called when a user deletes their Arx Clips account)
 
 Posts:
 

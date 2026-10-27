@@ -1,5 +1,5 @@
 [Unit]
-Description=Check SupoClip upstream and open a review PR
+Description=Check Arx Clips upstream and open a review PR
 After=docker.service network-online.target
 Wants=network-online.target
 ConditionFileIsExecutable=/opt/supoclip/app/ops/upstream-sync.sh

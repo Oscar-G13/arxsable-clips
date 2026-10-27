@@ -1,6 +1,6 @@
-# SupoClip Documentation
+# Arx Clips Documentation
 
-This directory is the canonical documentation hub for SupoClip.
+This directory is the canonical documentation hub for Arx Clips.
 
 If you are new to the project, start here:
 
@@ -51,9 +51,9 @@ If you are new to the project, start here:
   - Auth, fonts, billing, and YouTube issues
   - Performance and recovery guidance
 
-## What SupoClip Is
+## What Arx Clips Is
 
-SupoClip is an open-source AI video clipping application. It takes long-form videos, transcribes them, uses an LLM to select the most promising short segments, and renders vertical or source-aspect clips with subtitles and optional effects.
+Arx Clips is an open-source AI video clipping application. It takes long-form videos, transcribes them, uses an LLM to select the most promising short segments, and renders vertical or source-aspect clips with subtitles and optional effects.
 
 The current repository snapshot includes:
 

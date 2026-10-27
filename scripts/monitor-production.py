@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only SupoClip production health, job, and OpenRouter balance snapshot.
+"""Read-only Arx Clips production health, job, and OpenRouter balance snapshot.
 
 Run from this checkout using Python 3. No purchases, job submissions, or service
 changes. API keys are read on the production host and never returned.

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# SupoClip - Quick Start Script
-# This script helps you start SupoClip with a single command
+# Arx Clips - Quick Start Script
+# This script helps you start Arx Clips with a single command
 
 set -e  # Exit on error
 
@@ -12,7 +12,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 echo "============================================"
-echo "  SupoClip - AI Video Clipping Tool"
+echo "  Arx Clips - AI Video Clipping Tool"
 echo "============================================"
 echo ""
 
@@ -60,7 +60,7 @@ if [ "${LLM:-}" = "ollama:" ]; then
     echo "Use a value like LLM=ollama:gpt-oss:20b"
     echo ""
 elif [[ "${LLM:-}" == ollama:* ]] && [ -z "${OLLAMA_BASE_URL:-}" ]; then
-    echo "Ollama base URL is not set; SupoClip will use its local/Docker default."
+    echo "Ollama base URL is not set; Arx Clips will use its local/Docker default."
     echo ""
 fi
 
@@ -97,7 +97,7 @@ else
     DOCKER_COMPOSE="docker-compose"
 fi
 
-echo -e "${GREEN}Starting SupoClip...${NC}"
+echo -e "${GREEN}Starting Arx Clips...${NC}"
 echo ""
 
 # Build and start containers
@@ -108,7 +108,7 @@ echo ""
 $DOCKER_COMPOSE up -d --build
 
 echo ""
-echo -e "${GREEN}SupoClip is starting up!${NC}"
+echo -e "${GREEN}Arx Clips is starting up!${NC}"
 echo ""
 echo "Services will be available at:"
 echo "  - Frontend:  $FRONTEND_LOCAL_URL"

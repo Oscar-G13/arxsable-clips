@@ -30,10 +30,21 @@ Local app commands:
 
 ## Testing Guidelines
 Automated coverage uses pytest, Vitest, and Playwright:
+- Hard limit: run no more than 10 individual automated test cases total for any
+  user task, across all frameworks, commands, reruns, and agents. Never run a
+  full suite or any command that is known or likely to collect more than 10
+  tests. Select the smallest high-signal set that covers the changed behavior,
+  and count failed attempts and reruns toward the same 10-test cap.
+- Lint, type-check, production build, health checks, security scans, and direct
+  manual verification are not automated test cases, but keep them focused and
+  do not use them as a pretext for redundant exhaustive checking.
 - Run `make check` for frontend lint and TypeScript checks.
-- Run `make test` for backend and frontend unit/integration tests. Backend integration tests need a dedicated Postgres database.
-- Run `make test-e2e` for the database-backed browser smoke tests.
-- Run `cd frontend && pnpm run test:polish` for isolated browser workflow tests with mocked APIs.
+- Do not run `make test` because it collects the full suite. Invoke pytest or
+  Vitest with explicit file/test selectors that collect at most the remaining
+  budget. Backend integration tests need a dedicated Postgres database.
+- Do not run `make test-e2e` or `pnpm run test:polish` wholesale when they
+  collect more than the remaining budget; select only the relevant browser
+  smoke cases.
 - Install frontend dependencies with `pnpm install --frozen-lockfile`; use the committed pnpm lockfile.
 - Smoke test core flows with `docker-compose` (create task, process clips, view task page).
 

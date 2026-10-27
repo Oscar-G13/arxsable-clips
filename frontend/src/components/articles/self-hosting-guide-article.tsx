@@ -12,7 +12,7 @@ const tocIds = ["stack", "requirements", "install", "local", "verify", "producti
 
 export async function SelfHostingGuideArticle({ post }: { post: BlogPost }) {
   const t = await getTranslations("blog");
-  const slug = "self-host-supoclip-docker";
+  const slug = "self-host-arx-clips-docker";
   const code = (chunks: React.ReactNode) => <code>{chunks}</code>;
   const strong = (chunks: React.ReactNode) => <strong>{chunks}</strong>;
   const faqs: ArticleFaq[] = [0, 1, 2, 3, 4].map((index) => ({

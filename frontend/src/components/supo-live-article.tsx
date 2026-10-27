@@ -15,7 +15,7 @@ const workflowIcons = [Upload, Sparkles, ScanFace, Film];
 export async function SupoLiveArticle({ post }: { post: BlogPost }) {
   const t = await getTranslations("blog");
   const locale = await getLocale();
-  const slug = post.translationKey ?? post.slug;
+  const slug = post.slug;
   const siteUrl = getSiteUrl();
   const updatedLabel = formatArticleDate(post.updatedAt, locale);
   const faqs = [0, 1, 2].map((index) => ({
@@ -107,9 +107,9 @@ export async function SupoLiveArticle({ post }: { post: BlogPost }) {
         <div className="mx-auto max-w-3xl space-y-6 leading-8 [&_h2]:pt-6 [&_h2]:text-2xl [&_h2]:font-bold [&_h3]:text-lg [&_h3]:font-semibold [&_a]:underline [&_a]:underline-offset-4 [&_p]:text-muted-foreground">
           <p>{t(`${slug}.body.p1`)}</p>
           <p>{t(`${slug}.body.p2`)}</p>
-          <h2>{t(`${slug}.body.whatSupoclip`)}</h2>
+          <h2>{t(`${slug}.body.whatArxClips`)}</h2>
           <p>
-            {t.rich(`${slug}.body.whatSupoclipBody`, { repo: (chunks) => <a href={repository}>{chunks}</a> })}
+            {t.rich(`${slug}.body.whatArxClipsBody`, { repo: (chunks) => <a href={repository}>{chunks}</a> })}
           </p>
           <h2>{t(`${slug}.body.whatSupo`)}</h2>
           <p>
@@ -130,7 +130,7 @@ export async function SupoLiveArticle({ post }: { post: BlogPost }) {
                 {(["deployment", "source", "usecase", "customization", "usage"] as const).map((row) => (
                   <tr key={row} className="border-t">
                     <th scope="row" className="p-4 align-top">{t(`${slug}.comparison.rows.${row}.label`)}</th>
-                    <td className="p-4 align-top">{t(`${slug}.comparison.rows.${row}.supoclip`)}</td>
+                    <td className="p-4 align-top">{t(`${slug}.comparison.rows.${row}.arxClips`)}</td>
                     <td className="p-4 align-top">{t(`${slug}.comparison.rows.${row}.supolive`)}</td>
                   </tr>
                 ))}

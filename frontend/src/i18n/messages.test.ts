@@ -6,6 +6,10 @@ import { describe, expect, it } from "vitest";
 import { NAMESPACES, locales } from "./config";
 
 const messagesRoot = join(process.cwd(), "messages");
+const legacyCatalogPattern = new RegExp(
+  [["supo", "clip"].join(""), ["sup", "clip"].join("")].join("|"),
+  "i",
+);
 
 function readCatalog(locale: string) {
   const dir = join(messagesRoot, locale);
@@ -73,6 +77,18 @@ describe("message catalogs", () => {
         expect(other, `${locale}:${key}`).toBeTruthy();
         expect(placeholderNames(other ?? "").sort()).toEqual(placeholderNames(message).sort());
       }
+    }
+  });
+
+  it("keeps serialized locale catalogs free of the legacy product identity", () => {
+    for (const locale of locales) {
+      const catalog = flatten(readCatalog(locale).catalog);
+      const leaks = [...catalog].flatMap(([key, value]) =>
+        legacyCatalogPattern.test(key) || legacyCatalogPattern.test(value)
+          ? [`${locale}:${key}`]
+          : [],
+      );
+      expect(leaks).toEqual([]);
     }
   });
 });

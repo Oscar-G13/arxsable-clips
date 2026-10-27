@@ -34,7 +34,7 @@
     "moreGuides": "More clipping guides",
     "productGuides": "Product guides"
   },
-  "supoclip-vs-supo-live": {
+  "arx-clips-vs-supo-live": {
     "title": "Arx Clips vs supo.live: Why Open Source Wins",
     "description": "Compare Arx Clips and supo.live for AI video clipping. See why Arx Clips wins for open-source control, self-hosting, and customizable video workflows.",
     "eyebrow": "Supo.live Alternative",
@@ -64,8 +64,8 @@
     "body": {
       "p1": "Choosing an AI video clipper is also choosing how much control you keep over your production process. If you want to turn podcasts, interviews, talks, and stream recordings into short videos, Arx Clips makes a compelling case: AI-assisted editing with source code you can inspect and a workflow you can run yourself.",
       "p2": "Our verdict: Arx Clips is the better alternative for creators, agencies, and developers who prioritize open source, self-hosting, and customization. This is a comparison by the Arx Clips team, based on documented capabilities, rather than a benchmark of clip quality or processing speed.",
-      "whatSupoclip": "What is Arx Clips?",
-      "whatSupoclipBody": "Arx Clips is an open-source AI video clipping tool available through clips.arxsable.ai or as a self-hosted application. It analyzes long videos, selects promising moments, and produces vertical clips with face-centered cropping and word-synced subtitles. Hook titles, clip scoring, and optional B-roll help turn a raw recording into material ready for your final review. The <repo>Arx Clips repository</repo> documents the features and setup.",
+      "whatArxClips": "What is Arx Clips?",
+      "whatArxClipsBody": "Arx Clips is an open-source AI video clipping tool available through clips.arxsable.ai or as a self-hosted application. It analyzes long videos, selects promising moments, and produces vertical clips with face-centered cropping and word-synced subtitles. Hook titles, clip scoring, and optional B-roll help turn a raw recording into material ready for your final review. The <repo>Arx Clips repository</repo> documents the features and setup.",
       "whatSupo": "What is supo.live?",
       "whatSupoBody": "Supo.live markets a hosted clipping service for both recordings and ongoing broadcasts. Its homepage advertises live clipping, styled captions, face tracking, a browser editor, and scheduled posting to TikTok, YouTube Shorts, and X. That makes live publishing its clearest point of distinction. See the <site>official supo.live feature overview</site>."
     },
@@ -77,27 +77,27 @@
       "rows": {
         "deployment": {
           "label": "Deployment",
-          "supoclip": "Hosted app or self-hosted deployment",
+          "arxClips": "Hosted app or self-hosted deployment",
           "supolive": "Hosted service"
         },
         "source": {
           "label": "Source access",
-          "supoclip": "Public AGPL-3.0 repository",
+          "arxClips": "Public AGPL-3.0 repository",
           "supolive": "No open-source or self-hosting option advertised on its homepage"
         },
         "usecase": {
           "label": "Core use case",
-          "supoclip": "Recorded long videos into vertical shorts",
+          "arxClips": "Recorded long videos into vertical shorts",
           "supolive": "Live broadcasts and recorded videos"
         },
         "customization": {
           "label": "Customization",
-          "supoclip": "Modify the code and configure the LLM provider",
+          "arxClips": "Modify the code and configure the LLM provider",
           "supolive": "Use the service’s editor and settings"
         },
         "usage": {
           "label": "Usage model",
-          "supoclip": "Self-hosting uses your compute and provider budget",
+          "arxClips": "Self-hosting uses your compute and provider budget",
           "supolive": "Subscription plans with processing credits"
         }
       }
@@ -193,7 +193,7 @@
     },
     "closing": "Explore our <openSource>open-source video clipper guide</openSource> or read the <comparison>Arx Clips vs OpusClip comparison</comparison>."
   },
-  "supoclip-vs-opusclip": {
+  "arx-clips-vs-opusclip": {
     "title": "Arx Clips vs OpusClip: A Sourced Comparison",
     "description": "Arx Clips vs OpusClip compared on deployment, pricing model, watermarks, model choice, and workflow, with a source linked for every claim.",
     "eyebrow": "OpusClip Comparison",
@@ -234,7 +234,7 @@
     "introNote": "This page doesn't rate clip quality, caption accuracy, or processing speed. To compare those, see <test>how to run your own test</test>.",
     "verdict": {
       "heading": "The short answer",
-      "supoclip": "<strong>Choose Arx Clips</strong> if you want to self-host, inspect or modify the code, pick your own AI models (including fully local ones), or export without a watermark.",
+      "arxClips": "<strong>Choose Arx Clips</strong> if you want to self-host, inspect or modify the code, pick your own AI models (including fully local ones), or export without a watermark.",
       "opusclip": "<strong>Choose OpusClip</strong> if you want a managed product you never have to deploy, and want to start on a free plan."
     },
     "comparison": {
@@ -246,34 +246,34 @@
     "rows": {
       "deployment": {
         "label": "How you run it",
-        "supoclip": "Hosted app, iOS app, or self-hosted with <compose>Docker Compose</compose>",
+        "arxClips": "Hosted app, iOS app, or self-hosted with <compose>Docker Compose</compose>",
         "opusclip": "Hosted service"
       },
       "source": {
         "label": "Source code",
-        "supoclip": "Public, <license>AGPL-3.0</license>"
+        "arxClips": "Public, <license>AGPL-3.0</license>"
       },
       "pricing": {
         "label": "Pricing model",
-        "supoclip": "Hosted: monthly plans with a fixed number of videos. Self-hosted: no plan limits.",
+        "arxClips": "Hosted: monthly plans with a fixed number of videos. Self-hosted: no plan limits.",
         "opusclip": "Plans with credits for processing minutes, plus a free plan (<plans>help center</plans>)"
       },
       "watermark": {
         "label": "Watermark",
-        "supoclip": "None; the <pipeline>render pipeline</pipeline> has no watermark step",
+        "arxClips": "None; the <pipeline>render pipeline</pipeline> has no watermark step",
         "opusclip": "Free-plan exports can include one (<watermark>help center</watermark>)"
       },
       "models": {
         "label": "AI model choice",
-        "supoclip": "OpenAI, Google, Anthropic, OpenRouter, or local Ollama (<config>config</config>)"
+        "arxClips": "OpenAI, Google, Anthropic, OpenRouter, or local Ollama (<config>config</config>)"
       },
       "transcription": {
         "label": "Transcription",
-        "supoclip": "AssemblyAI, local Whisper, or YouTube captions"
+        "arxClips": "AssemblyAI, local Whisper, or YouTube captions"
       },
       "automation": {
         "label": "Automation",
-        "supoclip": "REST API with per-user keys and an <mcp>MCP server</mcp>"
+        "arxClips": "REST API with per-user keys and an <mcp>MCP server</mcp>"
       }
     },
     "pricing": {
@@ -281,7 +281,7 @@
       "p1": "OpusClip's <plans>plans and credits article</plans> describes paid plans that use credits for processing minutes, plus a free plan. Its <watermark>watermark article</watermark> says free-plan exports can carry an OpusClip watermark. Plan prices and credit amounts change, so check OpusClip's current pricing page instead of relying on numbers copied into a blog post.",
       "p2": "Arx Clips offers two routes. The hosted app has <pro>{proName}</pro> at ${proPrice}/month for {proLimit} hours of video in 720p and <scale>{scaleName}</scale> at ${scalePrice}/month for {scaleLimit} hours in 1080p, with yearly billing at two months free. There is no free hosted plan; processing requires a subscription. The self-hosted route is free software with no plan limits. You pay for the server and any AI APIs you configure, and the <guide>self-hosting guide</guide> shows a fully local setup with no per-request AI fees."
     },
-    "chooseSupoclip": {
+    "chooseArxClips": {
       "heading": "When Arx Clips is the better fit",
       "li1": "<strong>You need control over where video goes.</strong> Self-hosting keeps the app, database, and rendered clips on your infrastructure. With Whisper and Ollama, transcription and clip selection run locally too.",
       "li2": "<strong>You have a large back catalog.</strong> Self-hosted installs have no monthly video cap. Throughput depends on your hardware and provider limits.",
@@ -306,10 +306,10 @@
     "sources": {
       "heading": "Sources",
       "opus": "OpusClip help center: <plans>Plans and credits</plans> and <watermark>Watermark</watermark>. Plans can change; confirm current details on <site>opus.pro</site>.",
-      "supoclip": "Arx Clips: <repo>public repository</repo>, including <compose>docker-compose.yml</compose>, <config>configuration docs</config>, and <billing>billing rules</billing>. Hosted prices are from the pricing section of clips.arxsable.ai."
+      "arxClips": "Arx Clips: <repo>public repository</repo>, including <compose>docker-compose.yml</compose>, <config>configuration docs</config>, and <billing>billing rules</billing>. Hosted prices are from the pricing section of clips.arxsable.ai."
     }
   },
-  "self-host-supoclip-docker": {
+  "self-host-arx-clips-docker": {
     "title": "How to Self-Host Arx Clips with Docker Compose",
     "description": "Self-host Arx Clips, the open-source AI video clipper: requirements, .env setup, a fully local Whisper + Ollama option, first-run checks, and a production checklist.",
     "eyebrow": "Self-Hosting Guide",
@@ -510,22 +510,22 @@
       "rows": {
         "0": {
           "feature": "Free usage model",
-          "supoclip": "Open source and self-hostable with no plan limits. Your costs are your own compute and API keys. The hosted app is paid.",
+          "arxClips": "Open source and self-hostable with no plan limits. Your costs are your own compute and API keys. The hosted app is paid.",
           "opusclip": "Free plan exists, but exports can include an OpusClip watermark."
         },
         "1": {
           "feature": "Clip discovery",
-          "supoclip": "Transcribes long videos, scores segments, and surfaces promising short-form moments.",
+          "arxClips": "Transcribes long videos, scores segments, and surfaces promising short-form moments.",
           "opusclip": "AI clipping workflow built for finding social-ready clips from long videos."
         },
         "2": {
           "feature": "Vertical formatting",
-          "supoclip": "Face-centered 9:16 cropping, subtitles, and platform-ready exports.",
+          "arxClips": "Face-centered 9:16 cropping, subtitles, and platform-ready exports.",
           "opusclip": "Offers short-form exports and AI reframing for social platforms."
         },
         "3": {
           "feature": "Control",
-          "supoclip": "Full source access, editable deployment, and no vendor lock-in.",
+          "arxClips": "Full source access, editable deployment, and no vendor lock-in.",
           "opusclip": "Hosted product with managed workflows and subscription tiers."
         }
       }

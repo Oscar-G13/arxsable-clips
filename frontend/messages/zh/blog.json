@@ -34,7 +34,7 @@
     "moreGuides": "更多剪辑指南",
     "productGuides": "产品指南"
   },
-  "supoclip-vs-supo-live": {
+  "arx-clips-vs-supo-live": {
     "title": "Arx Clips 与 supo.live：为什么开源更合适",
     "description": "比较 Arx Clips 和 supo.live 的 AI 视频剪辑。看看为什么 Arx Clips 在开源控制、自托管和可定制视频流程上更合适。",
     "eyebrow": "supo.live 的替代",
@@ -64,8 +64,8 @@
     "body": {
       "p1": "选择 AI 视频剪辑工具，也是在选择你对制作过程保留多少控制。如果你想把播客、访谈、演讲和直播录像做成短视频，Arx Clips 的理由很直接：AI 辅助剪辑，源码可以查看，流程可以自己跑。",
       "p2": "我们的结论：对把开源、自托管和定制放在前面的创作者、机构和开发者来说，Arx Clips 是更好的选择。这是 Arx Clips 团队基于已写明能力做的对比，不是短片质量或处理速度的基准测试。",
-      "whatSupoclip": "什么是 Arx Clips？",
-      "whatSupoclipBody": "Arx Clips 是开源的 AI 视频剪辑工具，可通过 clips.arxsable.ai 使用，也可以作为自托管应用。它分析长视频，选出有潜力的时刻，并做出以人脸为中心裁切、逐词同步字幕的竖屏短片。钩子标题、短片评分和可选的 B-roll 帮助把原始录像变成可供你最终审看的素材。<repo>Arx Clips 仓库</repo>写明了功能和安装。",
+      "whatArxClips": "什么是 Arx Clips？",
+      "whatArxClipsBody": "Arx Clips 是开源的 AI 视频剪辑工具，可通过 clips.arxsable.ai 使用，也可以作为自托管应用。它分析长视频，选出有潜力的时刻，并做出以人脸为中心裁切、逐词同步字幕的竖屏短片。钩子标题、短片评分和可选的 B-roll 帮助把原始录像变成可供你最终审看的素材。<repo>Arx Clips 仓库</repo>写明了功能和安装。",
       "whatSupo": "什么是 supo.live？",
       "whatSupoBody": "supo.live 推广的是面向录像和正在进行的直播的托管剪辑服务。它的首页宣传直播剪辑、样式字幕、人脸跟踪、浏览器编辑器，以及定时发布到 TikTok、YouTube Shorts 和 X。因此直播发布是它最清楚的区别。请看 <site>supo.live 官方功能概览</site>。"
     },
@@ -77,27 +77,27 @@
       "rows": {
         "deployment": {
           "label": "部署",
-          "supoclip": "托管应用或自托管部署",
+          "arxClips": "托管应用或自托管部署",
           "supolive": "托管服务"
         },
         "source": {
           "label": "源码访问",
-          "supoclip": "公开的 AGPL-3.0 仓库",
+          "arxClips": "公开的 AGPL-3.0 仓库",
           "supolive": "首页没有宣传开源或自托管选项"
         },
         "usecase": {
           "label": "核心用途",
-          "supoclip": "把录好的长视频做成竖屏短片",
+          "arxClips": "把录好的长视频做成竖屏短片",
           "supolive": "直播和录好的视频"
         },
         "customization": {
           "label": "定制",
-          "supoclip": "修改代码并配置 LLM 提供方",
+          "arxClips": "修改代码并配置 LLM 提供方",
           "supolive": "使用该服务的编辑器和设置"
         },
         "usage": {
           "label": "使用模式",
-          "supoclip": "自托管使用你的算力和提供方预算",
+          "arxClips": "自托管使用你的算力和提供方预算",
           "supolive": "带处理额度的订阅方案"
         }
       }
@@ -193,7 +193,7 @@
     },
     "closing": "看看我们的<openSource>开源视频剪辑指南</openSource>，或阅读<comparison>Arx Clips 与 OpusClip 的对比</comparison>。"
   },
-  "supoclip-vs-opusclip": {
+  "arx-clips-vs-opusclip": {
     "title": "Arx Clips 与 OpusClip：附来源的对比",
     "description": "从部署、定价模式、水印、模型选择和工作流对比 Arx Clips 与 OpusClip，每条说法都链到来源。",
     "eyebrow": "OpusClip 对比",
@@ -234,7 +234,7 @@
     "introNote": "本页不评价短片质量、字幕准确性或处理速度。要比较这些，请看<test>如何自己做测试</test>。",
     "verdict": {
       "heading": "简短回答",
-      "supoclip": "<strong>选 Arx Clips</strong>，如果你想自托管、查看或修改代码、自己选择 AI 模型（包括完全本地的），或导出时不要水印。",
+      "arxClips": "<strong>选 Arx Clips</strong>，如果你想自托管、查看或修改代码、自己选择 AI 模型（包括完全本地的），或导出时不要水印。",
       "opusclip": "<strong>选 OpusClip</strong>，如果你想要一个不用自己部署的托管产品，并且想从免费方案开始。"
     },
     "comparison": {
@@ -246,34 +246,34 @@
     "rows": {
       "deployment": {
         "label": "你怎么运行它",
-        "supoclip": "托管应用、iOS 应用，或用 <compose>Docker Compose</compose> 自托管",
+        "arxClips": "托管应用、iOS 应用，或用 <compose>Docker Compose</compose> 自托管",
         "opusclip": "托管服务"
       },
       "source": {
         "label": "源代码",
-        "supoclip": "公开，<license>AGPL-3.0</license>"
+        "arxClips": "公开，<license>AGPL-3.0</license>"
       },
       "pricing": {
         "label": "定价模式",
-        "supoclip": "托管：按月方案，视频数量固定。自托管：没有方案上限。",
+        "arxClips": "托管：按月方案，视频数量固定。自托管：没有方案上限。",
         "opusclip": "用额度计算处理分钟的方案，另有免费方案（<plans>帮助中心</plans>）"
       },
       "watermark": {
         "label": "水印",
-        "supoclip": "没有；<pipeline>渲染流程</pipeline>没有水印步骤",
+        "arxClips": "没有；<pipeline>渲染流程</pipeline>没有水印步骤",
         "opusclip": "免费方案的导出可能带有水印（<watermark>帮助中心</watermark>）"
       },
       "models": {
         "label": "AI 模型选择",
-        "supoclip": "OpenAI、Google、Anthropic、OpenRouter，或本地 Ollama（<config>配置</config>）"
+        "arxClips": "OpenAI、Google、Anthropic、OpenRouter，或本地 Ollama（<config>配置</config>）"
       },
       "transcription": {
         "label": "转写",
-        "supoclip": "AssemblyAI、本地 Whisper，或 YouTube 字幕"
+        "arxClips": "AssemblyAI、本地 Whisper，或 YouTube 字幕"
       },
       "automation": {
         "label": "自动化",
-        "supoclip": "带每用户密钥的 REST API，以及 <mcp>MCP 服务器</mcp>"
+        "arxClips": "带每用户密钥的 REST API，以及 <mcp>MCP 服务器</mcp>"
       }
     },
     "pricing": {
@@ -281,7 +281,7 @@
       "p1": "OpusClip 的<plans>方案与额度文章</plans>描述了用额度计算处理分钟的付费方案，以及一个免费方案。它的<watermark>水印文章</watermark>写明免费方案的导出可能带有 OpusClip 水印。方案价格和额度数量会变，所以请查看 OpusClip 当前的定价页，不要依赖抄进博客的数字。",
       "p2": "Arx Clips 有两条路。托管应用有 <pro>{proName}</pro>，每月 ${proPrice}，每月 {proLimit} 小时 720p 视频；以及 <scale>{scaleName}</scale>，每月 ${scalePrice}，每月 {scaleLimit} 小时 1080p 视频，按年付费可免费两个月。没有免费的托管方案；处理视频需要订阅。自托管这条路是没有方案上限的免费软件。你为服务器和所配置的 AI API 付费，<guide>自托管指南</guide>展示了一种完全本地、没有按次 AI 费用的安装。"
     },
-    "chooseSupoclip": {
+    "chooseArxClips": {
       "heading": "什么时候 Arx Clips 更合适",
       "li1": "<strong>你需要控制视频去向。</strong>自托管把应用、数据库和渲染出的短片留在你的基础设施上。用 Whisper 和 Ollama 时，转写和短片选择也在本地运行。",
       "li2": "<strong>你有大量旧内容。</strong>自托管安装没有每月视频上限。吞吐量取决于你的硬件和提供方限制。",
@@ -306,10 +306,10 @@
     "sources": {
       "heading": "来源",
       "opus": "OpusClip 帮助中心：<plans>方案与额度</plans>和<watermark>水印</watermark>。方案可能变化；请在 <site>opus.pro</site> 确认当前细节。",
-      "supoclip": "Arx Clips：<repo>公开仓库</repo>，包括 <compose>docker-compose.yml</compose>、<config>配置文档</config>和<billing>计费规则</billing>。托管价格来自 clips.arxsable.ai 的定价部分。"
+      "arxClips": "Arx Clips：<repo>公开仓库</repo>，包括 <compose>docker-compose.yml</compose>、<config>配置文档</config>和<billing>计费规则</billing>。托管价格来自 clips.arxsable.ai 的定价部分。"
     }
   },
-  "self-host-supoclip-docker": {
+  "self-host-arx-clips-docker": {
     "title": "如何用 Docker Compose 自托管 Arx Clips",
     "description": "自托管开源 AI 视频剪辑工具 Arx Clips：环境要求、.env 配置、完全本地的 Whisper + Ollama 方案、首次运行检查，以及生产检查清单。",
     "eyebrow": "自托管指南",
@@ -510,22 +510,22 @@
       "rows": {
         "0": {
           "feature": "免费使用模式",
-          "supoclip": "开源且可自托管，没有方案上限。费用是你自己的算力和 API 密钥。托管应用是付费的。",
+          "arxClips": "开源且可自托管，没有方案上限。费用是你自己的算力和 API 密钥。托管应用是付费的。",
           "opusclip": "有免费方案，但导出可能带有 OpusClip 水印。"
         },
         "1": {
           "feature": "发现短片",
-          "supoclip": "转写长视频，给片段打分，并浮出有潜力的短视频时刻。",
+          "arxClips": "转写长视频，给片段打分，并浮出有潜力的短视频时刻。",
           "opusclip": "面向从长视频中找出适合社交平台短片的 AI 剪辑流程。"
         },
         "2": {
           "feature": "竖屏格式",
-          "supoclip": "以人脸为中心的 9:16 裁切、字幕，以及可直接发布的导出。",
+          "arxClips": "以人脸为中心的 9:16 裁切、字幕，以及可直接发布的导出。",
           "opusclip": "提供短视频导出，以及面向社交平台的 AI 重构图。"
         },
         "3": {
           "feature": "控制",
-          "supoclip": "完整源码访问、可改的部署，并且不锁定在供应商上。",
+          "arxClips": "完整源码访问、可改的部署，并且不锁定在供应商上。",
           "opusclip": "托管产品，带有代管流程和订阅档位。"
         }
       }

@@ -8,8 +8,6 @@ export interface BlogPost {
   /** Set for editorial content not yet translated; do not localize only its title. */
   language?: "en";
   slug: string;
-  /** Legacy locale namespace retained independently from the public URL. */
-  translationKey?: string;
   image?: { src: string; alt: string; width: number; height: number };
   title: string;
   description: string;
@@ -27,7 +25,6 @@ export const blogPosts: BlogPost[] = [
   ...creatorGuides.map((guide) => guide.post),
   {
     slug: "arx-clips-vs-supo-live",
-    translationKey: "supoclip-vs-supo-live",
     image: { src: "/blog/arx-clips-open-source-clipping.webp", alt: "Editorial illustration of a podcast recording becoming three vertical video clips", width: 1672, height: 941 },
     title: "Arx Clips vs supo.live: Why Open Source Wins",
     description:
@@ -44,7 +41,6 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "arx-clips-vs-opusclip",
-    translationKey: "supoclip-vs-opusclip",
     title: "Arx Clips vs OpusClip: A Sourced Comparison",
     description:
       "Arx Clips vs OpusClip compared on deployment, pricing model, watermarks, model choice, and workflow, with a source linked for every claim.",
@@ -66,7 +62,6 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "self-host-arx-clips-docker",
-    translationKey: "self-host-supoclip-docker",
     title: "How to Self-Host Arx Clips with Docker Compose",
     description:
       "Self-host Arx Clips, the open-source AI video clipper: requirements, .env setup, a fully local Whisper + Ollama option, first-run checks, and a production checklist.",
@@ -115,7 +110,7 @@ export function getBlogPost(slug: string) {
 /** Overlay translated title, description, and listing copy. Keywords stay English. */
 export function applyBlogCopy(post: BlogPost, translate: (key: string) => string): BlogPost {
   if (post.language) return post;
-  const slug = post.translationKey ?? post.slug;
+  const slug = post.slug;
   return {
     ...post,
     title: translate(`${slug}.title`),

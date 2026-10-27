@@ -34,7 +34,7 @@
     "moreGuides": "Mais guias de corte",
     "productGuides": "Guias do produto"
   },
-  "supoclip-vs-supo-live": {
+  "arx-clips-vs-supo-live": {
     "title": "Arx Clips versus supo.live: por que o código aberto ganha",
     "description": "Compare o Arx Clips e o supo.live para corte de vídeo com IA. Veja por que o Arx Clips ganha em controle de código aberto, auto-hospedagem e fluxos de vídeo personalizáveis.",
     "eyebrow": "Alternativa ao supo.live",
@@ -64,8 +64,8 @@
     "body": {
       "p1": "Escolher um cortador de vídeo com IA também é escolher quanto controle você mantém sobre o processo de produção. Se você quer transformar podcasts, entrevistas, palestras e gravações de transmissões em vídeos curtos, o Arx Clips faz um caso claro: edição com IA, código que você pode inspecionar e um fluxo que você mesmo roda.",
       "p2": "Nosso veredito: o Arx Clips é a melhor alternativa para criadores, agências e desenvolvedores que priorizam código aberto, auto-hospedagem e personalização. Esta comparação é da equipe do Arx Clips, com base em capacidades documentadas, e não um teste de qualidade de clipes nem de velocidade de processamento.",
-      "whatSupoclip": "O que é o Arx Clips?",
-      "whatSupoclipBody": "O Arx Clips é uma ferramenta de corte de vídeo com IA de código aberto, disponível em clips.arxsable.ai ou como aplicativo auto-hospedado. Ele analisa vídeos longos, escolhe momentos promissores e produz clipes verticais com corte centrado no rosto e legendas sincronizadas por palavra. Títulos de gancho, pontuação de clipes e B-roll opcional ajudam a transformar uma gravação bruta em material pronto para a sua revisão final. O <repo>repositório do Arx Clips</repo> documenta os recursos e a instalação.",
+      "whatArxClips": "O que é o Arx Clips?",
+      "whatArxClipsBody": "O Arx Clips é uma ferramenta de corte de vídeo com IA de código aberto, disponível em clips.arxsable.ai ou como aplicativo auto-hospedado. Ele analisa vídeos longos, escolhe momentos promissores e produz clipes verticais com corte centrado no rosto e legendas sincronizadas por palavra. Títulos de gancho, pontuação de clipes e B-roll opcional ajudam a transformar uma gravação bruta em material pronto para a sua revisão final. O <repo>repositório do Arx Clips</repo> documenta os recursos e a instalação.",
       "whatSupo": "O que é o supo.live?",
       "whatSupoBody": "O supo.live divulga um serviço de corte hospedado tanto para gravações quanto para transmissões em andamento. A página inicial anuncia corte ao vivo, legendas estilizadas, rastreamento de rosto, um editor no navegador e publicações agendadas no TikTok, YouTube Shorts e X. Isso torna a publicação ao vivo o ponto de diferença mais claro. Veja o <site>resumo oficial de recursos do supo.live</site>."
     },
@@ -77,27 +77,27 @@
       "rows": {
         "deployment": {
           "label": "Implantação",
-          "supoclip": "App hospedado ou implantação auto-hospedada",
+          "arxClips": "App hospedado ou implantação auto-hospedada",
           "supolive": "Serviço hospedado"
         },
         "source": {
           "label": "Acesso ao código",
-          "supoclip": "Repositório público AGPL-3.0",
+          "arxClips": "Repositório público AGPL-3.0",
           "supolive": "Não anuncia na página inicial uma opção de código aberto nem de auto-hospedagem"
         },
         "usecase": {
           "label": "Uso principal",
-          "supoclip": "Vídeos longos gravados virando shorts verticais",
+          "arxClips": "Vídeos longos gravados virando shorts verticais",
           "supolive": "Transmissões ao vivo e vídeos gravados"
         },
         "customization": {
           "label": "Personalização",
-          "supoclip": "Modifique o código e configure o provedor do LLM",
+          "arxClips": "Modifique o código e configure o provedor do LLM",
           "supolive": "Use o editor e os ajustes do serviço"
         },
         "usage": {
           "label": "Modelo de uso",
-          "supoclip": "Auto-hospedar usa a sua computação e o orçamento do provedor",
+          "arxClips": "Auto-hospedar usa a sua computação e o orçamento do provedor",
           "supolive": "Planos de assinatura com créditos de processamento"
         }
       }
@@ -193,7 +193,7 @@
     },
     "closing": "Explore o nosso <openSource>guia do cortador de vídeo de código aberto</openSource> ou leia a <comparison>comparação Arx Clips versus OpusClip</comparison>."
   },
-  "supoclip-vs-opusclip": {
+  "arx-clips-vs-opusclip": {
     "title": "Arx Clips versus OpusClip: uma comparação com fontes",
     "description": "Arx Clips versus OpusClip em implantação, modelo de preço, marcas d'água, escolha de modelo e fluxo de trabalho, com uma fonte linkada para cada afirmação.",
     "eyebrow": "Comparação com o OpusClip",
@@ -234,7 +234,7 @@
     "introNote": "Esta página não avalia a qualidade dos clipes, a exatidão das legendas nem a velocidade de processamento. Para comparar isso, veja <test>como fazer seu próprio teste</test>.",
     "verdict": {
       "heading": "A resposta curta",
-      "supoclip": "<strong>Escolha o Arx Clips</strong> se você quer auto-hospedar, inspecionar ou modificar o código, escolher os próprios modelos de IA (inclusive os totalmente locais) ou exportar sem marca d'água.",
+      "arxClips": "<strong>Escolha o Arx Clips</strong> se você quer auto-hospedar, inspecionar ou modificar o código, escolher os próprios modelos de IA (inclusive os totalmente locais) ou exportar sem marca d'água.",
       "opusclip": "<strong>Escolha o OpusClip</strong> se você quer um produto gerenciado que nunca precise implantar e quer começar em um plano grátis."
     },
     "comparison": {
@@ -246,34 +246,34 @@
     "rows": {
       "deployment": {
         "label": "Como você executa",
-        "supoclip": "App hospedado, app de iOS ou auto-hospedado com <compose>Docker Compose</compose>",
+        "arxClips": "App hospedado, app de iOS ou auto-hospedado com <compose>Docker Compose</compose>",
         "opusclip": "Serviço hospedado"
       },
       "source": {
         "label": "Código-fonte",
-        "supoclip": "Público, <license>AGPL-3.0</license>"
+        "arxClips": "Público, <license>AGPL-3.0</license>"
       },
       "pricing": {
         "label": "Modelo de preço",
-        "supoclip": "Hospedado: planos mensais com um número fixo de vídeos. Auto-hospedado: sem limites de plano.",
+        "arxClips": "Hospedado: planos mensais com um número fixo de vídeos. Auto-hospedado: sem limites de plano.",
         "opusclip": "Planos com créditos por minutos de processamento, mais um plano grátis (<plans>centro de ajuda</plans>)"
       },
       "watermark": {
         "label": "Marca d'água",
-        "supoclip": "Nenhuma; o <pipeline>pipeline de renderização</pipeline> não tem uma etapa de marca d'água",
+        "arxClips": "Nenhuma; o <pipeline>pipeline de renderização</pipeline> não tem uma etapa de marca d'água",
         "opusclip": "Exportações do plano grátis podem incluir uma (<watermark>centro de ajuda</watermark>)"
       },
       "models": {
         "label": "Escolha do modelo de IA",
-        "supoclip": "OpenAI, Google, Anthropic, OpenRouter ou Ollama local (<config>configuração</config>)"
+        "arxClips": "OpenAI, Google, Anthropic, OpenRouter ou Ollama local (<config>configuração</config>)"
       },
       "transcription": {
         "label": "Transcrição",
-        "supoclip": "AssemblyAI, Whisper local ou legendas do YouTube"
+        "arxClips": "AssemblyAI, Whisper local ou legendas do YouTube"
       },
       "automation": {
         "label": "Automação",
-        "supoclip": "API REST com chaves por usuário e um <mcp>servidor MCP</mcp>"
+        "arxClips": "API REST com chaves por usuário e um <mcp>servidor MCP</mcp>"
       }
     },
     "pricing": {
@@ -281,7 +281,7 @@
       "p1": "O <plans>artigo de planos e créditos</plans> do OpusClip descreve planos pagos que usam créditos por minutos de processamento, mais um plano grátis. O <watermark>artigo de marca d'água</watermark> diz que exportações do plano grátis podem levar uma marca d'água do OpusClip. Preços e quantidades de crédito mudam, então confira a página de preços atual do OpusClip em vez de confiar em números copiados num post.",
       "p2": "O Arx Clips oferece dois caminhos. O app hospedado tem <pro>{proName}</pro> a ${proPrice}/mês por {proLimit} horas de vídeo em 720p e <scale>{scaleName}</scale> a ${scalePrice}/mês por {scaleLimit} horas em 1080p, com cobrança anual e dois meses grátis. Não há plano hospedado grátis; processar exige uma assinatura. O caminho auto-hospedado é software grátis sem limites de plano. Você paga o servidor e as APIs de IA que configurar, e o <guide>guia de auto-hospedagem</guide> mostra uma instalação totalmente local sem taxas de IA por pedido."
     },
-    "chooseSupoclip": {
+    "chooseArxClips": {
       "heading": "Quando o Arx Clips encaixa melhor",
       "li1": "<strong>Você precisa controlar para onde o vídeo vai.</strong> Auto-hospedar mantém o app, o banco de dados e os clipes renderizados na sua infraestrutura. Com Whisper e Ollama, a transcrição e a seleção de clipes também rodam localmente.",
       "li2": "<strong>Você tem um acervo grande.</strong> Instalações auto-hospedadas não têm teto mensal de vídeos. A vazão depende do seu hardware e dos limites do provedor.",
@@ -306,10 +306,10 @@
     "sources": {
       "heading": "Fontes",
       "opus": "Centro de ajuda do OpusClip: <plans>Planos e créditos</plans> e <watermark>Marca d'água</watermark>. Os planos podem mudar; confirme os detalhes atuais em <site>opus.pro</site>.",
-      "supoclip": "Arx Clips: <repo>repositório público</repo>, incluindo <compose>docker-compose.yml</compose>, <config>documentação de configuração</config> e <billing>regras de cobrança</billing>. Os preços hospedados vêm da seção de preços de clips.arxsable.ai."
+      "arxClips": "Arx Clips: <repo>repositório público</repo>, incluindo <compose>docker-compose.yml</compose>, <config>documentação de configuração</config> e <billing>regras de cobrança</billing>. Os preços hospedados vêm da seção de preços de clips.arxsable.ai."
     }
   },
-  "self-host-supoclip-docker": {
+  "self-host-arx-clips-docker": {
     "title": "Como auto-hospedar o Arx Clips com Docker Compose",
     "description": "Auto-hospede o Arx Clips, o cortador de vídeo com IA de código aberto: requisitos, configuração do .env, uma opção totalmente local com Whisper e Ollama, verificações da primeira execução e uma lista para produção.",
     "eyebrow": "Guia de auto-hospedagem",
@@ -510,22 +510,22 @@
       "rows": {
         "0": {
           "feature": "Modelo de uso grátis",
-          "supoclip": "Código aberto e auto-hospedável, sem limites de plano. Seus custos são a própria computação e as chaves de API. O app hospedado é pago.",
+          "arxClips": "Código aberto e auto-hospedável, sem limites de plano. Seus custos são a própria computação e as chaves de API. O app hospedado é pago.",
           "opusclip": "Existe um plano grátis, mas as exportações podem incluir uma marca d'água do OpusClip."
         },
         "1": {
           "feature": "Descoberta de clipes",
-          "supoclip": "Transcreve vídeos longos, pontua trechos e destaca momentos promissores de formato curto.",
+          "arxClips": "Transcreve vídeos longos, pontua trechos e destaca momentos promissores de formato curto.",
           "opusclip": "Fluxo de corte com IA feito para achar clipes prontos para as redes a partir de vídeos longos."
         },
         "2": {
           "feature": "Formato vertical",
-          "supoclip": "Corte 9:16 centrado no rosto, legendas e exportações prontas para a plataforma.",
+          "arxClips": "Corte 9:16 centrado no rosto, legendas e exportações prontas para a plataforma.",
           "opusclip": "Oferece exportações de formato curto e reenquadramento com IA para redes sociais."
         },
         "3": {
           "feature": "Controle",
-          "supoclip": "Acesso completo ao código, implantação editável e sem ficar preso a um fornecedor.",
+          "arxClips": "Acesso completo ao código, implantação editável e sem ficar preso a um fornecedor.",
           "opusclip": "Produto hospedado com fluxos gerenciados e níveis de assinatura."
         }
       }

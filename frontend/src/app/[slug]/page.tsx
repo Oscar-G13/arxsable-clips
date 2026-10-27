@@ -158,7 +158,7 @@ export default async function SeoLandingPage({ params }: SeoLandingPageProps) {
               </span>
             </div>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/sign-in"><Button size="lg">{t("chrome.trySupoclip")} <ArrowRight className="h-4 w-4" /></Button></Link>
+              <Link href="/sign-in"><Button size="lg">{t("chrome.tryArxClips")} <ArrowRight className="h-4 w-4" /></Button></Link>
               <Link href="#real-clips"><Button variant="outline" size="lg">{t("proof.previewButton")}</Button></Link>
             </div>
           </div>

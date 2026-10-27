@@ -297,7 +297,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <Icon className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
                     {t(`${key}.table.rows.${index}.feature`)}
                   </div>
-                  <div className="border-l p-4 leading-6 text-muted-foreground">{t(`${key}.table.rows.${index}.supoclip`)}</div>
+                  <div className="border-l p-4 leading-6 text-muted-foreground">{t(`${key}.table.rows.${index}.arxClips`)}</div>
                   <div className="border-l p-4 leading-6 text-muted-foreground">{t(`${key}.table.rows.${index}.opusclip`)}</div>
                 </div>
               ))}

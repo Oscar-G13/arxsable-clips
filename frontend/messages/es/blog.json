@@ -34,7 +34,7 @@
     "moreGuides": "Más guías de recorte",
     "productGuides": "Guías del producto"
   },
-  "supoclip-vs-supo-live": {
+  "arx-clips-vs-supo-live": {
     "title": "Arx Clips frente a supo.live: por qué gana el código abierto",
     "description": "Compara Arx Clips y supo.live para recorte de video con IA. Mira por qué Arx Clips gana en control de código abierto, autoalojamiento y flujos de video personalizables.",
     "eyebrow": "Alternativa a supo.live",
@@ -64,8 +64,8 @@
     "body": {
       "p1": "Elegir un recortador de video con IA también es elegir cuánto control conservas sobre tu proceso de producción. Si quieres convertir pódcasts, entrevistas, charlas y grabaciones de transmisiones en videos cortos, Arx Clips tiene un argumento claro: edición asistida por IA con código que puedes inspeccionar y un flujo que puedes ejecutar tú.",
       "p2": "Nuestro veredicto: Arx Clips es la mejor alternativa para creadores, agencias y desarrolladores que priorizan el código abierto, el autoalojamiento y la personalización. Esta comparación la hace el equipo de Arx Clips a partir de capacidades documentadas, no es una prueba de calidad de clips ni de velocidad de procesamiento.",
-      "whatSupoclip": "¿Qué es Arx Clips?",
-      "whatSupoclipBody": "Arx Clips es una herramienta de recorte de video con IA de código abierto, disponible en clips.arxsable.ai o como aplicación autoalojada. Analiza videos largos, elige momentos prometedores y produce clips verticales con recorte centrado en el rostro y subtítulos sincronizados por palabra. Los títulos de gancho, el puntaje de clips y el B-roll opcional ayudan a convertir una grabación en bruto en material listo para tu revisión final. El <repo>repositorio de Arx Clips</repo> documenta las funciones y la instalación.",
+      "whatArxClips": "¿Qué es Arx Clips?",
+      "whatArxClipsBody": "Arx Clips es una herramienta de recorte de video con IA de código abierto, disponible en clips.arxsable.ai o como aplicación autoalojada. Analiza videos largos, elige momentos prometedores y produce clips verticales con recorte centrado en el rostro y subtítulos sincronizados por palabra. Los títulos de gancho, el puntaje de clips y el B-roll opcional ayudan a convertir una grabación en bruto en material listo para tu revisión final. El <repo>repositorio de Arx Clips</repo> documenta las funciones y la instalación.",
       "whatSupo": "¿Qué es supo.live?",
       "whatSupoBody": "Supo.live promociona un servicio de recorte alojado tanto para grabaciones como para transmisiones en curso. Su página de inicio anuncia recorte en vivo, subtítulos con estilo, seguimiento de rostros, un editor en el navegador y publicaciones programadas en TikTok, YouTube Shorts y X. Eso hace de la publicación en vivo su diferencia más clara. Mira el <site>resumen oficial de funciones de supo.live</site>."
     },
@@ -77,27 +77,27 @@
       "rows": {
         "deployment": {
           "label": "Despliegue",
-          "supoclip": "App alojada o despliegue autoalojado",
+          "arxClips": "App alojada o despliegue autoalojado",
           "supolive": "Servicio alojado"
         },
         "source": {
           "label": "Acceso al código",
-          "supoclip": "Repositorio público AGPL-3.0",
+          "arxClips": "Repositorio público AGPL-3.0",
           "supolive": "No anuncia en su página de inicio una opción de código abierto ni de autoalojamiento"
         },
         "usecase": {
           "label": "Uso principal",
-          "supoclip": "Videos largos grabados convertidos en shorts verticales",
+          "arxClips": "Videos largos grabados convertidos en shorts verticales",
           "supolive": "Transmisiones en vivo y videos grabados"
         },
         "customization": {
           "label": "Personalización",
-          "supoclip": "Modifica el código y configura el proveedor del LLM",
+          "arxClips": "Modifica el código y configura el proveedor del LLM",
           "supolive": "Usa el editor y los ajustes del servicio"
         },
         "usage": {
           "label": "Modelo de uso",
-          "supoclip": "Autoalojar usa tu cómputo y el presupuesto del proveedor",
+          "arxClips": "Autoalojar usa tu cómputo y el presupuesto del proveedor",
           "supolive": "Planes de suscripción con créditos de procesamiento"
         }
       }
@@ -193,7 +193,7 @@
     },
     "closing": "Explora nuestra <openSource>guía del recortador de video de código abierto</openSource> o lee la <comparison>comparación de Arx Clips frente a OpusClip</comparison>."
   },
-  "supoclip-vs-opusclip": {
+  "arx-clips-vs-opusclip": {
     "title": "Arx Clips frente a OpusClip: una comparación con fuentes",
     "description": "Arx Clips frente a OpusClip en despliegue, modelo de precios, marcas de agua, elección de modelo y flujo de trabajo, con una fuente enlazada para cada afirmación.",
     "eyebrow": "Comparación con OpusClip",
@@ -234,7 +234,7 @@
     "introNote": "Esta página no califica la calidad de los clips, la exactitud de los subtítulos ni la velocidad de procesamiento. Para comparar eso, mira <test>cómo hacer tu propia prueba</test>.",
     "verdict": {
       "heading": "La respuesta corta",
-      "supoclip": "<strong>Elige Arx Clips</strong> si quieres autoalojar, inspeccionar o modificar el código, elegir tus propios modelos de IA (incluidos los totalmente locales) o exportar sin marca de agua.",
+      "arxClips": "<strong>Elige Arx Clips</strong> si quieres autoalojar, inspeccionar o modificar el código, elegir tus propios modelos de IA (incluidos los totalmente locales) o exportar sin marca de agua.",
       "opusclip": "<strong>Elige OpusClip</strong> si quieres un producto administrado que nunca tengas que desplegar y quieres empezar en un plan gratis."
     },
     "comparison": {
@@ -246,34 +246,34 @@
     "rows": {
       "deployment": {
         "label": "Cómo lo ejecutas",
-        "supoclip": "App alojada, app de iOS o autoalojada con <compose>Docker Compose</compose>",
+        "arxClips": "App alojada, app de iOS o autoalojada con <compose>Docker Compose</compose>",
         "opusclip": "Servicio alojado"
       },
       "source": {
         "label": "Código fuente",
-        "supoclip": "Público, <license>AGPL-3.0</license>"
+        "arxClips": "Público, <license>AGPL-3.0</license>"
       },
       "pricing": {
         "label": "Modelo de precios",
-        "supoclip": "Alojado: planes mensuales con un número fijo de videos. Autoalojado: sin límites de plan.",
+        "arxClips": "Alojado: planes mensuales con un número fijo de videos. Autoalojado: sin límites de plan.",
         "opusclip": "Planes con créditos por minutos de procesamiento, más un plan gratis (<plans>centro de ayuda</plans>)"
       },
       "watermark": {
         "label": "Marca de agua",
-        "supoclip": "Ninguna; el <pipeline>pipeline de render</pipeline> no tiene un paso de marca de agua",
+        "arxClips": "Ninguna; el <pipeline>pipeline de render</pipeline> no tiene un paso de marca de agua",
         "opusclip": "Las exportaciones del plan gratis pueden incluir una (<watermark>centro de ayuda</watermark>)"
       },
       "models": {
         "label": "Elección de modelo de IA",
-        "supoclip": "OpenAI, Google, Anthropic, OpenRouter u Ollama local (<config>configuración</config>)"
+        "arxClips": "OpenAI, Google, Anthropic, OpenRouter u Ollama local (<config>configuración</config>)"
       },
       "transcription": {
         "label": "Transcripción",
-        "supoclip": "AssemblyAI, Whisper local o subtítulos de YouTube"
+        "arxClips": "AssemblyAI, Whisper local o subtítulos de YouTube"
       },
       "automation": {
         "label": "Automatización",
-        "supoclip": "API REST con claves por usuario y un <mcp>servidor MCP</mcp>"
+        "arxClips": "API REST con claves por usuario y un <mcp>servidor MCP</mcp>"
       }
     },
     "pricing": {
@@ -281,7 +281,7 @@
       "p1": "El <plans>artículo de planes y créditos</plans> de OpusClip describe planes de pago que usan créditos por minutos de procesamiento, más un plan gratis. Su <watermark>artículo de marca de agua</watermark> dice que las exportaciones del plan gratis pueden llevar una marca de agua de OpusClip. Los precios y las cantidades de créditos cambian, así que revisa la página de precios actual de OpusClip en lugar de confiar en números copiados en una entrada de blog.",
       "p2": "Arx Clips ofrece dos caminos. La app alojada tiene <pro>{proName}</pro> a ${proPrice}/mes por {proLimit} horas de vídeo en 720p y <scale>{scaleName}</scale> a ${scalePrice}/mes por {scaleLimit} horas en 1080p, con facturación anual y dos meses gratis. No hay un plan alojado gratis; procesar exige una suscripción. El camino autoalojado es software gratis sin límites de plan. Pagas el servidor y las API de IA que configures, y la <guide>guía de autoalojamiento</guide> muestra una instalación totalmente local sin tarifas de IA por solicitud."
     },
-    "chooseSupoclip": {
+    "chooseArxClips": {
       "heading": "Cuándo Arx Clips encaja mejor",
       "li1": "<strong>Necesitas control sobre adónde va el video.</strong> Autoalojar mantiene la app, la base de datos y los clips renderizados en tu infraestructura. Con Whisper y Ollama, la transcripción y la selección de clips también corren en local.",
       "li2": "<strong>Tienes un archivo grande.</strong> Las instalaciones autoalojadas no tienen un tope mensual de videos. El rendimiento depende de tu hardware y de los límites del proveedor.",
@@ -306,10 +306,10 @@
     "sources": {
       "heading": "Fuentes",
       "opus": "Centro de ayuda de OpusClip: <plans>Planes y créditos</plans> y <watermark>Marca de agua</watermark>. Los planes pueden cambiar; confirma los detalles actuales en <site>opus.pro</site>.",
-      "supoclip": "Arx Clips: <repo>repositorio público</repo>, incluidos <compose>docker-compose.yml</compose>, <config>documentación de configuración</config> y <billing>reglas de facturación</billing>. Los precios alojados salen de la sección de precios de clips.arxsable.ai."
+      "arxClips": "Arx Clips: <repo>repositorio público</repo>, incluidos <compose>docker-compose.yml</compose>, <config>documentación de configuración</config> y <billing>reglas de facturación</billing>. Los precios alojados salen de la sección de precios de clips.arxsable.ai."
     }
   },
-  "self-host-supoclip-docker": {
+  "self-host-arx-clips-docker": {
     "title": "Cómo autoalojar Arx Clips con Docker Compose",
     "description": "Autoaloja Arx Clips, el recortador de video con IA de código abierto: requisitos, configuración de .env, una opción totalmente local con Whisper y Ollama, comprobaciones del primer arranque y una lista para producción.",
     "eyebrow": "Guía de autoalojamiento",
@@ -510,22 +510,22 @@
       "rows": {
         "0": {
           "feature": "Modelo de uso gratis",
-          "supoclip": "Código abierto y autoalojable, sin límites de plan. Tus costos son tu propio cómputo y las claves de API. La app alojada es de pago.",
+          "arxClips": "Código abierto y autoalojable, sin límites de plan. Tus costos son tu propio cómputo y las claves de API. La app alojada es de pago.",
           "opusclip": "Existe un plan gratis, pero las exportaciones pueden incluir una marca de agua de OpusClip."
         },
         "1": {
           "feature": "Descubrimiento de clips",
-          "supoclip": "Transcribe videos largos, puntúa segmentos y muestra momentos prometedores de formato corto.",
+          "arxClips": "Transcribe videos largos, puntúa segmentos y muestra momentos prometedores de formato corto.",
           "opusclip": "Flujo de recorte con IA pensado para encontrar clips listos para redes a partir de videos largos."
         },
         "2": {
           "feature": "Formato vertical",
-          "supoclip": "Recorte 9:16 centrado en el rostro, subtítulos y exportaciones listas para la plataforma.",
+          "arxClips": "Recorte 9:16 centrado en el rostro, subtítulos y exportaciones listas para la plataforma.",
           "opusclip": "Ofrece exportaciones de formato corto y reencuadre con IA para redes sociales."
         },
         "3": {
           "feature": "Control",
-          "supoclip": "Acceso completo al código, despliegue editable y sin atarte a un proveedor.",
+          "arxClips": "Acceso completo al código, despliegue editable y sin atarte a un proveedor.",
           "opusclip": "Producto alojado con flujos administrados y niveles de suscripción."
         }
       }

@@ -34,7 +34,7 @@
     "moreGuides": "Panduan clipping lainnya",
     "productGuides": "Panduan produk"
   },
-  "supoclip-vs-supo-live": {
+  "arx-clips-vs-supo-live": {
     "title": "Arx Clips vs supo.live: Kenapa Open Source Menang",
     "description": "Bandingkan Arx Clips dan supo.live untuk AI video clipping. Lihat kenapa Arx Clips unggul untuk kendali open source, host sendiri, dan alur video yang bisa disesuaikan.",
     "eyebrow": "Alternatif Supo.live",
@@ -64,8 +64,8 @@
     "body": {
       "p1": "Memilih AI video clipper juga berarti memilih seberapa banyak kendali yang kamu simpan atas proses produksimu. Kalau kamu ingin mengubah podcast, wawancara, talk, dan rekaman siaran jadi video pendek, Arx Clips punya alasan yang kuat: edit berbantuan AI dengan kode sumber yang bisa kamu periksa dan alur kerja yang bisa kamu jalankan sendiri.",
       "p2": "Putusan kami: Arx Clips adalah alternatif yang lebih baik untuk kreator, agensi, dan developer yang mengutamakan open source, host sendiri, dan kustomisasi. Ini perbandingan dari tim Arx Clips, berdasarkan kemampuan yang terdokumentasi, bukan tolok ukur kualitas clip atau kecepatan pemrosesan.",
-      "whatSupoclip": "Apa itu Arx Clips?",
-      "whatSupoclipBody": "Arx Clips adalah alat AI video clipping open source yang tersedia lewat clips.arxsable.ai atau sebagai aplikasi yang di-host sendiri. Arx Clips menganalisis video panjang, memilih momen yang menjanjikan, dan menghasilkan clip vertikal dengan crop yang berpusat pada wajah serta subtitle yang sinkron per kata. Judul hook, penilaian clip, dan B-roll opsional membantu mengubah rekaman mentah jadi materi yang siap untuk tinjauan akhirmu. <repo>Repositori Arx Clips</repo> mendokumentasikan fitur dan penyiapannya.",
+      "whatArxClips": "Apa itu Arx Clips?",
+      "whatArxClipsBody": "Arx Clips adalah alat AI video clipping open source yang tersedia lewat clips.arxsable.ai atau sebagai aplikasi yang di-host sendiri. Arx Clips menganalisis video panjang, memilih momen yang menjanjikan, dan menghasilkan clip vertikal dengan crop yang berpusat pada wajah serta subtitle yang sinkron per kata. Judul hook, penilaian clip, dan B-roll opsional membantu mengubah rekaman mentah jadi materi yang siap untuk tinjauan akhirmu. <repo>Repositori Arx Clips</repo> mendokumentasikan fitur dan penyiapannya.",
       "whatSupo": "Apa itu supo.live?",
       "whatSupoBody": "Supo.live memasarkan layanan clipping yang di-host untuk rekaman maupun siaran yang sedang berlangsung. Halaman utamanya mengiklankan clipping langsung, caption bergaya, pelacakan wajah, editor browser, dan posting terjadwal ke TikTok, YouTube Shorts, dan X. Itu membuat publikasi langsung menjadi pembeda yang paling jelas. Lihat <site>ringkasan fitur resmi supo.live</site>."
     },
@@ -77,27 +77,27 @@
       "rows": {
         "deployment": {
           "label": "Deployment",
-          "supoclip": "Aplikasi yang di-host atau deployment yang di-host sendiri",
+          "arxClips": "Aplikasi yang di-host atau deployment yang di-host sendiri",
           "supolive": "Layanan yang di-host"
         },
         "source": {
           "label": "Akses sumber",
-          "supoclip": "Repositori AGPL-3.0 publik",
+          "arxClips": "Repositori AGPL-3.0 publik",
           "supolive": "Tidak ada opsi open source atau host sendiri yang diiklankan di halaman utamanya"
         },
         "usecase": {
           "label": "Kasus pemakaian utama",
-          "supoclip": "Video panjang yang direkam jadi short vertikal",
+          "arxClips": "Video panjang yang direkam jadi short vertikal",
           "supolive": "Siaran langsung dan video yang direkam"
         },
         "customization": {
           "label": "Kustomisasi",
-          "supoclip": "Ubah kode dan konfigurasi penyedia LLM",
+          "arxClips": "Ubah kode dan konfigurasi penyedia LLM",
           "supolive": "Pakai editor dan pengaturan layanannya"
         },
         "usage": {
           "label": "Model pemakaian",
-          "supoclip": "Host sendiri memakai komputasi dan anggaran penyedia milikmu",
+          "arxClips": "Host sendiri memakai komputasi dan anggaran penyedia milikmu",
           "supolive": "Paket langganan dengan kredit pemrosesan"
         }
       }
@@ -193,7 +193,7 @@
     },
     "closing": "Jelajahi <openSource>panduan video clipper open source</openSource> kami atau baca <comparison>perbandingan Arx Clips vs OpusClip</comparison>."
   },
-  "supoclip-vs-opusclip": {
+  "arx-clips-vs-opusclip": {
     "title": "Arx Clips vs OpusClip: Perbandingan Bersumber",
     "description": "Arx Clips vs OpusClip dibandingkan pada deployment, model harga, watermark, pilihan model, dan alur kerja, dengan sumber yang tertaut untuk setiap klaim.",
     "eyebrow": "Perbandingan OpusClip",
@@ -234,7 +234,7 @@
     "introNote": "Halaman ini tidak menilai kualitas clip, akurasi caption, atau kecepatan pemrosesan. Untuk membandingkan itu, lihat <test>cara menjalankan tesmu sendiri</test>.",
     "verdict": {
       "heading": "Jawaban singkatnya",
-      "supoclip": "<strong>Pilih Arx Clips</strong> kalau kamu ingin host sendiri, memeriksa atau mengubah kode, memilih model AI-mu sendiri (termasuk yang sepenuhnya lokal), atau mengekspor tanpa watermark.",
+      "arxClips": "<strong>Pilih Arx Clips</strong> kalau kamu ingin host sendiri, memeriksa atau mengubah kode, memilih model AI-mu sendiri (termasuk yang sepenuhnya lokal), atau mengekspor tanpa watermark.",
       "opusclip": "<strong>Pilih OpusClip</strong> kalau kamu ingin produk yang dikelola dan tidak perlu di-deploy, dan ingin mulai di paket gratis."
     },
     "comparison": {
@@ -246,34 +246,34 @@
     "rows": {
       "deployment": {
         "label": "Cara menjalankannya",
-        "supoclip": "Aplikasi yang di-host, aplikasi iOS, atau host sendiri dengan <compose>Docker Compose</compose>",
+        "arxClips": "Aplikasi yang di-host, aplikasi iOS, atau host sendiri dengan <compose>Docker Compose</compose>",
         "opusclip": "Layanan yang di-host"
       },
       "source": {
         "label": "Kode sumber",
-        "supoclip": "Publik, <license>AGPL-3.0</license>"
+        "arxClips": "Publik, <license>AGPL-3.0</license>"
       },
       "pricing": {
         "label": "Model harga",
-        "supoclip": "Yang di-host: paket bulanan dengan jumlah video tetap. Yang di-host sendiri: tanpa batas paket.",
+        "arxClips": "Yang di-host: paket bulanan dengan jumlah video tetap. Yang di-host sendiri: tanpa batas paket.",
         "opusclip": "Paket dengan kredit untuk menit pemrosesan, plus paket gratis (<plans>pusat bantuan</plans>)"
       },
       "watermark": {
         "label": "Watermark",
-        "supoclip": "Tidak ada; <pipeline>pipeline render</pipeline> tidak punya langkah watermark",
+        "arxClips": "Tidak ada; <pipeline>pipeline render</pipeline> tidak punya langkah watermark",
         "opusclip": "Ekspor paket gratis bisa menyertakannya (<watermark>pusat bantuan</watermark>)"
       },
       "models": {
         "label": "Pilihan model AI",
-        "supoclip": "OpenAI, Google, Anthropic, OpenRouter, atau Ollama lokal (<config>konfigurasi</config>)"
+        "arxClips": "OpenAI, Google, Anthropic, OpenRouter, atau Ollama lokal (<config>konfigurasi</config>)"
       },
       "transcription": {
         "label": "Transkripsi",
-        "supoclip": "AssemblyAI, Whisper lokal, atau caption YouTube"
+        "arxClips": "AssemblyAI, Whisper lokal, atau caption YouTube"
       },
       "automation": {
         "label": "Otomatisasi",
-        "supoclip": "REST API dengan kunci per pengguna dan <mcp>server MCP</mcp>"
+        "arxClips": "REST API dengan kunci per pengguna dan <mcp>server MCP</mcp>"
       }
     },
     "pricing": {
@@ -281,7 +281,7 @@
       "p1": "Artikel <plans>paket dan kredit</plans> OpusClip menjelaskan paket berbayar yang memakai kredit untuk menit pemrosesan, plus paket gratis. Artikel <watermark>watermark</watermark>-nya mengatakan ekspor paket gratis bisa membawa watermark OpusClip. Harga paket dan jumlah kredit berubah, jadi cek halaman harga OpusClip yang terkini alih-alih mengandalkan angka yang disalin ke postingan blog.",
       "p2": "Arx Clips menawarkan dua jalur. Aplikasi yang di-host punya <pro>{proName}</pro> seharga ${proPrice}/bulan untuk {proLimit} jam video dalam 720p dan <scale>{scaleName}</scale> seharga ${scalePrice}/bulan untuk {scaleLimit} jam dalam 1080p, dengan tagihan tahunan setara dua bulan gratis. Tidak ada paket yang di-host secara gratis; pemrosesan membutuhkan langganan. Jalur host sendiri adalah perangkat lunak gratis tanpa batas paket. Kamu membayar server dan API AI apa pun yang kamu konfigurasi, dan <guide>panduan host sendiri</guide> menunjukkan penyiapan yang sepenuhnya lokal tanpa biaya AI per permintaan."
     },
-    "chooseSupoclip": {
+    "chooseArxClips": {
       "heading": "Kapan Arx Clips lebih cocok",
       "li1": "<strong>Kamu butuh kendali atas ke mana video pergi.</strong> Host sendiri menjaga aplikasi, basis data, dan clip yang dirender di infrastrukturmu. Dengan Whisper dan Ollama, transkripsi dan pemilihan clip juga berjalan secara lokal.",
       "li2": "<strong>Kamu punya katalog lama yang besar.</strong> Instalasi yang di-host sendiri tidak punya batas video bulanan. Throughput bergantung pada perangkat dan batas penyedia.",
@@ -306,10 +306,10 @@
     "sources": {
       "heading": "Sumber",
       "opus": "Pusat bantuan OpusClip: <plans>Paket dan kredit</plans> serta <watermark>Watermark</watermark>. Paket bisa berubah; konfirmasi detail terkini di <site>opus.pro</site>.",
-      "supoclip": "Arx Clips: <repo>repositori publik</repo>, termasuk <compose>docker-compose.yml</compose>, <config>dokumen konfigurasi</config>, dan <billing>aturan tagihan</billing>. Harga yang di-host berasal dari bagian harga di clips.arxsable.ai."
+      "arxClips": "Arx Clips: <repo>repositori publik</repo>, termasuk <compose>docker-compose.yml</compose>, <config>dokumen konfigurasi</config>, dan <billing>aturan tagihan</billing>. Harga yang di-host berasal dari bagian harga di clips.arxsable.ai."
     }
   },
-  "self-host-supoclip-docker": {
+  "self-host-arx-clips-docker": {
     "title": "Cara Host Sendiri Arx Clips dengan Docker Compose",
     "description": "Host sendiri Arx Clips, AI video clipper open source: kebutuhan, penyiapan .env, opsi Whisper + Ollama yang sepenuhnya lokal, pemeriksaan pertama, dan daftar periksa produksi.",
     "eyebrow": "Panduan Host Sendiri",
@@ -510,22 +510,22 @@
       "rows": {
         "0": {
           "feature": "Model pemakaian gratis",
-          "supoclip": "Open source dan bisa di-host sendiri tanpa batas paket. Biayamu adalah komputasi dan kunci API milikmu. Aplikasi yang di-host berbayar.",
+          "arxClips": "Open source dan bisa di-host sendiri tanpa batas paket. Biayamu adalah komputasi dan kunci API milikmu. Aplikasi yang di-host berbayar.",
           "opusclip": "Paket gratis ada, tapi ekspor bisa menyertakan watermark OpusClip."
         },
         "1": {
           "feature": "Penemuan clip",
-          "supoclip": "Mentranskripsi video panjang, menilai segmen, dan memunculkan momen pendek yang menjanjikan.",
+          "arxClips": "Mentranskripsi video panjang, menilai segmen, dan memunculkan momen pendek yang menjanjikan.",
           "opusclip": "Alur AI clipping yang dibuat untuk menemukan clip siap sosial dari video panjang."
         },
         "2": {
           "feature": "Format vertikal",
-          "supoclip": "Crop 9:16 yang berpusat pada wajah, subtitle, dan ekspor yang siap platform.",
+          "arxClips": "Crop 9:16 yang berpusat pada wajah, subtitle, dan ekspor yang siap platform.",
           "opusclip": "Menawarkan ekspor konten pendek dan reframing AI untuk platform sosial."
         },
         "3": {
           "feature": "Kendali",
-          "supoclip": "Akses sumber penuh, deployment yang bisa diedit, dan tanpa vendor lock-in.",
+          "arxClips": "Akses sumber penuh, deployment yang bisa diedit, dan tanpa vendor lock-in.",
           "opusclip": "Produk yang di-host dengan alur yang dikelola dan tingkat langganan."
         }
       }

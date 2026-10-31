@@ -1,9 +1,9 @@
 # Arx Clips Status
 
-- Date (Europe/Helsinki): 2026-10-30
-- Application commit: `7894da56bffb580819e9d1d080a14fc81fe67d8c`
-- Upstream main: `3b39626f3d0bd05186391b8d345ca1c8bbf6015d`
-- Commits behind upstream: 53
+- Date (Europe/Helsinki): 2026-10-31
+- Application commit: `1303a157dfe0ea2a904426d106d2171b86679639`
+- Upstream main: `08ec76dbbc96ded0b918b4242145c98600f4948a`
+- Commits behind upstream: 59
 - Last database backup: `db-2026-10-27.sql.gz` (12K)
 - Last media backup: `media-2026-10-27.tar.gz` (98M)
 
@@ -11,23 +11,23 @@
 
 | Container | Started | Uptime | State | Health |
 |---|---|---:|---|---|
-| `supoclip-backend` | 2026-10-27T18:41:30.961153712Z | 2d 12h 41m | running | healthy |
-| `supoclip-frontend` | 2026-10-27T18:41:30.495080286Z | 2d 12h 41m | running | healthy |
-| `supoclip-ollama` | 2026-10-27T18:41:30.571748213Z | 2d 12h 41m | running | healthy |
-| `supoclip-postgres` | 2026-10-27T18:41:30.622105318Z | 2d 12h 41m | running | healthy |
-| `supoclip-redis` | 2026-10-27T18:41:30.047398912Z | 2d 12h 41m | running | healthy |
-| `supoclip-worker` | 2026-10-27T18:41:30.760906352Z | 2d 12h 41m | running | healthy |
+| `supoclip-backend` | 2026-10-27T18:41:30.961153712Z | 3d 12h 41m | running | healthy |
+| `supoclip-frontend` | 2026-10-27T18:41:30.495080286Z | 3d 12h 41m | running | healthy |
+| `supoclip-ollama` | 2026-10-27T18:41:30.571748213Z | 3d 12h 41m | running | healthy |
+| `supoclip-postgres` | 2026-10-27T18:41:30.622105318Z | 3d 12h 41m | running | healthy |
+| `supoclip-redis` | 2026-10-27T18:41:30.047398912Z | 3d 12h 41m | running | healthy |
+| `supoclip-worker` | 2026-10-27T18:41:30.760906352Z | 3d 12h 41m | running | healthy |
 
 ## Docker Compose
 
 ```text
 SERVICE    STATE     STATUS                PORTS
-backend    running   Up 2 days (healthy)   127.0.0.1:8000->8000/tcp
-frontend   running   Up 2 days (healthy)   127.0.0.1:3107->3107/tcp
-ollama     running   Up 2 days (healthy)   11434/tcp
-postgres   running   Up 2 days (healthy)   5432/tcp
-redis      running   Up 2 days (healthy)   127.0.0.1:6379->6379/tcp
-worker     running   Up 2 days (healthy)   8000/tcp
+backend    running   Up 3 days (healthy)   127.0.0.1:8000->8000/tcp
+frontend   running   Up 3 days (healthy)   127.0.0.1:3107->3107/tcp
+ollama     running   Up 3 days (healthy)   11434/tcp
+postgres   running   Up 3 days (healthy)   5432/tcp
+redis      running   Up 3 days (healthy)   127.0.0.1:6379->6379/tcp
+worker     running   Up 3 days (healthy)   8000/tcp
 ```
 
 ## Database activity

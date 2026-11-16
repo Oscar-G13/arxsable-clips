@@ -1,9 +1,9 @@
 # Arx Clips Status
 
-- Date (Europe/Helsinki): 2026-11-15
-- Application commit: `d3d6487eeb62b3264dce48b281d9e23bae003ab0`
-- Upstream main: `9da828924cb646d8cbad1395c86c726fe907cc8a`
-- Commits behind upstream: 212
+- Date (Europe/Helsinki): 2026-11-16
+- Application commit: `f74380e91b3d0874ceffd46f30255c0acde14fe6`
+- Upstream main: `e42e93b02873d29e2000a6a8235c10e23f8c99c9`
+- Commits behind upstream: 237
 - Last database backup: `db-2026-10-27.sql.gz` (12K)
 - Last media backup: `media-2026-10-27.tar.gz` (98M)
 
@@ -11,12 +11,12 @@
 
 | Container | Started | Uptime | State | Health |
 |---|---|---:|---|---|
-| `supoclip-backend` | 2026-10-27T18:41:30.961153712Z | 18d 12h 41m | running | healthy |
-| `supoclip-frontend` | 2026-10-27T18:41:30.495080286Z | 18d 12h 41m | running | healthy |
-| `supoclip-ollama` | 2026-10-27T18:41:30.571748213Z | 18d 12h 41m | running | healthy |
-| `supoclip-postgres` | 2026-10-27T18:41:30.622105318Z | 18d 12h 41m | running | healthy |
-| `supoclip-redis` | 2026-10-27T18:41:30.047398912Z | 18d 12h 41m | running | healthy |
-| `supoclip-worker` | 2026-10-27T18:41:30.760906352Z | 18d 12h 41m | running | healthy |
+| `supoclip-backend` | 2026-10-27T18:41:30.961153712Z | 19d 12h 41m | running | healthy |
+| `supoclip-frontend` | 2026-10-27T18:41:30.495080286Z | 19d 12h 41m | running | healthy |
+| `supoclip-ollama` | 2026-10-27T18:41:30.571748213Z | 19d 12h 41m | running | healthy |
+| `supoclip-postgres` | 2026-10-27T18:41:30.622105318Z | 19d 12h 41m | running | healthy |
+| `supoclip-redis` | 2026-10-27T18:41:30.047398912Z | 19d 12h 41m | running | healthy |
+| `supoclip-worker` | 2026-10-27T18:41:30.760906352Z | 19d 12h 41m | running | healthy |
 
 ## Docker Compose
 

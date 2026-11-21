@@ -1,0 +1,6 @@
+
+# Reviewed 2026-11-21: exact historical false positives only.
+# Public client keys, intended public media URLs, fixtures, hashes and identifiers.
+# Never add real credentials here; revoke and remove them.
+7cd7f842becd94508c6fddf21531a75e27e9b7e5:frontend/src/lib/attribution.test.ts:generic-api-key:98
+c01716370c6666ed92147f05ea0793a5d8e93758:frontend/src/lib/auth-verification.integration.test.ts:generic-api-key:15

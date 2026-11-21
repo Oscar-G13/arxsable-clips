@@ -18,8 +18,8 @@ COPY pyproject.toml uv.lock* ./
 COPY src/ ./src/
 COPY README.md ./
 
-RUN uv pip install .
+RUN uv sync --frozen --no-dev
 
 EXPOSE 9100
 
-CMD ["supoclip-mcp"]
+CMD [".venv/bin/supoclip-mcp"]
